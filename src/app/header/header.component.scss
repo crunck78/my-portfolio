@@ -1,9 +1,11 @@
+@import "~src/styles/utils/variables.scss";
+
 :host {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
 
-    background: #141D2F;
+    background: $darkblue;
     backdrop-filter: blur(32.5px);
 }
