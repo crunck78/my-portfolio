@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    background: #141D2F;
+    backdrop-filter: blur(32.5px);
+}

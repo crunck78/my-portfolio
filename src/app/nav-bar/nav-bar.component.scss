@@ -1,0 +1,31 @@
+$toggleWidth: 650px;
+
+:host {
+    .desktop-view {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 29px;
+
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 120%;
+
+        @media(max-width: $toggleWidth) {
+            display: none;
+        }
+    }
+
+    .mobile-view {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        @media(min-width: $toggleWidth) {
+            display: none;
+        }
+    }
+
+    a {
+        color: white;
+    }
+}

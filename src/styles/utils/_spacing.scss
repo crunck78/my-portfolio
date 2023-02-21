@@ -1,0 +1,6 @@
+.padding-main{
+    padding: 37px 100px;
+    @media(max-width: 800px){
+        padding: 37px 25px;
+    }
+}
