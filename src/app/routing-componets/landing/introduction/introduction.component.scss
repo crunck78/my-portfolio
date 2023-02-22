@@ -1,0 +1,83 @@
+@import "~src/styles/utils/_variables";
+
+:host {
+    display: block;
+    position: relative;
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .hero {
+            position: relative;
+
+            .hero-bg {
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+
+                svg:first-child {
+                    position: absolute;
+                    left: 0;
+                }
+
+                svg:last-child {
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+
+        .intro {
+
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 999;
+
+            .text {
+                display: inline-flex;
+                gap: 35px;
+
+                @media(max-width: 600px) {
+                    gap: 10px;
+                }
+
+                .i-am {
+                    text-orientation: mixed;
+                    writing-mode: vertical-rl;
+                    transform: rotate(-180deg);
+                    text-align: center;
+                    font-weight: 400;
+                    font-size: 64px;
+                    line-height: 120%;
+                }
+
+                .name {
+                    font-weight: 700;
+                    font-size: 90px;
+                    line-height: 120%;
+                }
+
+                .job {
+                    font-weight: 400;
+                    font-size: 58px;
+                    line-height: 120%;
+                    color: $purple;
+                }
+            }
+
+            .contact {
+                margin: 44px auto;
+            }
+        }
+    }
+
+    .curve{
+        position: absolute;
+        bottom: -40vw;
+        width: 100vw;
+        height: calc(100vw * 0.7482662968099861);
+        z-index: 1;
+    }
+}

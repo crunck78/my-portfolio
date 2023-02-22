@@ -1,0 +1,26 @@
+<div class="desktop-view">
+    <a routerLink="/" fragment="">About me</a>
+    <a routerLink="/" fragment="">Skills</a>
+    <a routerLink="/" fragment="">Portfolio</a>
+</div>
+
+<div class="mobile-view" (click)="toggleView()">
+    <div class="menu-toggler">
+        <svg #topLine [@openCloseTogglerFirst]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <svg #middleLine [@openCloseTogglerMiddle]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <svg #bottomLine [@openCloseTogglerLast]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <div #menu [@openCloseMenu]="toggleMenu" class="menu">
+        <a routerLink="/" fragment="">About me</a>
+        <a routerLink="/" fragment="">My skills</a>
+        <a routerLink="/" fragment="">Portfolio</a>
+        <a routerLink="/" fragment="">Contact</a>
+    </div>
+</div>

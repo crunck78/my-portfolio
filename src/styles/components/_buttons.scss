@@ -1,0 +1,25 @@
+@import "./../utils/variables";
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    gap: 10px;
+
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+    border: 0;
+
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+}
+
+.button-green-white {
+    background: $green;
+    color: $white;
+}

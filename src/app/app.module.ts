@@ -6,10 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { LandingComponent } from './landing/landing.component';
-import { ImprintComponent } from './imprint/imprint.component';
-import { LogoComponent } from './logo/logo.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LandingComponent } from './routing-componets/landing/landing.component';
+import { ImprintComponent } from './routing-componets/imprint/imprint.component';
+import { LogoComponent } from './shared-components/logo/logo.component';
+import { NavBarComponent } from './header/nav-bar/nav-bar.component';
+import { IntroductionComponent } from './routing-componets/landing/introduction/introduction.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ImprintComponent,
     LogoComponent,
     NavBarComponent,
+    IntroductionComponent,
   ],
   imports: [
     BrowserModule,
