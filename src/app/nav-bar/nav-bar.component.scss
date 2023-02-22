@@ -1,6 +1,8 @@
-$toggleWidth: 650px;
+$toggleWidth: 500px;
 
 :host {
+    display: block;
+    height: 100%;
     .desktop-view {
         display: flex;
         justify-content: center;
@@ -17,11 +19,37 @@ $toggleWidth: 650px;
     }
 
     .mobile-view {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
+
         @media(min-width: $toggleWidth) {
             display: none;
+        }
+
+        .menu-toggler {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+
+            position: relative;
+            z-index: 999;
+
+            height: 37px;
+        }
+
+        .menu {
+            position: absolute;
+            inset: 0;
+            overflow-y: hidden;
+            // height: 100vh;
+            background: rgba(20, 29, 47, 0.8);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 29px;
         }
     }
 
