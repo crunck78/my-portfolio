@@ -1,4 +1,5 @@
 @import "~src/styles/utils/_variables";
+$breakpointMain: 1000px;
 
 :host {
     display: block;
@@ -8,13 +9,29 @@
         align-items: center;
         justify-content: space-between;
 
+        @media(max-width: $breakpointMain){
+            flex-direction: column;
+            justify-content: center;
+        }
+
         .hero {
             position: relative;
+            max-height: 60vh;
+            @media(max-width: $breakpointMain){
+                width: 95vw;
+                display: flex;
+                justify-content: center;
+            }
+            img{
+                max-height: 60vh;
+                position: relative;
+                z-index: -2;
+            }
 
             .hero-bg {
                 position: absolute;
                 inset: 0;
-                z-index: -1;
+                z-index: -3;
 
                 svg:first-child {
                     position: absolute;
@@ -25,6 +42,19 @@
                     position: absolute;
                     right: 0;
                 }
+
+                @media(max-width: $breakpointMain){
+                    svg{
+                        max-width: 95vw;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .curve{
+                position: absolute;
+                z-index: -1;
+                bottom: -40vw;
             }
         }
 
@@ -32,8 +62,6 @@
 
             display: flex;
             flex-direction: column;
-            position: relative;
-            z-index: 999;
 
             .text {
                 display: inline-flex;
@@ -51,12 +79,18 @@
                     font-weight: 400;
                     font-size: 64px;
                     line-height: 120%;
+                    @media(max-width: $breakpointMain){
+                        font-size: 32px;
+                    }
                 }
 
                 .name {
                     font-weight: 700;
                     font-size: 90px;
                     line-height: 120%;
+                    @media(max-width: $breakpointMain){
+                        font-size: 45px;
+                    }
                 }
 
                 .job {
@@ -64,20 +98,18 @@
                     font-size: 58px;
                     line-height: 120%;
                     color: $purple;
+                    @media(max-width: $breakpointMain){
+                        font-size: 29px;
+                    }
                 }
             }
 
             .contact {
                 margin: 44px auto;
+                @media(max-width: $breakpointMain){
+                    font-size: 16px;
+                }
             }
         }
-    }
-
-    .curve{
-        position: absolute;
-        bottom: -40vw;
-        width: 100vw;
-        height: calc(100vw * 0.7482662968099861);
-        z-index: 1;
     }
 }

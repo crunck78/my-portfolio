@@ -1,3 +1,4 @@
-
-<app-logo></app-logo>
-<app-nav-bar></app-nav-bar>
+<div #header (touchend)="$event.stopPropagation()" [@openCloseHeader]="toggleViewHeader" class="header padding-main">
+    <app-logo></app-logo>
+    <app-nav-bar (toggleMenuEmit)="menuViewState($event)" ></app-nav-bar>
+</div>

@@ -1,6 +1,7 @@
 @import "~src/styles/utils/variables.scss";
 
 :host {
+   .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,4 +9,11 @@
 
     background: $darkblue;
     backdrop-filter: blur(32.5px);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+   }
 }

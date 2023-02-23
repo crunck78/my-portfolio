@@ -1,15 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { openCloseAnimationHeader } from './header.animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  animations: [openCloseAnimationHeader]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('header') header!: ElementRef;
+  toggleViewHeader: 'closed' | 'open' = 'open';
+  headerState$ = new BehaviorSubject<'closed' | 'open'>('open');
 
   constructor() { }
+  ngAfterViewInit(): void {
+    this.headerState$.subscribe(state => this.toggleViewHeader = state)
+  }
+
+  toggleHeader() {
+    if (this.toggleViewHeader == 'open')
+      this.headerState$.next('closed');
+    else
+      this.headerState$.next('open');
+  }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (this.toggleViewHeader == 'open')
+      this.headerState$.next('closed');
+  }
+
+  @HostListener('window:touchend', ['$event'])
+  onTouchEnd(event: Event) {
+    event.preventDefault(); // stop triggering the mousemove event
+    this.toggleHeader();
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    console.log('mousemove')
+    if (event.y < this.header?.nativeElement.getBoundingClientRect().height && this.toggleViewHeader == 'closed')
+      this.headerState$.next('open');
+    if (event.y > this.header?.nativeElement.getBoundingClientRect().height && this.toggleViewHeader == 'open')
+      this.headerState$.next('closed');
+  }
+
+  menuViewState(menuState: 'closed' | 'open') {
+    this.headerState$.next(menuState);
   }
 
 }

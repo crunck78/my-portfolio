@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/openClose.animations';
 
 @Component({
@@ -10,9 +10,11 @@ import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/
 export class NavBarComponent {
 
   toggleMenu: "closed" | "open" = "closed";
+  @Output() toggleMenuEmit = new EventEmitter<"closed" | "open">();
 
   toggleView(){
     this.toggleMenu = this.toggleMenu == "open" ? "closed" : "open";
+    this.toggleMenuEmit.emit(this.toggleMenu);
   }
 
 }
