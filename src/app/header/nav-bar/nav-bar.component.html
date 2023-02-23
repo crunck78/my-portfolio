@@ -1,7 +1,7 @@
 <div class="desktop-view">
-    <a routerLink="/" fragment="">About me</a>
-    <a routerLink="/" fragment="">Skills</a>
-    <a routerLink="/" fragment="">Portfolio</a>
+    <a class="menu-link" routerLink="/" fragment="">About me</a>
+    <a class="menu-link" routerLink="/" fragment="">Skills</a>
+    <a class="menu-link" routerLink="/" fragment="">Portfolio</a>
 </div>
 
 <div class="mobile-view" (click)="toggleView()">
@@ -18,9 +18,9 @@
     </div>
 
     <div #menu [@openCloseMenu]="toggleMenu" class="menu">
-        <a routerLink="/" fragment="">About me</a>
-        <a routerLink="/" fragment="">My skills</a>
-        <a routerLink="/" fragment="">Portfolio</a>
-        <a routerLink="/" fragment="">Contact</a>
+        <a class="menu-link" routerLink="/" fragment="">About me</a>
+        <a class="menu-link" routerLink="/" fragment="">My skills</a>
+        <a class="menu-link" routerLink="/" fragment="">Portfolio</a>
+        <a class="menu-link" routerLink="/" fragment="">Contact</a>
     </div>
 </div>

@@ -1,6 +1,8 @@
+@import "./../utils/variables";
+
 .padding-main{
-    padding: 37px 100px;
-    @media(max-width: 800px){
-        padding: 37px 25px;
+    padding: $paddingMainTopBottom $paddingMainLeftRightMax;
+    @media(max-width: $breakpointMain){
+        padding: $paddingMainTopBottom $paddingMainLeftRightMin;
     }
 }

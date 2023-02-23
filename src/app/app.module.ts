@@ -11,7 +11,8 @@ import { ImprintComponent } from './routing-componets/imprint/imprint.component'
 import { LogoComponent } from './shared-components/logo/logo.component';
 import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 import { IntroductionComponent } from './routing-componets/landing/introduction/introduction.component';
-import { AboutMeComponent } from './about-me/about-me.component';
+import { AboutMeComponent } from './routing-componets/landing/about-me/about-me.component';
+import { SectionTitleComponent } from './shared-components/section-title/section-title.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
     NavBarComponent,
     IntroductionComponent,
     AboutMeComponent,
+    SectionTitleComponent,
   ],
   imports: [
     BrowserModule,

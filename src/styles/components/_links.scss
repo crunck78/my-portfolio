@@ -1,6 +1,6 @@
 @import "./../utils/variables";
 
-a {
+a.menu-link {
     text-decoration: none;
     color: $white;
     display: flex;
@@ -29,6 +29,4 @@ a {
             background-color: $purple;
         }
     }
-
-
 }
