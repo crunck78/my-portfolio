@@ -1,6 +1,34 @@
-a{
+@import "./../utils/variables";
+
+a {
     text-decoration: none;
-    &:hover{
-        text-decoration: none;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+        display: inline-block;
+        content: "";
+        width: 55.5px;
+        max-width: 100%;
+        height: 2px;
+        background-color: transparent;
     }
+
+    &:hover {
+
+        text-decoration: none;
+        color: $green;
+
+        &::after {
+            display: inline-block;
+            content: "";
+            width: 55.5px;
+            max-width: 100%;
+            height: 2px;
+            background-color: $purple;
+        }
+    }
+
+
 }
