@@ -43,11 +43,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
-    console.log('mousemove')
     if (event.y < this.header?.nativeElement.getBoundingClientRect().height && this.toggleViewHeader == 'closed')
       this.headerState$.next('open');
-    if (event.y > this.header?.nativeElement.getBoundingClientRect().height && this.toggleViewHeader == 'open')
-      this.headerState$.next('closed');
   }
 
   menuViewState(menuState: 'closed' | 'open') {
