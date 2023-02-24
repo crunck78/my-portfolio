@@ -1,0 +1,59 @@
+.section-title {
+    font-weight: 700;
+    font-size: 90px;
+    line-height: 120%;
+
+    color: $white;
+
+    @media(max-width: $breakpointMain) {
+        font-size: 45px;
+        gap: 10px;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+}
+
+.section-title-left::before{
+    content: "";
+    display: inline-block;
+    height: 4px;
+    background-color: $purple;
+    flex: 1;
+}
+
+.section-title-left::after{
+    content: "";
+    display: inline-block;
+    height: 4px;
+    background: linear-gradient(to right, $purple 0px , $purple 100px, $transparent 100px, $transparent 100%);
+    flex: 1;
+}
+
+.section-title-right::before{
+    content: "";
+    display: inline-block;
+    height: 4px;
+    background: linear-gradient(to left, $purple 0px , $purple 100px, $transparent 100px, $transparent 100%);
+
+    flex: 1;
+}
+
+.section-title-right::after{
+    content: "";
+    display: inline-block;
+    height: 4px;
+    background-color: $purple;
+    flex: 1;
+}
+
+.section-subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+
+    color: $white;
+}

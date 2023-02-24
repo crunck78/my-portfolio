@@ -1,0 +1,13 @@
+@import "~src/styles/utils/variables";
+:host {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    min-width: 88px;
+
+    // @media(max-width: $breakpointMain){
+    //     min-width: 59px;
+    // }
+}

@@ -1,14 +1,13 @@
 @import "~src/styles/utils/variables";
 
 :host {
-    display: block;
-    font-weight: 700;
-    font-size: 90px;
-    line-height: 120%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 
-    color: $white;
+    text-align: center;
 
     @media(max-width: $breakpointMain){
-        font-size: 45px;
+        gap: 25;
     }
 }

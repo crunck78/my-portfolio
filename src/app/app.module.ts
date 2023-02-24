@@ -13,6 +13,8 @@ import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 import { IntroductionComponent } from './routing-componets/landing/introduction/introduction.component';
 import { AboutMeComponent } from './routing-componets/landing/about-me/about-me.component';
 import { SectionTitleComponent } from './shared-components/section-title/section-title.component';
+import { MySkillsComponent } from './routing-componets/landing/my-skills/my-skills.component';
+import { SkillComponent } from './shared-components/skill/skill.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { SectionTitleComponent } from './shared-components/section-title/section
     IntroductionComponent,
     AboutMeComponent,
     SectionTitleComponent,
+    MySkillsComponent,
+    SkillComponent,
   ],
   imports: [
     BrowserModule,
