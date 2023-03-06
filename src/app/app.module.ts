@@ -15,6 +15,8 @@ import { AboutMeComponent } from './routing-componets/landing/about-me/about-me.
 import { SectionTitleComponent } from './shared-components/section-title/section-title.component';
 import { MySkillsComponent } from './routing-componets/landing/my-skills/my-skills.component';
 import { SkillComponent } from './shared-components/skill/skill.component';
+import { PortfolioComponent } from './routing-componets/landing/portfolio/portfolio.component';
+import { ProjectComponent } from './project/project.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,8 @@ import { SkillComponent } from './shared-components/skill/skill.component';
     SectionTitleComponent,
     MySkillsComponent,
     SkillComponent,
+    PortfolioComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
