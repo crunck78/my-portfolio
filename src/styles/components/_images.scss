@@ -1,0 +1,57 @@
+.circle-image {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 453px;
+        height: 453px;
+        object-fit: cover;
+        border: 4px solid $green;
+        border-radius: 100%;
+
+        @media(max-width: 560px){
+            width: 80vw;
+            height: 80vw;
+        }
+    }
+}
+
+.circle-image--before-line{
+    img{
+        margin-right: auto;
+    }
+    &::before {
+        content: "";
+        display: inline-block;
+        width: $paddingMainLeftRightMax;
+        @media(max-width: $breakpointMain){
+            width: $paddingMainLeftRightMin;
+            left: -$paddingMainLeftRightMin;
+        }
+        height: 4px;
+        background-color: $green;
+        position: absolute;
+        left: -$paddingMainLeftRightMax;
+    }
+}
+
+.circle-image--after-line{
+    img{
+        margin-left: auto;
+    }
+    &::after {
+        content: "";
+        display: inline-block;
+        width: $paddingMainLeftRightMax;
+        @media(max-width: $breakpointMain){
+            width: $paddingMainLeftRightMin;
+            right: -$paddingMainLeftRightMin;
+        }
+        height: 4px;
+        background-color: $green;
+        position: absolute;
+        right: -$paddingMainLeftRightMax;
+    }
+}
