@@ -1,5 +1,4 @@
 @import "~src/styles/utils/variables";
-$breakpointAbout: 1000px;
 
 :host {
     display: block;
@@ -62,34 +61,6 @@ $breakpointAbout: 1000px;
                 svg {
                     flex-shrink: 0;
                 }
-            }
-        }
-
-        .about-image {
-            @media(max-width: $breakpointAbout){
-                display: none;
-            }
-            flex-shrink: 0;
-            position: relative;
-            display: flex;
-            align-items: center;
-
-            img {
-                width: 453px;
-                height: 453px;
-                object-fit: cover;
-                border: 4px solid $green;
-                border-radius: 100%;
-            }
-
-            &::after {
-                content: "";
-                display: inline-block;
-                width: $paddingMainLeftRightMax;
-                height: 4px;
-                background-color: $green;
-                position: absolute;
-                right: -$paddingMainLeftRightMax;
             }
         }
     }
