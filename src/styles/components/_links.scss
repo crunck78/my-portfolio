@@ -3,6 +3,7 @@ a.menu-link {
     color: $white;
     display: flex;
     flex-direction: column;
+    transition: all 300ms ease-in-out;
 
     &::after {
         display: inline-block;
@@ -25,6 +26,17 @@ a.menu-link {
             max-width: 100%;
             height: 2px;
             background-color: $purple;
+            animation: hoverIn 300ms ease-in-out;
         }
+    }
+}
+
+@keyframes hoverIn {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 55.5px;
     }
 }
