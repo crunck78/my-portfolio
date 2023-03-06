@@ -41,14 +41,14 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
     this.updateCurve();
   }
 
-  updateCurve(){
-    const width = document.body.clientWidth;
-    // left: 0;
-    //             width: 100vw;
-    //             height: calc(100vw * 0.7482662968099861);
-    this.curve.nativeElement.style.width = width;
-    this.curve.nativeElement.style.height = width * 0.7482662968099861;
-    this.curve.nativeElement.style.left = `-${this.curve.nativeElement.parentElement.getBoundingClientRect().x}px`;
+  updateCurve() {
+    let timeout = setTimeout(() => {
+      clearTimeout(timeout);
+      const width = document.body.clientWidth;
+      this.curve.nativeElement.style.width = width;
+      this.curve.nativeElement.style.height = width * 0.7482662968099861;
+      this.curve.nativeElement.style.left = `-${this.curve.nativeElement.parentElement.getBoundingClientRect().x}px`;
+    }, 300)
   }
 
 }
