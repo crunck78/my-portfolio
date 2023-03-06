@@ -1,0 +1,13 @@
+.group-center-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    row-gap: 15px;
+    column-gap: 35px;
+
+    .group-first,
+    .group-last {
+        flex: 1;
+    }
+}
