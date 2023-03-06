@@ -15,9 +15,29 @@ button {
     font-weight: 400;
     font-size: 23px;
     line-height: 120%;
+
+    white-space: nowrap;
 }
 
 .button-green-white {
     background: $green;
     color: $white;
+}
+
+.button-purple-white {
+    background: $purple;
+    color: $white;
+}
+
+.button-outline-green-white{
+    background: $transparent;
+    color: $white;
+    border: 1px solid $green;
+}
+
+.buttons-group{
+    display: flex;
+    column-gap: 86px;
+    row-gap: 50px;
+    flex-wrap: wrap;
 }
