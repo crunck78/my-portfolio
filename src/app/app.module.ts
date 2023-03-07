@@ -21,6 +21,7 @@ import { ContactComponent } from './routing-componets/landing/contact/contact.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { ControlErrorPipe } from './control-error.pipe';
 import { ControlIsValidPipe } from './control-is-valid.pipe';
+import { FormFieldComponent } from './routing-componets/landing/contact/form-field/form-field.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ControlIsValidPipe } from './control-is-valid.pipe';
     ContactComponent,
     ControlErrorPipe,
     ControlIsValidPipe,
+    FormFieldComponent,
   ],
   imports: [
     BrowserModule,
