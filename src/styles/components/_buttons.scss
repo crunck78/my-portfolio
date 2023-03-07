@@ -19,6 +19,10 @@ button {
     white-space: nowrap;
 }
 
+button:disabled{
+    cursor: not-allowed;
+}
+
 .button-green-white {
     background: $green;
     color: $white;

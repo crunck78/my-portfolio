@@ -6,13 +6,45 @@
 }
 
 .margin-bottom-regular{
-    margin-bottom: $marginBottomRegular;
+    margin-bottom: $spacingRegular;
 }
 
 .margin-bottom-big{
-    margin-bottom: $marginBottomBig;
+    margin-bottom: $spacingBig;
 }
 
 .margin-top-big{
-    margin-top: $marginTopBig;
+    margin-top: $spacingBig;
+}
+
+.margin-bottom-mid{
+    margin-bottom: $spacingMid;
+}
+
+.margin-top-mid{
+    margin-top: $spacingMid;
+}
+
+.padding-bottom-regular{
+    padding-bottom: $spacingRegular;
+}
+
+.padding-bottom-big{
+    padding-bottom: $spacingBig;
+}
+
+.padding-top-big{
+    padding-top: $spacingBig;
+}
+
+.padding-bottom-mid{
+    padding-bottom: $spacingMid;
+}
+
+.padding-top-mid{
+    padding-top: $spacingMid;
+}
+
+.margin-bottom-auto{
+    margin-bottom: auto;
 }

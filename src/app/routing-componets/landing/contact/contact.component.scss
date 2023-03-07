@@ -1,0 +1,65 @@
+@import "~src/styles/utils/_variables";
+
+.form-group {
+
+    .form-field {
+        position: relative;
+
+        .error-message{
+            position: absolute;
+            bottom: 10px;
+        }
+
+        .sign{
+            position: absolute;
+            right: 25px;
+            top: 11px;
+        }
+
+        input,
+        textarea {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            color: $white;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 25px;
+            padding-right: 50px;
+            gap: 10px;
+
+            width: 100%;
+            // height: 50px;
+
+            background: $darkblue;
+
+            border: 1px solid $purple;
+
+            border-radius: 10px;
+
+            // flex: none;
+            // order: 0;
+            // flex-grow: 0;
+            &:focus-visible{
+                outline: none;
+            }
+
+            &:not(.invalid):hover{
+                border: 1px solid $green;
+            }
+        }
+
+        .invalid{
+            outline: none;
+            border: 1px solid $red;
+        }
+    }
+}

@@ -16,7 +16,11 @@ import { SectionTitleComponent } from './shared-components/section-title/section
 import { MySkillsComponent } from './routing-componets/landing/my-skills/my-skills.component';
 import { SkillComponent } from './shared-components/skill/skill.component';
 import { PortfolioComponent } from './routing-componets/landing/portfolio/portfolio.component';
-import { ProjectComponent } from './project/project.component';
+import { ProjectComponent } from './routing-componets/landing/portfolio/project/project.component';
+import { ContactComponent } from './routing-componets/landing/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ControlErrorPipe } from './control-error.pipe';
+import { ControlIsValidPipe } from './control-is-valid.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +37,15 @@ import { ProjectComponent } from './project/project.component';
     SkillComponent,
     PortfolioComponent,
     ProjectComponent,
+    ContactComponent,
+    ControlErrorPipe,
+    ControlIsValidPipe,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
