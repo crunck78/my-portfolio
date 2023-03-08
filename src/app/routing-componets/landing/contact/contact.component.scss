@@ -1,5 +1,16 @@
 @import "~src/styles/utils/_variables";
 
+:host{
+    display: block;
+    position: relative;
+    .shadow{
+        position: absolute;
+        max-width: 100%;
+        bottom: 0;
+        z-index: -1;
+    }
+}
+
 input,
 textarea {
     font-family: 'Poppins';
