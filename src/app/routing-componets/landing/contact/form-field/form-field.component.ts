@@ -10,8 +10,9 @@ export class FormFieldComponent implements OnInit {
 
   @Input() control!: FormControl;
   @Input() controlName!: string;
+  @Input() maxLength!: number;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

@@ -3,9 +3,27 @@
 .form-field {
     position: relative;
 
-    .error-message{
+    .feedback{
         position: absolute;
         bottom: 10px;
+        height: 15px;
+    }
+
+    .feedback-progress{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+        .progress-bar{
+            flex: 1;
+            height: 100%;
+        }
+        .progress-counter{
+            width: 125px;
+            font-variant-numeric: tabular-nums;
+
+            display: flex;
+        }
     }
 
     .sign{

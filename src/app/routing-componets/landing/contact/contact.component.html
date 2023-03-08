@@ -17,15 +17,15 @@
     <div class="group-last">
 
         <div class="form-group" [formGroup]="contactForm">
-            <app-form-field [control]="name" [controlName]="'name'">
+            <app-form-field [control]="name" [controlName]="'name'" [maxLength]="NAME_MAX_LENGTH">
                 <input [class.invalid]="name.invalid && (name.dirty || name.touched)" type="text" [formControl]="name"
         placeholder="Your name">
             </app-form-field>
-            <app-form-field [control]="email" [controlName]="'email'">
+            <app-form-field [control]="email" [controlName]="'email'" [maxLength]="EMAIL_MAX_LENGTH">
                 <input [class.invalid]="email.invalid && (email.dirty || email.touched)" type="text" [formControl]="email"
         placeholder="Your name">
             </app-form-field>
-            <app-form-field [control]="message" [controlName]="'message'">
+            <app-form-field [control]="message" [controlName]="'message'" [maxLength]="MESSAGE_MAX_LENGTH">
                 <textarea [class.invalid]="message.invalid && (message.dirty || message.touched)" name="" id=""
                     cols="30" rows="10" [formControl]="message" placeholder="Your message"></textarea>
             </app-form-field>
