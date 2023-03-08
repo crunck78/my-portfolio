@@ -24,6 +24,7 @@ import { ControlIsValidPipe } from './control-is-valid.pipe';
 import { FormFieldComponent } from './routing-componets/landing/contact/form-field/form-field.component';
 import { DigitsCounterPipe } from './digits-counter.pipe';
 import { RatioCounterPipe } from './ratio-counter.pipe';
+import { SocialComponent } from './shared-components/social/social.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { RatioCounterPipe } from './ratio-counter.pipe';
     FormFieldComponent,
     DigitsCounterPipe,
     RatioCounterPipe,
+    SocialComponent,
   ],
   imports: [
     BrowserModule,
