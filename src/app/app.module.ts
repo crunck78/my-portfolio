@@ -22,6 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ControlErrorPipe } from './control-error.pipe';
 import { ControlIsValidPipe } from './control-is-valid.pipe';
 import { FormFieldComponent } from './routing-componets/landing/contact/form-field/form-field.component';
+import { DigitsCounterPipe } from './digits-counter.pipe';
+import { RatioCounterPipe } from './ratio-counter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,8 @@ import { FormFieldComponent } from './routing-componets/landing/contact/form-fie
     ControlErrorPipe,
     ControlIsValidPipe,
     FormFieldComponent,
+    DigitsCounterPipe,
+    RatioCounterPipe,
   ],
   imports: [
     BrowserModule,
