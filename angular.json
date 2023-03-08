@@ -25,11 +25,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/fonts.css"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/fonts.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -94,11 +94,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/fonts.css"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/fonts.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
