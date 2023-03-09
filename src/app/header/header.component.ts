@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('header') header!: ElementRef;
   toggleViewHeader: 'closed' | 'open' = 'open';
   headerState$ = new BehaviorSubject<'closed' | 'open'>('open');
+  menuState !: 'closed' | 'open';
 
   constructor() { }
   ngAfterViewInit(): void {
@@ -37,8 +38,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:touchend', ['$event'])
   onTouchEnd(event: Event) {
-    event.preventDefault(); // stop triggering the mousemove event
-    this.toggleHeader();
+    if (event.cancelable) {
+      event.preventDefault(); // stop triggering the mousemove event
+      this.toggleHeader();
+    }
   }
 
   @HostListener('window:mousemove', ['$event'])
@@ -47,8 +50,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.headerState$.next('open');
   }
 
+  @HostListener('mouseout', ['$event'])
+  onMouseOut(event: MouseEvent) {
+    if (this.menuState == 'closed')
+      this.headerState$.next('closed');
+  }
+
   menuViewState(menuState: 'closed' | 'open') {
-    this.headerState$.next(menuState);
+    this.menuState = menuState;
+    // this.headerState$.next(menuState);
   }
 
 }

@@ -44,6 +44,10 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
   updateCurve() {
     let timeout = setTimeout(() => {
       clearTimeout(timeout);
+      const hasHorizontalScrollbar = document.body.scrollWidth > document.body.clientWidth;
+      if (hasHorizontalScrollbar) {
+        this.updateCurve();
+      }
       const width = document.body.clientWidth;
       this.curve.nativeElement.style.width = width;
       this.curve.nativeElement.style.height = width * 0.7482662968099861;

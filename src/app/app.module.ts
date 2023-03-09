@@ -25,6 +25,7 @@ import { FormFieldComponent } from './routing-componets/landing/contact/form-fie
 import { DigitsCounterPipe } from './digits-counter.pipe';
 import { RatioCounterPipe } from './ratio-counter.pipe';
 import { SocialComponent } from './shared-components/social/social.component';
+import { ScrollTopDirective } from './scroll-top.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { SocialComponent } from './shared-components/social/social.component';
     DigitsCounterPipe,
     RatioCounterPipe,
     SocialComponent,
+    ScrollTopDirective,
   ],
   imports: [
     BrowserModule,

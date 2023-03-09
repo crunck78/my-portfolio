@@ -4,10 +4,11 @@ $breakpointMain: 1000px;
 :host {
     display: block;
     position: relative;
+    margin-top: 111px;
     .main {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
 
         @media(max-width: $breakpointMain){
             flex-direction: column;
@@ -19,8 +20,10 @@ $breakpointMain: 1000px;
             max-height: 60vh;
             @media(max-width: $breakpointMain){
                 width: 95vw;
+                max-width: 100%;
                 display: flex;
                 justify-content: center;
+
             }
             img{
                 max-height: 60vh;
@@ -46,7 +49,7 @@ $breakpointMain: 1000px;
 
                 @media(max-width: $breakpointMain){
                     svg{
-                        max-width: 95vw;
+                        max-width: calc(95vw - (2*$paddingMainLeftRightMin));
                         height: 100%;
                     }
                 }
@@ -80,6 +83,7 @@ $breakpointMain: 1000px;
                     font-weight: 400;
                     font-size: 64px;
                     line-height: 120%;
+
                     @media(max-width: $breakpointMain){
                         font-size: 32px;
                     }
