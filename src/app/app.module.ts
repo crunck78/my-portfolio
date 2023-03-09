@@ -26,6 +26,7 @@ import { DigitsCounterPipe } from './digits-counter.pipe';
 import { RatioCounterPipe } from './ratio-counter.pipe';
 import { SocialComponent } from './shared-components/social/social.component';
 import { ScrollTopDirective } from './scroll-top.directive';
+import { ScrollToDirective } from './scroll-to.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { ScrollTopDirective } from './scroll-top.directive';
     RatioCounterPipe,
     SocialComponent,
     ScrollTopDirective,
+    ScrollToDirective,
   ],
   imports: [
     BrowserModule,

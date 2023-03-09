@@ -26,17 +26,26 @@ button:disabled{
 .button-green-white {
     background: $green;
     color: $white;
+    &:not(:disabled):hover{
+        background: $purple;
+    }
 }
 
 .button-purple-white {
     background: $purple;
     color: $white;
+    &:not(:disabled):hover{
+        background: $green;
+    }
 }
 
 .button-outline-green-white{
     background: $transparent;
     color: $white;
     border: 1px solid $green;
+    &:not(:disabled):hover{
+        background: $green;
+    }
 }
 
 .buttons-group{
