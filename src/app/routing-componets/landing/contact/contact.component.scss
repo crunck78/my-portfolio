@@ -13,6 +13,10 @@
 
 input,
 textarea {
+    &:not(:not(textarea)){
+        resize: vertical;
+        min-height: 90px;
+    }
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
