@@ -34,21 +34,7 @@
             </svg>
         </div>
 
-        <img src="assets/images/me.png" alt="">
-
-        <svg class="curve" #curve [attr.width]="1442" [attr.height]="1079" [attr.viewBox]="'0 0 1442 1079'" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                [attr.d]="curvePathD"
-                fill="url(#paint0_radial_535_3084)" />
-            <defs>
-                <radialGradient id="paint0_radial_535_3084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(674 42.5) rotate(82.2154) scale(887.756 1492.19)">
-                    <stop offset="0.00372417" stop-color="#1A2743" />
-                    <stop offset="0.135417" stop-color="#27334B" />
-                    <stop offset="0.719125" stop-color="#141D2F" />
-                </radialGradient>
-            </defs>
-        </svg>
+        <img #me (load)="updateCurve()" src="assets/images/me.png" alt="">
     </div>
 
     <div class="intro">
@@ -61,8 +47,18 @@
         </div>
         <button class="contact button-green-white" [scrollTo]="'contact'">Let's Talk</button>
     </div>
-</div>
 
-<div class="social">
-
+    <svg class="curve" *ngIf="false" #curve [attr.width]="width" [attr.height]="height" [attr.viewBox]="viewBox" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            [attr.d]="curvePathD"
+            fill="url(#paint0_radial_535_3084)" />
+        <defs>
+            <radialGradient id="paint0_radial_535_3084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                [attr.gradientTransform]="gradientTransform">
+                <stop offset="0.00372417" stop-color="#1A2743" />
+                <stop offset="0.135417" stop-color="#27334B" />
+                <stop offset="0.719125" stop-color="#141D2F" />
+            </radialGradient>
+        </defs>
+    </svg>
 </div>

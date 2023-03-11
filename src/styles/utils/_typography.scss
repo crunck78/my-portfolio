@@ -23,17 +23,19 @@
 }
 
 .white-space-no-wrap {
-    white-space: nowrap;
+    @media(min-width: 400px) {
+        white-space: nowrap;
+    }
 }
 
-.text-left{
+.text-left {
     text-align: left;
 }
 
-.text-middle{
+.text-middle {
     text-align: center;
 }
 
-.text-right{
+.text-right {
     text-align: right;
 }
