@@ -5,6 +5,8 @@ $breakpointMain: 1000px;
     display: block;
     position: relative;
 
+    min-height: calc(100vh - 111px);
+
     .curve{
         position: absolute;
         z-index: -1;
