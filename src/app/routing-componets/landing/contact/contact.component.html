@@ -29,7 +29,7 @@
                 <textarea [class.invalid]="message.invalid && (message.dirty || message.touched)" name="" id=""
                     cols="30" rows="10" [formControl]="message" placeholder="Your message"></textarea>
             </app-form-field>
-            <button [title]="contactForm.invalid ? 'Please fill up the form' : ''" [disabled]="contactForm.invalid"
+            <button (click)="onSubmit()" [title]="contactForm.invalid ? 'Please fill up the form' : ''" [disabled]="contactForm.invalid"
                 class="button-green-white">Send Message</button>
         </div>
 

@@ -26,7 +26,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/fonts.css"
+              "src/fonts.css",
+              "src/sendmail.php"
             ],
             "styles": [
               "src/styles.scss"
@@ -95,7 +96,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/fonts.css"
+              "src/fonts.css",
+              "src/sendmail.php"
             ],
             "styles": [
               "src/styles.scss"
