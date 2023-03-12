@@ -28,6 +28,7 @@ import { SocialComponent } from './shared-components/social/social.component';
 import { ScrollTopDirective } from './scroll-top.directive';
 import { ScrollToDirective } from './scroll-to.directive';
 import { DataProtectionComponent } from './routing-componets/data-protection/data-protection.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { DataProtectionComponent } from './routing-componets/data-protection/dat
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

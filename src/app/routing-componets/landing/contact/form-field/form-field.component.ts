@@ -11,10 +11,20 @@ export class FormFieldComponent implements OnInit {
   @Input() control!: FormControl;
   @Input() controlName!: string;
   @Input() maxLength!: number;
+  @Input() customHasError!: boolean;
+  @Input() customIsValid!: boolean;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  get hasError() {
+    return this.customHasError !== undefined ? this.customHasError : this.control?.invalid && (this.control?.dirty || this.control?.touched);
+  }
+
+  get isValid() {
+    return this.customIsValid !== undefined ? this.customIsValid : this.control?.valid && (this.control?.dirty || this.control?.touched)
   }
 
 }

@@ -6,11 +6,11 @@ import { AbstractControl, FormControl } from '@angular/forms';
 })
 export class ControlErrorPipe implements PipeTransform {
 
-  transform(value: FormControl, arg: string): string {
+  transform(value: FormControl, arg: string, arg2?: string): string {
     if (value.hasError('required'))
       return `Your ${arg} is required!`;
-    if (value.hasError('email'))
-      return `Your ${arg} is not a email address!`;
+    if (value.hasError('pattern'))
+      return `Your ${arg} is not valid!`;
     return `Your ${arg} is required!`;
   }
 

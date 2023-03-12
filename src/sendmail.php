@@ -1,31 +1,73 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$nameRegex = "/^[A-Za-z .'-]+$/";
+$emailRegex = "/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/";
 
-    // preluare date din formular
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
+if (!test_request()) {
+    $response = get_response('error', 405, 'Access forbidden.');
+    echo $response;
+    exit();
+}
 
-    // validare date
-    if (empty($name) || empty($email) || empty($message)) {
-        die('All fields are required.');
-    }
+$name = test_input($_POST["name"]);
+$email = test_input($_POST["email"]);
+$message = test_input($_POST["message"]);
 
-    // construire message de email
-    $to = 'contact@mihai-andrei-neacsu.de';
-    $subject = 'Mesaj nou de la ' . $name;
-    $body = "Nume: $name\n\nEmail: $email\n\nMesaj:\n$message";
+if (empty($name) || empty($email) || empty($message)) {
+    $response = get_response('error', 400, 'All fields are required.');
+    echo $response;
+    exit();
+}
 
-    // trimitere email
-    if (mail($to, $subject, $body)) {
-        echo 'The message was successfully sent.';
-    } else {
-        echo 'An error occurred while sending the message. Please try again later.';
-    }
+if (!test_regex($name, $nameRegex)) {
+    $response = get_response('error', 400, 'Invalid name');
+    echo $response;
+    exit();
+}
 
-} else {
-    die('Access forbidden.');
+if (!test_regex($email, $emailRegex)) {
+    $response = get_response('error', 400, 'Invalid email');
+    echo $response;
+    exit();
+}
+
+$to = 'contact@mihai-andrei-neacsu.de';
+$subject = 'New message from ' . $name;
+$body = "Name: $name\n\nEmail: $email\n\Message:\n$message";
+
+if (!mail($to, $subject, $body)) {
+    $response = get_response('error', 400, 'An error occurred while sending the message. Please try again later.');
+    echo $response;
+    exit();
+}
+
+$response = get_response('message', 200, 'The message was successfully sent.');
+echo $response;
+exit();
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function test_regex($data, $regex)
+{
+    return preg_match($regex, $data);
+}
+
+function test_request()
+{
+    return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+
+function get_response($type, $code, $message)
+{
+    $response = array($type => $message);
+    http_response_code($code);
+    return json_encode($response);
 }
 
 ?>
