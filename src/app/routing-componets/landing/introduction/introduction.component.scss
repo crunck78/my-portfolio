@@ -13,6 +13,10 @@ $breakpointMain: 1000px;
     width: 100%;
     overflow: hidden;
 
+    @media(min-width: 1246px){
+        padding-bottom: 180px;
+    }
+
     .curve{
         position: absolute;
         z-index: -1;
@@ -35,6 +39,7 @@ $breakpointMain: 1000px;
         @media(max-width: 1246px){
             flex-direction: column;
         }
+
         gap: 16px;
 
         @media(max-width: $breakpointMain){
