@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+interface Feedback{
+  code: number,
+  type: 'error' | 'warning' | 'info',
+  message: string,
+}
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -26,9 +32,9 @@ export class ContactComponent implements OnInit {
   ));
 
   readonly contactForm = new FormGroup({});
+  submitting: boolean = false;
 
   constructor(private http: HttpClient) {
-    console.log(this.name);
     this.contactForm.setControl('name', this.name);
     this.contactForm.setControl('email', this.email);
     this.contactForm.setControl('message', this.message);
@@ -42,6 +48,7 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitting = true;
     const url = 'sendmail.php';
     const formData = new FormData();
     formData.append('name', this.name.value as string);
@@ -51,10 +58,20 @@ export class ContactComponent implements OnInit {
     this.http.post(url, formData)
       .subscribe(
         {
-          next: response => console.log('The message was successfully sent.'),
-          error: error => console.log('An error occurred while sending the message.')
+          next: response => this.handleResponse(response),
+          error: error => this.handleError(error)
         }
       );
+  }
+
+  handleResponse(response: any){
+    this.submitting = false;
+    console.log(response);
+  }
+
+  handleError(error: any){
+    this.submitting = false;
+    console.log(error);
   }
 
 }

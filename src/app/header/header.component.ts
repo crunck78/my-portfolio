@@ -36,14 +36,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.headerState$.next('closed');
   }
 
-  @HostListener('window:touchend', ['$event'])
-  onTouchEnd(event: Event) {
-    if (event.cancelable) {
-      event.preventDefault(); // stop triggering the mousemove event
-      this.toggleHeader();
-    }
-  }
-
   @HostListener('window:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
     if (event.y < this.header?.nativeElement.getBoundingClientRect().height && this.toggleViewHeader == 'closed')

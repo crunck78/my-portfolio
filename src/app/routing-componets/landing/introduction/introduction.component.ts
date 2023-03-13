@@ -44,7 +44,6 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
   toggleMe = 'hidden';
   constructor() { }
   ngAfterViewInit(): void {
-    this.toggleMe = 'visible';
     setTimeout(()=>  this.toggleMe = 'visible', 200);
     this.updateCurve();
   }

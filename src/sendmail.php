@@ -9,8 +9,6 @@ if (!test_request()) {
     exit();
 }
 
-
-
 $name = test_input($_POST["name"]);
 $email = test_input($_POST["email"]);
 $message = test_input($_POST["message"]);
@@ -44,7 +42,7 @@ if (!mail($to, $subject, $body, $headers)) {
     exit();
 }
 
-$response = get_response('message', 200, 'The message was successfully sent.');
+$response = get_response('info', 200, 'The message was successfully sent.');
 echo $response;
 exit();
 
