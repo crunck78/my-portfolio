@@ -9,6 +9,8 @@ if (!test_request()) {
     exit();
 }
 
+
+
 $name = test_input($_POST["name"]);
 $email = test_input($_POST["email"]);
 $message = test_input($_POST["message"]);
@@ -34,8 +36,9 @@ if (!test_regex($email, $emailRegex)) {
 $to = 'contact@mihai-andrei-neacsu.de';
 $subject = 'New message from ' . $name;
 $body = "Name: $name\n\nEmail: $email\n\Message:\n$message";
+$headers = "From: $email";
 
-if (!mail($to, $subject, $body)) {
+if (!mail($to, $subject, $body, $headers)) {
     $response = get_response('error', 400, 'An error occurred while sending the message. Please try again later.');
     echo $response;
     exit();

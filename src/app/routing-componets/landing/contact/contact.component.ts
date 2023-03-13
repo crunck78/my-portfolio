@@ -43,13 +43,12 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     const url = 'sendmail.php';
-    const data = {
-      name: this.name.value,
-      email: this.email.value,
-      message: this.message.value
-    };
+    const formData = new FormData();
+    formData.append('name', this.name.value as string);
+    formData.append('email', this.email.value as string);
+    formData.append('message', this.message.value as string);
 
-    this.http.post(url, data)
+    this.http.post(url, formData)
       .subscribe(
         {
           next: response => console.log('The message was successfully sent.'),

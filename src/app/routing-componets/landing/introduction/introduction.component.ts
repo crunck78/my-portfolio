@@ -1,22 +1,20 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { toggleButtonAnimation, toggleIntroAnimation, toggleMeAnimation } from './introduction.animations';
 
 @Component({
   selector: 'app-introduction',
   templateUrl: './introduction.component.html',
-  styleUrls: ['./introduction.component.scss']
+  styleUrls: ['./introduction.component.scss'],
+  animations: [toggleMeAnimation, toggleIntroAnimation, toggleButtonAnimation]
 })
 export class IntroductionComponent implements OnInit, AfterViewInit {
   @ViewChild('curve') curve!: ElementRef;
   @ViewChild('me') me!: ElementRef;
 
-  width: number = window.innerWidth;
-  height: number = window.innerHeight;
+  width: number = 1442;
+  height: number = 1079;
 
   get viewBox() { return `0 0 ${this.width} ${this.height}` };
-
-  getViewBox(w: number, height: number) {
-    return `0 0 ${this.width} ${this.height}`;
-  }
 
   get curvePathD() {
     return `M${(1442/1442)*this.width} ${(0/1079)*this.height}
@@ -43,9 +41,11 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
     return `translate(${(674 / 1442) * this.width} ${(42.5 / 1079) * this.height}) rotate(82.2154) scale(${(887.756 / 1442) * this.width} ${(1492.19 / 1079) * this.height})`;
   }
 
+  toggleMe = 'hidden';
   constructor() { }
   ngAfterViewInit(): void {
-    console.log(this.curve);
+    this.toggleMe = 'visible';
+    setTimeout(()=>  this.toggleMe = 'visible', 200);
     this.updateCurve();
   }
 
@@ -59,24 +59,27 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
 
   updateCurve() {
 
-    // let timeout = setTimeout(() => {
-    //   clearTimeout(timeout);
-    //   this.width = window.innerWidth;
-    //   this.height = window.innerHeight < 1000 ? window.innerHeight : 1000;
-    //   let imageHeight = this.me.nativeElement.getBoundingClientRect().height;
-    //   let imageBottom = this.me.nativeElement.getBoundingClientRect().bottom;
-    //   //const width = document.body.clientWidth;
-    //   // this.curve.nativeElement.style.left = `-${this.curve.nativeElement.parentElement.getBoundingClientRect().x}px`;
-    //   //this.width = width;
-    //   //this.height = imageHeight * 2;
-    //   this.curve.nativeElement.style.top = `${imageBottom - (712.4/1079)*this.height}px`;
-    //   const hasHorizontalScrollbar = document.body.scrollWidth > document.body.clientWidth;
-    //   if (hasHorizontalScrollbar || this.curve.nativeElement.style.top < 0) {
-    //     this.updateCurve();
-    //   }
-    //   const horizontalScrollSameAsBodyWidth = document.body.scrollWidth == document.body.clientWidth;
-    //   document.body.style.overflowX = horizontalScrollSameAsBodyWidth ? 'hidden' : 'visible';
-    // }, 100)
+    let timeout = setTimeout(() => {
+      clearTimeout(timeout);
+      if(window.innerWidth > 1442)
+        this.width = window.innerWidth;
+      else
+        this.width = 1442;
+      // this.height = window.innerHeight < 1000 ? window.innerHeight : 1000;
+      // let imageHeight = this.me.nativeElement.getBoundingClientRect().height;
+      // let imageBottom = this.me.nativeElement.getBoundingClientRect().bottom;
+      //const width = document.body.clientWidth;
+      // this.curve.nativeElement.style.left = `-${this.curve.nativeElement.parentElement.getBoundingClientRect().x}px`;
+      //this.width = width;
+      //this.height = imageHeight * 2;
+      // this.curve.nativeElement.style.top = `${imageBottom}`;
+      // const hasHorizontalScrollbar = document.body.scrollWidth > document.body.clientWidth;
+      // if (hasHorizontalScrollbar || this.curve.nativeElement.style.top < 0) {
+      //   this.updateCurve();
+      // }
+      // const horizontalScrollSameAsBodyWidth = document.body.scrollWidth == document.body.clientWidth;
+      // document.body.style.overflowX = horizontalScrollSameAsBodyWidth ? 'hidden' : 'visible';
+    }, 100)
   }
 
 }
