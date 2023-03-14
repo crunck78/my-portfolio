@@ -27,7 +27,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/fonts.css",
-              "src/sendmail.php"
+              "src/sendmail/index.php"
             ],
             "styles": [
               "src/styles.scss"

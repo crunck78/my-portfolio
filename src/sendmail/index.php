@@ -4,7 +4,7 @@ $nameRegex = "/^[A-Za-z .'-]+$/";
 $emailRegex = "/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/";
 
 if (!test_request()) {
-    $response = get_response('error', 405, 'Access forbidden.');
+    $response = get_response('detail', 405, 'Access forbidden.');
     echo $response;
     exit();
 }
@@ -14,19 +14,19 @@ $email = test_input($_POST["email"]);
 $message = test_input($_POST["message"]);
 
 if (empty($name) || empty($email) || empty($message)) {
-    $response = get_response('error', 400, 'All fields are required.');
+    $response = get_response('detail', 400, 'All fields are required.');
     echo $response;
     exit();
 }
 
 if (!test_regex($name, $nameRegex)) {
-    $response = get_response('error', 400, 'Invalid name');
+    $response = get_response('detail', 400, 'Invalid name');
     echo $response;
     exit();
 }
 
 if (!test_regex($email, $emailRegex)) {
-    $response = get_response('error', 400, 'Invalid email');
+    $response = get_response('detail', 400, 'Invalid email');
     echo $response;
     exit();
 }
@@ -37,12 +37,12 @@ $body = "Name: $name\n\nEmail: $email\n\Message:\n$message";
 $headers = "From: $email";
 
 if (!mail($to, $subject, $body, $headers)) {
-    $response = get_response('error', 400, 'An error occurred while sending the message. Please try again later.');
+    $response = get_response('detail', 400, 'An error occurred while sending the message. Please try again later.');
     echo $response;
     exit();
 }
 
-$response = get_response('info', 200, 'The message was successfully sent.');
+$response = get_response('detail', 200, 'The message was successfully sent.');
 echo $response;
 exit();
 

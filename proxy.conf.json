@@ -1,0 +1,8 @@
+{
+    "/sendmail/*": {
+        "target": "https://mihai-andrei-neacsu.de",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

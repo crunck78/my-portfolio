@@ -43,13 +43,9 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getErrorMessage(control: AbstractControl | null) {
-    console.log(control);
-  }
-
   onSubmit() {
     this.submitting = true;
-    const url = 'sendmail.php';
+    const url = '/sendmail/index.php';
     const formData = new FormData();
     formData.append('name', this.name.value as string);
     formData.append('email', this.email.value as string);
