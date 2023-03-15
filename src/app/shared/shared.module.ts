@@ -8,6 +8,7 @@ import { SocialComponent } from './shared-components/social/social.component';
 import { SectionTitleComponent } from './shared-components/section-title/section-title.component';
 import { LogoComponent } from './shared-components/logo/logo.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FeedbackModule } from './feedback/feedback.module';
 
 
 @NgModule({
@@ -17,11 +18,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
     SocialComponent,
     SectionTitleComponent,
-    LogoComponent
+    LogoComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FeedbackModule
   ],
   exports: [
     ScrollToDirective,
@@ -29,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SocialComponent,
     SectionTitleComponent,
     LogoComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FeedbackModule
   ]
 })
 export class SharedModule { }
