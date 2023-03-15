@@ -34,7 +34,7 @@
                     cols="30" rows="10" [formControl]="message" placeholder="Your message"></textarea>
             </app-form-field>
             <button (click)="onSubmit()" [title]="contactForm.invalid ? 'Please fill up the form' : ''"
-                [disabled]="contactForm.invalid || submitting" class="button-green-white">
+                [disabled]="contactForm.invalid || submitting || isMessageSend" class="button-green-white">
                 <ng-container *ngIf="!submitting && !response?.contactSubmitted">
                     Send Message
                 </ng-container>

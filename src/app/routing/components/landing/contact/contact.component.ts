@@ -61,7 +61,7 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     this.submitting = true;
-    const url = '/sendmail/index.ph';
+    const url = '/sendmail/index.php';
     const formData = new FormData();
     formData.append('name', this.name.value as string);
     formData.append('email', this.email.value as string);
@@ -77,7 +77,7 @@ export class ContactComponent implements OnInit {
   }
 
   handleResponse(response: any) {
-    this.contactForm.reset();
+    this.contactForm.disable();
     this.response = { code: 200, type: 'info', message: response.detail, contactSubmitted: true };
     this.handleSubmission();
   }
@@ -90,7 +90,11 @@ export class ContactComponent implements OnInit {
 
   handleSubmission() {
     this.submitting = false;
-    const feedback = { message: this.response.message } as Feedback;
+    const feedback = this.response.code == 400 ? { message: this.response.message, closeFeedbackAction: 'Try Again' } as Feedback : { message: this.response.message } as Feedback;
     this.feedbackS.createNewFeedback(feedback);
+  }
+
+  createFeedback(){
+
   }
 }
