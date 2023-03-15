@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Feedback, FeedbackModel } from './shared/feedback/feedback.model';
+import { FeedbackService } from './shared/feedback/feedback.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-portfolio';
+
+  constructor(private feedbackS : FeedbackService){}
+
+  get feedbacks(){
+    return this.feedbackS.feedbacks;
+  }
 }

@@ -3,3 +3,10 @@
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>
+
+<div *ngIf="feedbacks.length > 0" class="feedbacks">
+    <ng-container *ngFor="let feedback of feedbacks">
+        <app-feedback *ngIf="feedback.isOpened" [feedback]="feedback"
+        ></app-feedback>
+    </ng-container>
+</div>

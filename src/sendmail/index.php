@@ -37,7 +37,7 @@ $body = "Name: $name\n\nEmail: $email\n\Message:\n$message";
 $headers = "From: $email";
 
 if (!mail($to, $subject, $body, $headers)) {
-    $response = get_response('detail', 400, 'An error occurred while sending the message. Please try again later.');
+    $response = get_response('detail', 400, 'An error occurred while sending the message.');
     echo $response;
     exit();
 }

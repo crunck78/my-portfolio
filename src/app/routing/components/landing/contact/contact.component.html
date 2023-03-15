@@ -8,29 +8,46 @@
 
 <div class="group-center-wrap padding-main">
     <div class="group-first margin-bottom-auto">
-        <div class="title-normal-bold margin-bottom-big">Got a problem to solve?</div>
-        <div class="text-normal-regular margin-bottom-mid">Contact me through this form, I am interested in hearing you,
-            knowing your ideas and contributing to your
-            projects with my work.</div>
-        <div class="text-normal-regular">Need a Frontend developer? <b>Contact me!</b></div>
+        <div class="form-text">
+            <div class="title-normal-bold margin-bottom-big">Got a problem to solve?</div>
+            <div class="text-normal-regular margin-bottom-mid">Contact me through this form, I am interested in hearing
+                you,
+                knowing your ideas and contributing to your
+                projects with my work.</div>
+            <div class="text-normal-regular">Need a Frontend developer? <b>Contact me!</b></div>
+        </div>
     </div>
     <div class="group-last">
 
         <div class="form-group" [formGroup]="contactForm">
             <app-form-field [control]="name" [controlName]="'name'" [maxLength]="NAME_MAX_LENGTH">
-                <input [pattern]="NAME_REGEX" [class.invalid]="name.invalid && (name.dirty || name.touched)" type="text" [formControl]="name"
-        placeholder="Your name">
+                <input [pattern]="NAME_REGEX" [class.invalid]="name.invalid && (name.dirty || name.touched)" type="text"
+                    [formControl]="name" placeholder="Your name">
             </app-form-field>
-            <app-form-field [customHasError]="email.invalid && (email.dirty && email.touched)" [control]="email" [controlName]="'email'" [maxLength]="EMAIL_MAX_LENGTH">
-                <input [pattern]="EMAIL_REGEX" [class.invalid]="email.invalid && (email.dirty && email.touched)" type="text" [formControl]="email"
-        placeholder="Your email">
+            <app-form-field [customHasError]="email.invalid && (email.dirty && email.touched)" [control]="email"
+                [controlName]="'email'" [maxLength]="EMAIL_MAX_LENGTH">
+                <input [pattern]="EMAIL_REGEX" [class.invalid]="email.invalid && (email.dirty && email.touched)"
+                    type="text" [formControl]="email" placeholder="Your email">
             </app-form-field>
             <app-form-field [control]="message" [controlName]="'message'" [maxLength]="MESSAGE_MAX_LENGTH">
                 <textarea [class.invalid]="message.invalid && (message.dirty || message.touched)" name="" id=""
                     cols="30" rows="10" [formControl]="message" placeholder="Your message"></textarea>
             </app-form-field>
-            <button (click)="onSubmit()" [title]="contactForm.invalid ? 'Please fill up the form' : ''" [disabled]="contactForm.invalid || submitting"
-                class="button-green-white">Send Message</button>
+            <button (click)="onSubmit()" [title]="contactForm.invalid ? 'Please fill up the form' : ''"
+                [disabled]="contactForm.invalid || submitting" class="button-green-white">
+                <ng-container *ngIf="!submitting && !response?.contactSubmitted">
+                    Send Message
+                </ng-container>
+                <ng-container *ngIf="submitting">
+                    Sending...
+                </ng-container>
+                <ng-container *ngIf="!submitting && response?.contactSubmitted && response?.type == 'info'">
+                    Message Send
+                </ng-container>
+                <ng-container *ngIf="!submitting && response?.contactSubmitted && response?.type == 'error'">
+                    Message not send
+                </ng-container>
+            </button>
         </div>
 
     </div>
