@@ -15,11 +15,11 @@
     </svg>
     <ng-container *ngIf="hasError;else counter">
         <div [innerHTML]="control | controlError : controlName" *ngIf="hasError"
-            class="color-red text-small-reqular feedback feedback-error"></div>
+            class="color-red text-small-reqular feedback-input feedback-error"></div>
     </ng-container>
     <ng-template #counter>
         <ng-container *ngIf="maxLength && control?.dirty">
-            <div class="text-small-reqular feedback feedback-progress white-space-no-wrap">
+            <div class="text-small-reqular feedback-input feedback-progress white-space-no-wrap">
                 <div class="progress-counter">
                     <div class="group-first text-left">Characters:</div>
                     <div class="group-last text-right">{{control.value.length | digitsCounter : maxLength}}/{{maxLength}}</div>

@@ -8,9 +8,17 @@ import { Feedback, FeedbackModel } from './feedback.model';
 export class FeedbackService {
 
   feedbacks: FeedbackModel[] = [];
-  constructor() { }
+  constructor() {
+    this.feedbacks.push(new FeedbackModel({ closeFeedbackAction: 'Try Again', message: "This is a test!" }));
+    this.feedbacks.push(new FeedbackModel({ message: "This is a test 2!" }));
+    this.feedbacks.push(new FeedbackModel({ message: "This is a test 3!" }));
+  }
 
-  createNewFeedback(newFeedback: Feedback){
+  createNewFeedback(newFeedback: Feedback) {
     this.feedbacks.push(new FeedbackModel(newFeedback));
+  }
+
+  close(feedbackIndex: number) {
+    this.feedbacks.splice(feedbackIndex, 1);
   }
 }

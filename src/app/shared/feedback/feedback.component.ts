@@ -24,8 +24,4 @@ export class FeedbackComponent implements OnInit {
     return this.feedback.message;
   }
 
-  closeFeedback(){
-    this.feedback.isOpened = false;
-  }
-
 }

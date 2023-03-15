@@ -1,4 +1,4 @@
-<div class="feedback">
-    <div>{{feedbackMessage}}</div>
-    <button (click)="closeFeedback()">{{closeFeedbackAction}}</button>
+<div class="feedback margin-bottom-regular">
+    <div class="text-normal-regular">{{feedbackMessage}}</div>
+    <button class="button-purple-white text-normal-regular" (click)="close.emit()">{{closeFeedbackAction}}</button>
 </div>

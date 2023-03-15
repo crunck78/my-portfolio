@@ -24,7 +24,8 @@ export class ContactComponent implements OnInit {
   readonly NAME_MAX_LENGTH = 50;
   readonly EMAIL_MAX_LENGTH = 50;
   readonly MESSAGE_MAX_LENGTH = 250;
-
+  readonly contactForm = new FormGroup({});
+  submitting: boolean = false;
   response!: Response;
 
   readonly name = new FormControl('', Validators.compose(
@@ -37,8 +38,17 @@ export class ContactComponent implements OnInit {
     [Validators.required, Validators.maxLength(250)]
   ));
 
-  readonly contactForm = new FormGroup({});
-  submitting: boolean = false;
+  get isMessageSend() {
+    return this.isMessageSubmitted && this.response?.type == 'info';
+  }
+
+  get isMessageNotSend() {
+    return this.isMessageSubmitted && this.response?.type == 'error';
+  }
+
+  get isMessageSubmitted() {
+    return !this.submitting && this.response?.contactSubmitted;
+  }
 
   constructor(private http: HttpClient, private feedbackS: FeedbackService) {
     this.contactForm.setControl('name', this.name);
@@ -67,19 +77,20 @@ export class ContactComponent implements OnInit {
   }
 
   handleResponse(response: any) {
+    this.contactForm.reset();
     this.response = { code: 200, type: 'info', message: response.detail, contactSubmitted: true };
-    this.handleSubmission(response);
+    this.handleSubmission();
   }
 
   handleError(errorResponse: any) {
     const message = errorResponse.code == 400 ? errorResponse.error.detail : "An error occurred while submitting the message.";
     this.response = { code: errorResponse.code, type: 'error', message: message, contactSubmitted: true }
-    this.handleSubmission(this.response);
+    this.handleSubmission();
   }
 
-  handleSubmission(response: Response) {
+  handleSubmission() {
     this.submitting = false;
-    const feedback = { message: response.message, isOpened: true } as Feedback;
+    const feedback = { message: this.response.message } as Feedback;
     this.feedbackS.createNewFeedback(feedback);
   }
 }

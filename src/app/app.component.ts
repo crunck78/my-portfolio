@@ -10,9 +10,13 @@ import { FeedbackService } from './shared/feedback/feedback.service';
 export class AppComponent {
   title = 'my-portfolio';
 
-  constructor(private feedbackS : FeedbackService){}
+  constructor(private feedbackS: FeedbackService) { }
 
-  get feedbacks(){
+  get feedbacks() {
     return this.feedbackS.feedbacks;
+  }
+
+  closeFeedback(index: number) {
+    this.feedbackS.close(index);
   }
 }

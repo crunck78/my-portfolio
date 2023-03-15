@@ -1,0 +1,22 @@
+.feedbacks{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    pointer-events: all;
+}
+
+.feedback{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgba(0,0,0,0.8);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 50px;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    gap: 30px;
+}

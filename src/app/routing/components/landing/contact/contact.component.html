@@ -41,10 +41,10 @@
                 <ng-container *ngIf="submitting">
                     Sending...
                 </ng-container>
-                <ng-container *ngIf="!submitting && response?.contactSubmitted && response?.type == 'info'">
+                <ng-container *ngIf="isMessageSend">
                     Message Send
                 </ng-container>
-                <ng-container *ngIf="!submitting && response?.contactSubmitted && response?.type == 'error'">
+                <ng-container *ngIf="isMessageNotSend">
                     Message not send
                 </ng-container>
             </button>
