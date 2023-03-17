@@ -13,11 +13,24 @@ export class ScrollToDirective {
 
   constructor(private el: ElementRef, private router: Router) { }
 
-  @HostListener('click')
-  async onClick() {
+  @HostListener('click', ['$event'])
+  async onClick(event: Event) {
+    event.preventDefault();
     if (!this.isStartPage())
       await this.router.navigateByUrl('/');
-    this.triggerScroll();
+    setTimeout(()=>{
+      this.triggerScroll();
+    }, 100);
+  }
+
+  @HostListener('touchstart', ['$event'])
+  async onTouchStart(event: Event) {
+    event.preventDefault();
+    if (!this.isStartPage())
+      await this.router.navigateByUrl('/');
+    setTimeout(()=>{
+      this.triggerScroll();
+    }, 100);
   }
 
   triggerScroll() {

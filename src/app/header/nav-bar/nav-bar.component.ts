@@ -12,7 +12,8 @@ export class NavBarComponent {
   toggleMenu: "closed" | "open" = "closed";
   @Output() toggleMenuEmit = new EventEmitter<"closed" | "open">();
 
-  toggleView(){
+  toggleView(event: Event){
+    event.preventDefault();
     this.toggleMenu = this.toggleMenu == "open" ? "closed" : "open";
     this.toggleMenuEmit.emit(this.toggleMenu);
   }

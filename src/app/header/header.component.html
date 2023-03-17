@@ -5,7 +5,7 @@
     </div>
 
     <div style="position: relative;">
-        <div class="opener" (click)="toggleHeader()" #headerOpener>
+        <div class="opener" (touchstart)="toggleHeader($event)" (click)="toggleHeader($event)" #headerOpener>
             <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M 40 0 A 40 40 0 0 1 80 40 L 40 40 Z" fill="white" transform="rotate(90 40 40)" />
                 <path

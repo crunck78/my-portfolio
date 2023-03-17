@@ -31,7 +31,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     })
   }
 
-  toggleHeader() {
+  toggleHeader(event: Event) {
+    event.preventDefault();
     if (this.toggleViewHeader == 'open') {
       this.headerState$.next('closed');
       this.openerState$.next('open');

@@ -59,7 +59,8 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(event: Event) {
+    event.preventDefault();
     this.submitting = true;
     const url = '/sendmail/index.php';
     const formData = new FormData();
