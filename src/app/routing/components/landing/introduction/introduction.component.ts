@@ -64,20 +64,6 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
         this.width = window.innerWidth;
       else
         this.width = 1442;
-      // this.height = window.innerHeight < 1000 ? window.innerHeight : 1000;
-      // let imageHeight = this.me.nativeElement.getBoundingClientRect().height;
-      // let imageBottom = this.me.nativeElement.getBoundingClientRect().bottom;
-      //const width = document.body.clientWidth;
-      // this.curve.nativeElement.style.left = `-${this.curve.nativeElement.parentElement.getBoundingClientRect().x}px`;
-      //this.width = width;
-      //this.height = imageHeight * 2;
-      // this.curve.nativeElement.style.top = `${imageBottom}`;
-      // const hasHorizontalScrollbar = document.body.scrollWidth > document.body.clientWidth;
-      // if (hasHorizontalScrollbar || this.curve.nativeElement.style.top < 0) {
-      //   this.updateCurve();
-      // }
-      // const horizontalScrollSameAsBodyWidth = document.body.scrollWidth == document.body.clientWidth;
-      // document.body.style.overflowX = horizontalScrollSameAsBodyWidth ? 'hidden' : 'visible';
     }, 100)
   }
 

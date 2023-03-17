@@ -8,8 +8,6 @@ $breakpointMain: 1000px;
     align-items: center;
     justify-content: center;
 
-    // min-height: calc(100vh - 111px);
-
     width: 100%;
     overflow: hidden;
 
@@ -51,7 +49,6 @@ $breakpointMain: 1000px;
             overflow: visible;
             position: relative;
             @media(max-width: $breakpointMain){
-                // width: 95vw;
                 max-width: 100%;
                 display: flex;
                 justify-content: center;
@@ -61,34 +58,21 @@ $breakpointMain: 1000px;
                 max-height: 450px;
                 max-width: 100%;
                 position: relative;
-                // z-index: -2;
-                // height: 300px;
-                // height: 100%;
-
             }
 
             .hero-bg {
                 position: absolute;
                 inset: 0;
-                // z-index: -3;
 
                 svg:first-child {
                     position: absolute;
                     left: 0;
-                    // height: 100%;
                 }
 
                 svg:last-child {
                     position: absolute;
                     right: 0;
-                    // height: 100%;
                 }
-
-                // @media(max-width: $breakpointMain){
-                //     svg{
-                //         max-width: calc(95vw - (2*$paddingMainLeftRightMin));
-                //     }
-                // }
             }
         }
 
@@ -101,6 +85,7 @@ $breakpointMain: 1000px;
             .text {
                 display: inline-flex;
                 gap: 35px;
+                overflow: hidden;
 
                 @media(max-width: 600px) {
                     gap: 10px;

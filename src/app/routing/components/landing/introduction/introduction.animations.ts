@@ -22,7 +22,7 @@ export const toggleMeAnimation = trigger(
 export const toggleIntroAnimation = trigger(
     'visibleHiddenIntro', [
     state('visible', style({
-        with: '100%',
+        width: '100%',
     })),
     state('hidden', style({
         width: 0

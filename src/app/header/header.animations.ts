@@ -3,10 +3,10 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 export const openCloseAnimationHeader = [
     trigger('openCloseHeader', [
         state('open', style({
-           top: 0
+            transform: 'translateY(0)'
         })),
         state('closed', style({
-           top: '-100%'
+            transform: 'translateY(-100%)'
         })),
         transition('open => closed', [
             animate('300ms')

@@ -1,19 +1,32 @@
 @import "~src/styles/utils/variables";
 
 :host {
-   .header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
 
-    background: $darkblue;
-    backdrop-filter: blur(32.5px);
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
+   .header {
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+
+      background: $darkblue;
+      backdrop-filter: blur(32.5px);
+
+      position: relative;
+
+      .header-view {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: flex-end;
+      }
+
+      .opener {
+         position: absolute;
+         transform: translateY(-50%) translateX(-50%);
+         cursor: pointer;
+      }
    }
 }

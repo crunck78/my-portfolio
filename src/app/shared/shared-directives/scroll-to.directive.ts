@@ -6,7 +6,10 @@ import { Router } from '@angular/router';
 })
 export class ScrollToDirective {
 
-  @Input() scrollTo!: string; // The ID of the target element
+  /**
+   * The ID of target element
+   */
+  @Input() scrollTo!: string;
 
   constructor(private el: ElementRef, private router: Router) { }
 
