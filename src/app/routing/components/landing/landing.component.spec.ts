@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LandingComponent } from './landing.component';
+import { LandingModule } from './landing.module';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
@@ -8,7 +11,8 @@ describe('LandingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LandingComponent ]
+      declarations: [ LandingComponent ],
+      imports: [LandingModule, HttpClientModule, BrowserAnimationsModule]
     })
     .compileComponents();
 

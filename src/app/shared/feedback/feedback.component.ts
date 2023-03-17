@@ -17,11 +17,11 @@ export class FeedbackComponent implements OnInit {
   }
 
   get closeFeedbackAction(){
-    return this.feedback.closeFeedbackAction;
+    return this.feedback?.closeFeedbackAction;
   }
 
   get feedbackMessage(){
-    return this.feedback.message;
+    return this.feedback?.message;
   }
 
 }

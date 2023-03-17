@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavBarComponent } from './nav-bar.component';
 
@@ -8,7 +9,8 @@ describe('NavBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavBarComponent ]
+      declarations: [ NavBarComponent ],
+      imports: [BrowserAnimationsModule]
     })
     .compileComponents();
 
