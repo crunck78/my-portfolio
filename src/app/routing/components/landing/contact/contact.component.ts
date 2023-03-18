@@ -61,14 +61,33 @@ export class ContactComponent implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    this.submitting = true;
-    const url = '/sendmail/index.php';
-    const formData = new FormData();
-    formData.append('name', this.name.value as string);
-    formData.append('email', this.email.value as string);
-    formData.append('message', this.message.value as string);
+    if (this.canSubmit) {
+      this.contactState = 'sending';
+      this.postMessage();
+    }
+  }
 
-    this.http.post(url, formData)
+  get canSubmit() {
+    return this.contactForm.valid &&
+      !this.contactForm.disabled &&
+      !this.submitting;
+  }
+
+  set contactState(state: 'sending' | 'opened') {
+    if (state == 'sending') {
+      this.submitting = true;
+      this.contactForm.disable();
+    }
+
+    if (state == 'opened') {
+      this.submitting = false;
+      this.contactForm.enable();
+    }
+  }
+
+  postMessage() {
+    const conf = this.postConf;
+    this.http.post(conf.url, conf.body)
       .subscribe(
         {
           next: response => this.handleResponse(response),
@@ -77,25 +96,31 @@ export class ContactComponent implements OnInit {
       );
   }
 
+  get postConf() {
+    const url = '/sendmail/index.php';
+    const body = new FormData();
+    body.append('name', this.name.value as string);
+    body.append('email', this.email.value as string);
+    body.append('message', this.message.value as string);
+
+    return { url, body };
+  }
+
   handleResponse(response: any) {
-    this.contactForm.disable();
+    this.contactForm.reset();
     this.response = { code: 200, type: 'info', message: response.detail, contactSubmitted: true };
     this.handleSubmission();
   }
 
   handleError(errorResponse: any) {
-    const message = errorResponse.code == 400 ? errorResponse.error.detail : "An error occurred while submitting the message.";
-    this.response = { code: errorResponse.code, type: 'error', message: message, contactSubmitted: true }
+    const message = errorResponse.status == 400 ? errorResponse.error.detail : "An error occurred while submitting the message.";
+    this.response = { code: errorResponse.status, type: 'error', message: message, contactSubmitted: true }
     this.handleSubmission();
   }
 
   handleSubmission() {
-    this.submitting = false;
+    this.contactState = 'opened';
     const feedback = this.response.code == 400 ? { message: this.response.message, closeFeedbackAction: 'Try Again' } as Feedback : { message: this.response.message } as Feedback;
     this.feedbackS.createNewFeedback(feedback);
-  }
-
-  createFeedback(){
-
   }
 }
