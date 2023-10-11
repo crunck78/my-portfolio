@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.svg",
+              "src/favicon.ico",
               "src/assets",
               "src/fonts.css",
               "src/sendmail/index.php"
@@ -94,7 +94,7 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.svg",
+              "src/favicon.ico",
               "src/assets",
               "src/fonts.css",
               "src/sendmail.php"
