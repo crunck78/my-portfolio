@@ -10,26 +10,30 @@
         object-fit: cover;
         border: 4px solid $green;
         border-radius: 100%;
-
-        @media(max-width: 560px){
+        max-width: 70vh;
+        max-height: 70vh;
+        @media(max-width: 560px) {
             width: 70vw;
             height: 70vw;
         }
     }
 }
 
-.circle-image--before-line{
-    img{
+.circle-image--before-line {
+    img {
         margin-right: auto;
     }
+
     &::before {
         content: "";
         display: inline-block;
         width: $paddingMainLeftRightMax;
-        @media(max-width: $breakpointMain){
+
+        @media(max-width: $breakpointMain) {
             width: $paddingMainLeftRightMin;
             left: -$paddingMainLeftRightMin;
         }
+
         height: 4px;
         background-color: $green;
         position: absolute;
@@ -37,18 +41,21 @@
     }
 }
 
-.circle-image--after-line{
-    img{
+.circle-image--after-line {
+    img {
         margin-left: auto;
     }
+
     &::after {
         content: "";
         display: inline-block;
         width: $paddingMainLeftRightMax;
-        @media(max-width: $breakpointMain){
+
+        @media(max-width: $breakpointMain) {
             width: $paddingMainLeftRightMin;
             right: -$paddingMainLeftRightMin;
         }
+
         height: 4px;
         background-color: $green;
         position: absolute;
