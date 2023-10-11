@@ -21,18 +21,21 @@
 
         <div class="form-group" [formGroup]="contactForm">
             <app-form-field [control]="name" [controlName]="'name'" [maxLength]="NAME_MAX_LENGTH">
-                <input [pattern]="NAME_REGEX" [class.invalid]="name.invalid && (name.dirty || name.touched)" type="text"
+                <input [maxLength]="NAME_MAX_LENGTH" [pattern]="NAME_REGEX" [class.invalid]="name.invalid && (name.dirty || name.touched)" type="text"
                     [formControl]="name" placeholder="Your name">
             </app-form-field>
+
             <app-form-field [customHasError]="email.invalid && (email.dirty && email.touched)" [control]="email"
                 [controlName]="'email'" [maxLength]="EMAIL_MAX_LENGTH">
-                <input [pattern]="EMAIL_REGEX" [class.invalid]="email.invalid && (email.dirty && email.touched)"
+                <input [maxLength]="EMAIL_MAX_LENGTH" [pattern]="EMAIL_REGEX" [class.invalid]="email.invalid && (email.dirty && email.touched)"
                     type="text" [formControl]="email" placeholder="Your email">
             </app-form-field>
+
             <app-form-field [control]="message" [controlName]="'message'" [maxLength]="MESSAGE_MAX_LENGTH">
-                <textarea [class.invalid]="message.invalid && (message.dirty || message.touched)" name="" id=""
+                <textarea [maxLength]="MESSAGE_MAX_LENGTH" [class.invalid]="message.invalid && (message.dirty || message.touched)" name="" id=""
                     cols="30" rows="10" [formControl]="message" placeholder="Your message"></textarea>
             </app-form-field>
+
             <button (touchstart)="onSubmit($event)" (click)="onSubmit($event)" [title]="contactForm.invalid ? 'Please fill up the form' : ''"
                 [disabled]="contactForm.invalid || submitting || isMessageSend" class="button-green-white">
                 <ng-container *ngIf="!submitting && !response?.contactSubmitted">
