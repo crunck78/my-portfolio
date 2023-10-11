@@ -36,9 +36,10 @@ export class ScrollToDirective {
   triggerScroll() {
     const targetElement = document.getElementById(this.scrollTo);
     if (targetElement) { // not secure but will work
-      const top = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const top = targetElement.getBoundingClientRect().top + window.scrollY;
       if ('scrollBehavior' in document.documentElement.style) {
         // Use smooth scrolling if supported
+        // chrome://flags/#smooth-scrolling activate, default not working
         window.scrollTo({
           top,
           behavior: 'smooth'
@@ -55,7 +56,7 @@ export class ScrollToDirective {
   }
 
   private scrollToPolyfill(scrollTo: number) {
-    const start = window.pageYOffset;
+    const start = window.scrollY;
     const distance = scrollTo - start;
     const duration = 300; // The duration of the scroll animation
 
