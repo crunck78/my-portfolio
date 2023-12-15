@@ -1,7 +1,7 @@
 <div #header [@openCloseHeader]="toggleViewHeader" class="header">
     <div class="header-view padding-main">
         <app-logo></app-logo>
-        <app-nav-bar (toggleMenuEmit)="menuViewState($event)"></app-nav-bar>
+        <app-nav-bar [toggleMenu]="menuState" (toggleMenuEmit)="menuViewState($event)"></app-nav-bar>
     </div>
 
     <div style="position: relative;">

@@ -17,9 +17,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   toggleViewOpener: 'open' | 'closed' = 'open';
   headerState$ = new BehaviorSubject<'closed' | 'open'>('open');
   openerState$ = new BehaviorSubject<'closed' | 'open'>('closed');
-  menuState !: 'closed' | 'open';
+  menuState: 'closed' | 'open' = 'closed';
 
-  get arrowTransformation(){
+  get arrowTransformation() {
     return this.toggleViewHeader == 'closed' ? 'translate(45, 50) rotate(180, 6.99996, 8)' : 'translate(45, 45) ';
   }
 
@@ -52,6 +52,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     if (this.toggleViewHeader == 'open') {
       this.headerState$.next('closed');
       this.openerState$.next('open');
+      this.menuState = 'closed';
     }
   }
 
