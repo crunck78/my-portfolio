@@ -4,7 +4,7 @@
     <app-footer></app-footer>
 </div>
 
-<div *ngIf="feedbacks.length > 0" class="feedbacks">
+<div *ngIf="feedbacks.length > 0" class="feedbacks max-width--center">
     <ng-container *ngFor="let feedback of feedbacks; let i = index;">
         <app-feedback (close)="closeFeedback(i)" *ngIf="feedback.isOpened" [feedback]="feedback"
         ></app-feedback>
