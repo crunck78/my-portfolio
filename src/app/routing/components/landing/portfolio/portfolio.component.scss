@@ -15,4 +15,15 @@
         bottom: 50%;
         z-index: -1;
     }
+
+    .projects{
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    .project-details{
+        min-width: 300px;
+        max-width: 500px;
+    }
 }

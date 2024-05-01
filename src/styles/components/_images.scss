@@ -12,6 +12,7 @@
         border-radius: 100%;
         max-width: 70vh;
         max-height: 70vh;
+
         @media(max-width: 560px) {
             width: 70vw;
             height: 70vw;
@@ -60,5 +61,11 @@
         background-color: $green;
         position: absolute;
         right: -$paddingMainLeftRightMax;
+    }
+}
+
+.circle-image--no-object-fit {
+    img {
+        object-fit: none;
     }
 }

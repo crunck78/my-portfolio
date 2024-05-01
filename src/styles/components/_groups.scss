@@ -11,4 +11,20 @@
     .group-middle {
         flex: 1;
     }
+
+    .group-first{
+        margin-right: auto;
+    }
+}
+
+.group-center-wrap--reverse{
+    flex-direction: row-reverse;
+}
+
+.group--align-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    margin-left: auto;
 }
