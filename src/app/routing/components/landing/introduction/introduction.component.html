@@ -2,7 +2,7 @@
     <div class="hero" [@visibleHidden]="toggleMe">
         <div class="hero-bg">
 
-            <svg width="512" height="794" viewBox="0 0 512 794" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shift-form" width="512" height="794" viewBox="0 0 512 794" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_f_11_241)">
                     <path
                         d="M12 330.454C78.8361 199.398 121.135 154.004 133.931 147.689C133.931 147.689 175.139 17.8586 209.573 158.276C244.007 298.693 379.485 100.883 379.485 100.883L419 330.454L264.869 413.887L419 464.742L347.874 701L104.012 500.961L264.869 413.887L12 330.454Z"
@@ -17,7 +17,7 @@
                     </filter>
                 </defs>
             </svg>
-            <svg width="597" height="690" viewBox="0 0 597 690" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shift-form" width="597" height="690" viewBox="0 0 597 690" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_f_11_243)">
                     <path
                         d="M154.832 381.216C-18.3301 333.362 228.52 93.6728 228.52 93.6728C228.52 93.6728 287.326 297.414 368.382 202.843C449.439 108.271 392.764 297.416 466.564 383.74C540.365 470.064 481.494 495.125 481.494 495.125C481.494 495.125 404.753 637.634 342.202 584.92C279.652 532.207 207.016 498.873 179.513 452.473C154.712 410.633 171.242 395.659 197.236 392.548C184.85 389.372 170.77 385.621 154.832 381.216Z"
@@ -48,10 +48,6 @@
         <button [@visibleHiddenButton]="toggleMe" class="contact button-green-white" [scrollTo]="'contact'">Let's
             Talk</button>
     </div>
-
-
-
-
 </div>
 
 <svg class="curve" #curve [attr.width]="width" [attr.height]="height" [attr.viewBox]="viewBox" fill="none"
@@ -67,7 +63,7 @@
     </defs>
 </svg>
 
-<!-- <svg class="curve" #curve width="1442" height="1079" viewBox="0 0 1442 1079" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- <svg class="curve" *ngIf="false" #curve width="1442" height="1079" viewBox="0 0 1442 1079" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
         d="M1442 0V712.4C1417.8 724.3 1393 735.9 1367.7 747.3C1174.2 834.1 943.8 908.2 682.9 967.3C404.9 1030.3 152.1 1063 2 1078.6L0 421.5C236 441.5 353.4 434.372 569.5 385C984 290.3 1281.7 152.1 1442 0Z"
         fill="url(#paint0_radial_535_3084)" />

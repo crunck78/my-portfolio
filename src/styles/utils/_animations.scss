@@ -1,0 +1,51 @@
+@keyframes pulsateColor {
+    0%, 100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(150%);
+    }
+}
+
+.pulsating-color {
+    animation: pulsateColor 2s infinite ease-in-out;
+}
+
+@keyframes pulsateOpacity {
+    0%, 100% {
+        fill-opacity: 1;
+    }
+    50% {
+        fill-opacity: 0.5;
+    }
+}
+
+.pulsating-opacity {
+    animation: pulsateOpacity 2s infinite ease-in-out;
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.pulsating {
+    animation: pulsate 2s infinite ease-in-out;
+}
+
+@keyframes pulsateFill {
+    0%, 100% {
+        fill: #9747FF; /* Original color */
+    }
+    50% {
+        fill: #B888FF; /* Lighter shade for the pulsating effect */
+    }
+}
+
+.pulsating-fill {
+    animation: pulsateFill 3s infinite ease-in-out;
+}

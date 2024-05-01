@@ -11,6 +11,8 @@ $breakpointMain: 1000px;
     width: 100%;
     overflow: hidden;
 
+    // min-height: calc(100vh - 111px); // header height
+    // box-sizing: border-box;
     @media(min-width: 1246px){
         padding-bottom: 180px;
     }
