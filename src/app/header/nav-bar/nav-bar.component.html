@@ -1,26 +1,29 @@
-<div class="desktop-view">
-    <a class="menu-link" [scrollTo]="'about-me'">About me</a>
-    <a class="menu-link" [scrollTo]="'my-skills'">Skills</a>
-    <a class="menu-link" [scrollTo]="'portfolio'">Portfolio</a>
-</div>
+<nav class="desktop-view">
+  <a class="menu-link" [appScrollTo]="'about-me'">About me</a>
+  <a class="menu-link" [appScrollTo]="'my-skills'">Skills</a>
+  <a class="menu-link" [appScrollTo]="'portfolio'">Portfolio</a>
+</nav>
 
-<div class="mobile-view" (touchstart)="toggleView($event)" (click)="toggleView($event)">
-    <div class="menu-toggler">
-        <svg #topLine [@openCloseTogglerFirst]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        <svg #middleLine [@openCloseTogglerMiddle]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        <svg #bottomLine [@openCloseTogglerLast]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
-        </svg>
-    </div>
+<button type="button" class="mobile-view" (touchstart)="toggleView($event)" (click)="toggleView($event)">
+  <div class="menu-toggler">
+    <svg #topLine [@openCloseTogglerFirst]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+    </svg>
+    <svg #middleLine [@openCloseTogglerMiddle]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+    </svg>
+    <svg #bottomLine [@openCloseTogglerLast]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  </div>
 
-    <div #menu [@openCloseMenu]="toggleMenu" class="menu">
-        <a class="menu-link" [scrollTo]="'about-me'">About me</a>
-        <a class="menu-link" [scrollTo]="'my-skills'">My skills</a>
-        <a class="menu-link" [scrollTo]="'portfolio'">Portfolio</a>
-        <a class="menu-link" [scrollTo]="'contact'">Contact</a>
-    </div>
-</div>
+  <div #menu [@openCloseMenu]="toggleMenu" class="menu">
+    <a class="menu-link" [appScrollTo]="'about-me'">About me</a>
+    <a class="menu-link" [appScrollTo]="'my-skills'">My skills</a>
+    <a class="menu-link" [appScrollTo]="'portfolio'">Portfolio</a>
+    <a class="menu-link" [appScrollTo]="'contact'">Contact</a>
+  </div>
+</button>

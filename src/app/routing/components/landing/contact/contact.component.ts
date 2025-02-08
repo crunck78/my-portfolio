@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { FormFieldModule } from './form-field/form-field.module';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
-import { Feedback, FeedbackModel } from 'src/app/shared/feedback/feedback.model';
+import { Feedback } from 'src/app/shared/feedback/feedback.model';
 
 interface Response {
   code: number,
-  type: 'error' | 'warning' | 'info',
+  type: 'error' | 'warning' | 'info' | 'detail',
   message: string,
   contactSubmitted: boolean
+}
+
+interface ApiResponse {
+  detail: string
 }
 
 @Component({
@@ -17,7 +20,7 @@ interface Response {
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   readonly NAME_REGEX = /^[A-Za-z .'-]+$/;
   readonly EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
@@ -25,7 +28,7 @@ export class ContactComponent implements OnInit {
   readonly EMAIL_MAX_LENGTH = 50;
   readonly MESSAGE_MAX_LENGTH = 250;
   readonly contactForm = new FormGroup({});
-  submitting: boolean = false;
+  submitting = false;
   response!: Response;
 
   readonly name = new FormControl('', Validators.compose(
@@ -56,9 +59,6 @@ export class ContactComponent implements OnInit {
     this.contactForm.setControl('message', this.message);
   }
 
-  ngOnInit(): void {
-  }
-
   onSubmit(event: Event) {
     event.preventDefault();
     if (this.canSubmit) {
@@ -87,7 +87,7 @@ export class ContactComponent implements OnInit {
 
   postMessage() {
     const conf = this.postConf;
-    this.http.post(conf.url, conf.body)
+    this.http.post<ApiResponse>(conf.url, conf.body)
       .subscribe(
         {
           next: response => this.handleResponse(response),
@@ -106,13 +106,13 @@ export class ContactComponent implements OnInit {
     return { url, body };
   }
 
-  handleResponse(response: any) {
+  handleResponse(response: ApiResponse) {
     this.contactForm.reset();
     this.response = { code: 200, type: 'info', message: response.detail, contactSubmitted: true };
     this.handleSubmission();
   }
 
-  handleError(errorResponse: any) {
+  handleError(errorResponse: HttpErrorResponse) {
     const message = errorResponse.status == 400 ? errorResponse.error.detail : "An error occurred while submitting the message.";
     this.response = { code: errorResponse.status, type: 'error', message: message, contactSubmitted: true }
     this.handleSubmission();

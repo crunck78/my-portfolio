@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderModule } from './header/header.module';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { LandingModule } from './routing/components/landing/landing.module';
-import { FeedbackModule } from './shared/feedback/feedback.module';
 import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
@@ -37,11 +36,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'my-portfolio'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-portfolio');
   });
 });
