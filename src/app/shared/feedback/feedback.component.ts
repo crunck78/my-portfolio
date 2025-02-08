@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FeedbackModel } from './feedback.model';
 
 @Component({
@@ -6,15 +6,10 @@ import { FeedbackModel } from './feedback.model';
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss']
 })
-export class FeedbackComponent implements OnInit {
+export class FeedbackComponent {
 
   @Input() feedback!: FeedbackModel;
   @Output() close = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   get closeFeedbackAction(){
     return this.feedback?.closeFeedbackAction;

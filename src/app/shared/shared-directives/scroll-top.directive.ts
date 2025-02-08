@@ -5,8 +5,6 @@ import { Directive, HostListener } from '@angular/core';
 })
 export class ScrollTopDirective {
 
-  constructor() { }
-
   @HostListener('click', ['$event'])
   onClick() {
     if (window.scrollY > 0) {

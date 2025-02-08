@@ -22,6 +22,7 @@
       }
 
       .opener {
+         all: unset;
          position: absolute;
          transform: translateY(-50%) translateX(-50%);
          cursor: pointer;

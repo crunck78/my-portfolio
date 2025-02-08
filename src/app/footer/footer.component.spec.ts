@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppModule } from '../app.module';
-import { SocialComponent } from '../shared/shared-components/social/social.component';
 import { SharedModule } from '../shared/shared.module';
 
 import { FooterComponent } from './footer.component';

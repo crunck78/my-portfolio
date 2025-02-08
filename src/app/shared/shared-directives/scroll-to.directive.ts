@@ -2,14 +2,14 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Directive({
-  selector: '[scrollTo]'
+  selector: '[appScrollTo]'
 })
 export class ScrollToDirective {
 
   /**
    * The ID of target element
    */
-  @Input() scrollTo!: string;
+  @Input() appScrollTo!: string;
 
   constructor(private el: ElementRef, private router: Router) { }
 
@@ -34,7 +34,7 @@ export class ScrollToDirective {
   }
 
   triggerScroll() {
-    const targetElement = document.getElementById(this.scrollTo);
+    const targetElement = document.getElementById(this.appScrollTo);
     if (targetElement) { // not secure but will work
       const top = targetElement.getBoundingClientRect().top + window.scrollY;
       if ('scrollBehavior' in document.documentElement.style) {

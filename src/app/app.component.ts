@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Feedback, FeedbackModel } from './shared/feedback/feedback.model';
+import { Component, inject } from '@angular/core';
 import { FeedbackService } from './shared/feedback/feedback.service';
 
 @Component({
@@ -8,15 +7,14 @@ import { FeedbackService } from './shared/feedback/feedback.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-portfolio';
+  feedbackService = inject(FeedbackService);
 
-  constructor(private feedbackS: FeedbackService) { }
 
   get feedbacks() {
-    return this.feedbackS.feedbacks;
+    return this.feedbackService.feedbacks;
   }
 
   closeFeedback(index: number) {
-    this.feedbackS.close(index);
+    this.feedbackService.close(index);
   }
 }
