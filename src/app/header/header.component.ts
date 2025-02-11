@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Feedback, FeedbackModel } from '../shared/feedback/feedback.model';
 import { openCloseAnimationHeader } from './header.animations';
 
 @Component({
@@ -9,7 +8,7 @@ import { openCloseAnimationHeader } from './header.animations';
   styleUrls: ['./header.component.scss'],
   animations: [openCloseAnimationHeader]
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements AfterViewInit {
 
   @ViewChild('header') header!: ElementRef;
   @ViewChild('headerOpener') headerOpener!: ElementRef;
@@ -23,7 +22,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     return this.toggleViewHeader == 'closed' ? 'translate(45, 50) rotate(180, 6.99996, 8)' : 'translate(45, 45) ';
   }
 
-  constructor() { }
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.headerState$.subscribe(state => this.toggleViewHeader = state);
@@ -42,9 +40,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.openerState$.next('closed');
     }
 
-  }
-
-  ngOnInit(): void {
   }
 
   @HostListener('window:scroll', ['$event'])

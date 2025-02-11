@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,18 +6,13 @@ import { FormControl } from '@angular/forms';
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss']
 })
-export class FormFieldComponent implements OnInit {
+export class FormFieldComponent {
 
   @Input() control!: FormControl;
   @Input() controlName!: string;
   @Input() maxLength!: number;
   @Input() customHasError!: boolean;
   @Input() customIsValid!: boolean;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   get hasError() {
     return this.customHasError !== undefined ? this.customHasError : this.control?.invalid && (this.control?.dirty || this.control?.touched);

@@ -8,7 +8,6 @@ import { Feedback, FeedbackModel } from './feedback.model';
 export class FeedbackService {
 
   feedbacks: FeedbackModel[] = [];
-  constructor() {}
 
   createNewFeedback(newFeedback: Feedback) {
     this.feedbacks.push(new FeedbackModel(newFeedback));

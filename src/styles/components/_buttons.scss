@@ -1,4 +1,4 @@
-button {
+button:not(.opener) {
     display: flex;
     flex-direction: row;
     justify-content: center;

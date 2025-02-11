@@ -1,28 +1,37 @@
-on: push
-name: 🚀 Deploy website on push
+on:
+  push:
+    branches:
+      - main  # Only trigger on pushes to the main branch
+name: 🚀 Deploy website on main push
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.2.2
       with:
         fetch-depth: 0
 
-    - name: Node 16.14.2
-      uses: actions/setup-node@v1
+    - name: Setup Node
+      uses: actions/setup-node@v4.2.0
       with:
-        node-version: 20.9.0
+        node-version: 22.13.1
 
     - name: Install and build
       run: |
         npm i
         npm run build
+
+    - name: Run Lint
+      run: |
+        npm run lint
+
     - name: Run tests
       run: |
         npm run test -- --watch=false --browsers=ChromeHeadless
+
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.1
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
