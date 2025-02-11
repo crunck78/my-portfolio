@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { toggleButtonAnimation, toggleIntroAnimation, toggleMeAnimation } from './introduction.animations';
 
 @Component({
@@ -7,12 +7,12 @@ import { toggleButtonAnimation, toggleIntroAnimation, toggleMeAnimation } from '
   styleUrls: ['./introduction.component.scss'],
   animations: [toggleMeAnimation, toggleIntroAnimation, toggleButtonAnimation]
 })
-export class IntroductionComponent implements OnInit, AfterViewInit {
+export class IntroductionComponent implements AfterViewInit {
   @ViewChild('curve') curve!: ElementRef;
   @ViewChild('me') me!: ElementRef;
 
-  width: number = 1442;
-  height: number = 1079;
+  width = 1442;
+  height = 1079;
 
   get viewBox() { return `0 0 ${this.width} ${this.height}` };
 
@@ -42,19 +42,17 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
   }
 
   toggleMe = 'hidden';
-  constructor() { }
+
   ngAfterViewInit(): void {
     setTimeout(() => this.toggleMe = 'visible', 200);
   }
-
-  ngOnInit(): void {}
 
   /**
    * Primarily used to updateCurve
    * @param event
    */
   @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+  onResize() {
     this.updateCurve();
   }
 
@@ -62,7 +60,7 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
    * Out of use.
    */
   updateCurve() {
-    let timeout = setTimeout(() => {
+    const timeout = setTimeout(() => {
       clearTimeout(timeout);
       if (window.innerWidth > 1442)
         this.width = window.innerWidth;
@@ -78,7 +76,7 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
     const paths = Array.from(document.querySelectorAll('svg.shift-form path')) as SVGPathElement[];
 
     paths.forEach(path => {
-      let d = path.getAttribute('d')?.split(' ').map(part => {
+      const d = path.getAttribute('d')?.split(' ').map(part => {
         // Convert part to a number before checking if it is NaN
         const numPart = parseFloat(part);
         if (!isNaN(numPart)) {
