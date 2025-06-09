@@ -1,10 +1,10 @@
 <nav class="desktop-view">
-  <a class="menu-link" [appScrollTo]="'about-me'">About me</a>
-  <a class="menu-link" [appScrollTo]="'my-skills'">Skills</a>
-  <a class="menu-link" [appScrollTo]="'portfolio'">Portfolio</a>
+  <button type="button" class="menu-link" [appScrollTo]="'about-me'">About me</button>
+  <button type="button" class="menu-link" [appScrollTo]="'my-skills'">Skills</button>
+  <button type="button" class="menu-link" [appScrollTo]="'portfolio'">Portfolio</button>
 </nav>
 
-<button type="button" class="mobile-view" (touchstart)="toggleView($event)" (click)="toggleView($event)">
+<button type="button" class="mobile-view" aria-label="Toggle menu view" (touchstart)="toggleView($event)" (click)="toggleView($event)">
   <div class="menu-toggler">
     <svg #topLine [@openCloseTogglerFirst]="toggleMenu" width="32" height="3" viewBox="0 0 32 3" fill="none"
       xmlns="http://www.w3.org/2000/svg">
@@ -21,9 +21,9 @@
   </div>
 
   <div #menu [@openCloseMenu]="toggleMenu" class="menu">
-    <a class="menu-link" [appScrollTo]="'about-me'">About me</a>
-    <a class="menu-link" [appScrollTo]="'my-skills'">My skills</a>
-    <a class="menu-link" [appScrollTo]="'portfolio'">Portfolio</a>
-    <a class="menu-link" [appScrollTo]="'contact'">Contact</a>
+    <button type="button" class="menu-link" [appScrollTo]="'about-me'">About me</button>
+    <button type="button" class="menu-link" [appScrollTo]="'my-skills'">My skills</button>
+    <button type="button" class="menu-link" [appScrollTo]="'portfolio'">Portfolio</button>
+    <button type="button" class="menu-link" [appScrollTo]="'contact'">Contact</button>
   </div>
 </button>
