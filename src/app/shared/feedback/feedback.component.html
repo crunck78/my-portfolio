@@ -1,5 +1,5 @@
 <div class="feedback margin-bottom-regular">
     <div class="text-normal-regular">{{feedbackMessage}}</div>
-    <button class="button-purple-white text-normal-regular" (touchstart)="$event.preventDefault(); close.emit()"
+    <button type="button" class="button-purple-white text-normal-regular" (touchstart)="$event.preventDefault(); close.emit()"
         (click)="close.emit()">{{closeFeedbackAction}}</button>
 </div>

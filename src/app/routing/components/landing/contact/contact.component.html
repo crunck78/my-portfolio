@@ -36,7 +36,7 @@
                     cols="30" rows="10" [formControl]="message" placeholder="Your message"></textarea>
             </app-form-field>
 
-            <button (touchstart)="onSubmit($event)" (click)="onSubmit($event)" [title]="contactForm.invalid ? 'Please fill up the form' : ''"
+            <button type="button" (touchstart)="onSubmit($event)" (click)="onSubmit($event)" [title]="contactForm.invalid ? 'Please fill up the form' : ''"
                 [disabled]="contactForm.invalid || submitting || isMessageSend" class="button-green-white">
                 <ng-container *ngIf="!submitting && !response?.contactSubmitted">
                     Send Message
