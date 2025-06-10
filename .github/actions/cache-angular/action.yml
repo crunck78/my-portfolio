@@ -1,0 +1,12 @@
+name: 'Cache Angular'
+description: 'Cache Angular Build'
+runs:
+  using: 'composite'
+  steps:
+    - name: Cache Angular Build Cache
+      uses: actions/cache@v4.2.3
+      with:
+        path: .angular/cache
+        key: ${{ runner.os }}-angular-${{ hashFiles('angular.json') }}
+        restore-keys: |
+          ${{ runner.os }}-angular-
