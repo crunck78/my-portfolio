@@ -1,6 +1,14 @@
 name: 🏗️ Build
 
-on: [pull_request, workflow_call, workflow_dispatch]
+on:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      trigger_source:
+        required: false
+        type: string
+        default: ''
 
 jobs:
   build:
@@ -14,11 +22,12 @@ jobs:
       - name: Cache Node Modules
         uses: ./.github/actions/cache-node-modules
 
-      - name: Restore Angular Cache
-        uses: ./.github/actions/cache-angular-restore
-
       - run: npm ci
       - run: npm run build
 
-      - name: Save Angular Cache
-        uses: ./.github/actions/cache-angular-save
+      - name: Upload Build Artifacts
+        if: ${{ inputs.trigger_source == 'deploy' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: ${{ secrets.LOCAL_UPLOAD }}
