@@ -1,4 +1,4 @@
-name: 🚀 Deploy website on main push
+name: 🚀 Deploy website
 on:
   push:
     tags:
