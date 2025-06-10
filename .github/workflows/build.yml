@@ -14,7 +14,8 @@ jobs:
       - name: Cache Node Modules
         uses: ./.github/actions/cache-node-modules
 
-      - name: Cache Angular
-        uses: ./.github/actions/cache-angular
       - run: npm ci
       - run: npm run build
+
+      - name: Cache Angular (Restore + Save)
+        uses: ./.github/actions/cache-angular

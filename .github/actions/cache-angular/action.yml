@@ -1,12 +1,20 @@
 name: 'Cache Angular'
-description: 'Cache Angular Build'
+description: 'Restore and Save Angular build cache after build'
 runs:
   using: 'composite'
   steps:
-    - name: Cache Angular Build Cache
+    - name: Restore Angular Cache
       uses: actions/cache@v4.2.3
       with:
         path: .angular/cache
         key: ${{ runner.os }}-angular-${{ hashFiles('angular.json') }}
         restore-keys: |
           ${{ runner.os }}-angular-
+
+    - name: Save Angular Cache
+      if: always()
+      uses: actions/cache/save@v4
+      with:
+        path: .angular/cache
+        key: ${{ runner.os }}-angular-${{ hashFiles('angular.json') }}
+
