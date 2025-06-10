@@ -1,4 +1,4 @@
-name: Build
+name: 🏗️ Build
 
 on: [pull_request, workflow_call, workflow_dispatch]
 
@@ -10,7 +10,11 @@ jobs:
       - uses: actions/setup-node@v4.4.0
         with:
           node-version: 22
-      - uses: ./.github/actions/cache-node-modules
-      - uses: ./.github/actions/cache-angular
+
+      - name: Cache Node Modules
+        uses: ./.github/actions/cache-node-modules
+
+      - name: Cache Angular
+        uses: ./.github/actions/cache-angular
       - run: npm ci
       - run: npm run build
