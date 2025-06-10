@@ -1,0 +1,12 @@
+name: 'Restore Angular Cache'
+description: 'Restore Angular build cache before build or test'
+runs:
+  using: 'composite'
+  steps:
+    - name: Restore Angular Cache
+      uses: actions/cache@v4.2.3
+      with:
+        path: .angular/cache
+        key: ${{ runner.os }}-angular-${{ hashFiles('angular.json') }}
+        restore-keys: |
+          ${{ runner.os }}-angular-
