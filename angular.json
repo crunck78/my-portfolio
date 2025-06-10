@@ -118,6 +118,9 @@
     }
   },
   "cli": {
+    "cache": {
+      "enabled": true
+    },
     "schematicCollections": [
       "angular-eslint"
     ]
