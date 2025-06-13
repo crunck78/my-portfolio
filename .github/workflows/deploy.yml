@@ -22,6 +22,8 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       trigger_source: "deploy"
+    secrets:
+      LOCAL_UPLOAD: ${{ secrets.LOCAL_UPLOAD }}
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
