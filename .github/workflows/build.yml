@@ -4,6 +4,9 @@ on:
   pull_request:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      LOCAL_UPLOAD:
+        required: true
     inputs:
       trigger_source:
         required: false
