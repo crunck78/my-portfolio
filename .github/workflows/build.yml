@@ -27,7 +27,7 @@ jobs:
 
       - name: Upload Build Artifacts
         if: ${{ inputs.trigger_source == 'deploy' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: build-artifacts
           path: ${{ secrets.LOCAL_UPLOAD }}
