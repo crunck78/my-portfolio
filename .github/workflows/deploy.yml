@@ -3,6 +3,13 @@ on:
   push:
     tags:
       - v*.*.*
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run the workflow without deploying"
+        required: false
+        default: true
+        type: boolean
 jobs:
   test:
     name: 🧪 Test
@@ -34,7 +41,23 @@ jobs:
           name: build-artifacts
           path: ${{ secrets.LOCAL_UPLOAD }}
 
+
+      - name: 📂 Verify Build Artifacts (Dry Run)
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run }}
+        run: |
+          echo "Dry run mode enabled. Verifying build artifacts."
+          echo "Local directory: ${{ secrets.LOCAL_UPLOAD }}"
+          if [ -z "$(ls -A ${{ secrets.LOCAL_UPLOAD }})" ]; then
+            echo "No build artifacts found in the directory."
+            exit 1
+          else
+            echo "Build artifacts found:"
+            tree ${{ secrets.LOCAL_UPLOAD }}
+          fi
+          echo "Dry run verification completed."
+
       - name: 📂 Sync files
+        if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !github.event.inputs.dry_run) }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
