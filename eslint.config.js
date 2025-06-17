@@ -1,88 +1,71 @@
 // @ts-check
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const angular = require("angular-eslint");
-const eslintConfigPrettier = require("eslint-config-prettier/flat");
-const prettierPlugin = require("eslint-plugin-prettier"); // ← 👈 you MUST import this
-
-module.exports = tseslint.config(
+const prettierPlugin = require('eslint-plugin-prettier');
+const typescriptParser = require('@typescript-eslint/parser');
+const tsPlugin = require('@typescript-eslint/eslint-plugin');
+const angularPlugin = require('@angular-eslint/eslint-plugin');
+const angularTemplateParser = require('@angular-eslint/template-parser');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+module.exports = [
   {
-    files: ["**/*.ts"],
-    plugins: {
-      prettier: prettierPlugin, // 👈 manually attach the plugin
+    ignores: ['.cache/', '.git/', '.github/', 'node_modules/'],
+  },
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.spec.json'],
+      },
     },
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
-      ...angular.configs.tsRecommended,
-      eslintConfigPrettier,
-    ],
-    processor: angular.processInlineTemplates,
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+      '@angular-eslint': angularPlugin,
+      prettier: prettierPlugin,
+    },
     rules: {
-      ...eslintConfigPrettier.rules,
-      "prettier/prettier": "error", // 👈 now this will work
-      "@angular-eslint/directive-selector": [
-        "error",
+      ...tsPlugin.configs.recommended.rules,
+      ...angularPlugin.configs.recommended.rules,
+      ...prettierPlugin.configs?.rules,
+      '@angular-eslint/directive-selector': [
+        'warn',
         {
-          type: "attribute",
-          prefix: "app",
-          style: "camelCase",
+          type: 'attribute',
+          prefix: 'app',
+          style: 'camelCase',
         },
       ],
-      "@angular-eslint/component-selector": [
-        "error",
+      '@angular-eslint/component-selector': [
+        'warn',
         {
-          type: "element",
-          prefix: "app",
-          style: "kebab-case",
+          type: 'element',
+          prefix: 'app',
+          style: 'kebab-case',
         },
       ],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_"
-        }
-      ],
-      "prefer-const": "error",
-      "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/member-ordering": [
-        "error",
-        {
-          default: [
-            "signature",
-            "public-static-field",
-            "protected-static-field",
-            "private-static-field",
-            "public-instance-field",
-            "protected-instance-field",
-            "private-instance-field",
-            "constructor",
-            "public-static-method",
-            "protected-static-method",
-            "private-static-method",
-            "public-instance-method",
-            "protected-instance-method",
-            "private-instance-method"
-          ]
-        }
-      ]
+      'import/order': 'off',
+      '@typescript-eslint/no-explicit-any': ['off'],
+      '@typescript-eslint/member-ordering': 0,
+      '@typescript-eslint/naming-convention': 0,
+      '@angular-eslint/no-host-metadata-property': 'off',
+      '@angular-eslint/no-output-on-prefix': 'off',
+      '@typescript-eslint/ban-types': 'off',
+      '@typescript-eslint/no-inferrable-types': 'off',
     },
   },
   {
-    files: ["**/*.html"],
+    files: ['**/*.html'],
+    languageOptions: {
+      parser: angularTemplateParser,
+    },
     plugins: {
+      '@angular-eslint': angularPlugin,
+      '@angular-eslint/template': angularPlugin,
       prettier: prettierPlugin,
     },
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-      eslintConfigPrettier,
-    ],
     rules: {
-      ...eslintConfigPrettier.rules,
-      "prettier/prettier": "error" // 🔥 for HTML templates too
+      'prettier/prettier': ['error', { parser: 'angular' }],
     },
-  }
-);
+  },
+  eslintPluginPrettierRecommended,
+
+];

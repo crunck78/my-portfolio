@@ -1,7 +1,23 @@
 {
-  "singleQuote": true,
   "semi": true,
-  "printWidth": 100,
-  "trailingComma": "all",
-  "endOfLine": "lf"
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 120
+      }
+    }
+  ]
 }
