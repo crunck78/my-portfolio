@@ -1,21 +1,23 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/openClose.animations';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  openCloseAnimationMenu,
+  openCloseAnimationToggler,
+} from './animations/openClose.animations';
+import { OpenCloseStatus } from '../header.types';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
-  animations: [openCloseAnimationMenu, openCloseAnimationToggler]
+  animations: [openCloseAnimationMenu, openCloseAnimationToggler],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavBarComponent {
+  @Input() toggleMenu: OpenCloseStatus = 'closed';
+  @Output() toggleMenuChange = new EventEmitter<OpenCloseStatus>();
 
-  @Input() toggleMenu: "closed" | "open" = "closed";
-  @Output() toggleMenuEmit = new EventEmitter<"closed" | "open">();
-
-  toggleView(event: Event){
+  toggleView(event: Event) {
     event.preventDefault();
-    this.toggleMenu = this.toggleMenu == "open" ? "closed" : "open";
-    this.toggleMenuEmit.emit(this.toggleMenu);
+    this.toggleMenuChange.emit(this.toggleMenu === 'open' ? 'closed' : 'open');
   }
-
 }
