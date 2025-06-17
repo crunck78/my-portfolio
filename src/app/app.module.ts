@@ -11,10 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderModule } from './header/header.module';
 import { LandingModule } from './routing/components/landing/landing.module';
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-  ],
+  declarations: [AppComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,9 +19,9 @@ import { LandingModule } from './routing/components/landing/landing.module';
     HttpClientModule,
     HeaderModule,
     LandingModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

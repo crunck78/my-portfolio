@@ -5,7 +5,7 @@ import { toggleButtonAnimation, toggleIntroAnimation, toggleMeAnimation } from '
   selector: 'app-introduction',
   templateUrl: './introduction.component.html',
   styleUrls: ['./introduction.component.scss'],
-  animations: [toggleMeAnimation, toggleIntroAnimation, toggleButtonAnimation]
+  animations: [toggleMeAnimation, toggleIntroAnimation, toggleButtonAnimation],
 })
 export class IntroductionComponent implements AfterViewInit {
   @ViewChild('curve') curve!: ElementRef;
@@ -14,7 +14,9 @@ export class IntroductionComponent implements AfterViewInit {
   width = 1442;
   height = 1079;
 
-  get viewBox() { return `0 0 ${this.width} ${this.height}` };
+  get viewBox() {
+    return `0 0 ${this.width} ${this.height}`;
+  }
 
   get curvePathD() {
     return `M${(1442 / 1442) * this.width} ${(0 / 1079) * this.height}
@@ -44,7 +46,7 @@ export class IntroductionComponent implements AfterViewInit {
   toggleMe = 'hidden';
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.toggleMe = 'visible', 200);
+    setTimeout(() => (this.toggleMe = 'visible'), 200);
   }
 
   /**
@@ -62,11 +64,9 @@ export class IntroductionComponent implements AfterViewInit {
   updateCurve() {
     const timeout = setTimeout(() => {
       clearTimeout(timeout);
-      if (window.innerWidth > 1442)
-        this.width = window.innerWidth;
-      else
-        this.width = 1442;
-    }, 100)
+      if (window.innerWidth > 1442) this.width = window.innerWidth;
+      else this.width = 1442;
+    }, 100);
   }
 
   /**
@@ -75,18 +75,22 @@ export class IntroductionComponent implements AfterViewInit {
   randomizePath() {
     const paths = Array.from(document.querySelectorAll('svg.shift-form path')) as SVGPathElement[];
 
-    paths.forEach(path => {
-      const d = path.getAttribute('d')?.split(' ').map(part => {
-        // Convert part to a number before checking if it is NaN
-        const numPart = parseFloat(part);
-        if (!isNaN(numPart)) {
-          return numPart + (Math.random() - 0.5) * 10; // Adjust range of randomness as needed
-        }
-        return part;
-      }).join(' ');
+    paths.forEach((path) => {
+      const d = path
+        .getAttribute('d')
+        ?.split(' ')
+        .map((part) => {
+          // Convert part to a number before checking if it is NaN
+          const numPart = parseFloat(part);
+          if (!isNaN(numPart)) {
+            return numPart + (Math.random() - 0.5) * 10; // Adjust range of randomness as needed
+          }
+          return part;
+        })
+        .join(' ');
       if (d) {
         path.setAttribute('d', d);
       }
-    })
+    });
   }
 }

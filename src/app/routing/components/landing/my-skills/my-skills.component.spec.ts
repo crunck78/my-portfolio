@@ -10,10 +10,9 @@ describe('MySkillsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MySkillsComponent ],
-      imports: [SharedModule, MySkillsModule]
-    })
-    .compileComponents();
+      declarations: [MySkillsComponent],
+      imports: [SharedModule, MySkillsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MySkillsComponent);
     component = fixture.componentInstance;

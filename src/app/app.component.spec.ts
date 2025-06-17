@@ -22,13 +22,9 @@ describe('AppComponent', () => {
         HttpClientModule,
         HeaderModule,
         LandingModule,
-        SharedModule
+        SharedModule,
       ],
-      declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent
-      ],
+      declarations: [AppComponent, HeaderComponent, FooterComponent],
     }).compileComponents();
   });
 

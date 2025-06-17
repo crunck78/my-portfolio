@@ -10,20 +10,9 @@ import { ContactModule } from './contact/contact.module';
 import { MySkillsModule } from './my-skills/my-skills.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    LandingComponent,
-    IntroductionComponent,
-    AboutMeComponent,
-  ],
-  imports: [
-    CommonModule,
-    MySkillsModule,
-    PortfolioModule,
-    ContactModule,
-    SharedModule
-  ],
-  exports: [LandingComponent]
+  declarations: [LandingComponent, IntroductionComponent, AboutMeComponent],
+  imports: [CommonModule, MySkillsModule, PortfolioModule, ContactModule, SharedModule],
+  exports: [LandingComponent],
 })
-export class LandingModule { }
+export class LandingModule {}

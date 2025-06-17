@@ -4,15 +4,9 @@ import { ContactComponent } from './contact.component';
 import { FormFieldModule } from './form-field/form-field.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
-
 @NgModule({
   declarations: [ContactComponent],
-  imports: [
-    CommonModule,
-    FormFieldModule,
-    SharedModule,
-  ],
-  exports: [ContactComponent]
+  imports: [CommonModule, FormFieldModule, SharedModule],
+  exports: [ContactComponent],
 })
-export class ContactModule { }
+export class ContactModule {}

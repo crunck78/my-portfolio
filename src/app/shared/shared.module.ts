@@ -10,21 +10,9 @@ import { LogoComponent } from './shared-components/logo/logo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeedbackModule } from './feedback/feedback.module';
 
-
 @NgModule({
-  declarations: [
-    ScrollToDirective,
-    ScrollTopDirective,
-
-    SocialComponent,
-    SectionTitleComponent,
-    LogoComponent,
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FeedbackModule
-  ],
+  declarations: [ScrollToDirective, ScrollTopDirective, SocialComponent, SectionTitleComponent, LogoComponent],
+  imports: [CommonModule, ReactiveFormsModule, FeedbackModule],
   exports: [
     ScrollToDirective,
     ScrollTopDirective,
@@ -32,7 +20,7 @@ import { FeedbackModule } from './feedback/feedback.module';
     SectionTitleComponent,
     LogoComponent,
     ReactiveFormsModule,
-    FeedbackModule
-  ]
+    FeedbackModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

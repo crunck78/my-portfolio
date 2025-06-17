@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-  openCloseAnimationMenu,
-  openCloseAnimationToggler,
-} from './animations/openClose.animations';
+import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/openClose.animations';
 import { OpenCloseStatus } from '../header.types';
 
 @Component({

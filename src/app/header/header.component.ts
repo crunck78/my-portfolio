@@ -16,9 +16,7 @@ export class HeaderComponent {
   menuState: OpenCloseStatus = 'closed';
 
   arrowTransform$ = this.headerState$.pipe(
-    map((state) =>
-      state === 'closed' ? 'translate(45, 50) rotate(180, 6.99996, 8)' : 'translate(45, 45)',
-    ),
+    map((state) => (state === 'closed' ? 'translate(45, 50) rotate(180, 6.99996, 8)' : 'translate(45, 45)'))
   );
 
   toggleHeader(event: Event) {

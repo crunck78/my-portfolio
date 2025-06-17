@@ -2,23 +2,24 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Directive({
-  selector: '[appScrollTo]'
+  selector: '[appScrollTo]',
 })
 export class ScrollToDirective {
-
   /**
    * The ID of target element
    */
   @Input() appScrollTo!: string;
 
-  constructor(private el: ElementRef, private router: Router) { }
+  constructor(
+    private el: ElementRef,
+    private router: Router
+  ) {}
 
   @HostListener('click', ['$event'])
   async onClick(event: Event) {
     event.preventDefault();
-    if (!this.isStartPage())
-      await this.router.navigateByUrl('/');
-    setTimeout(()=>{
+    if (!this.isStartPage()) await this.router.navigateByUrl('/');
+    setTimeout(() => {
       this.triggerScroll();
     }, 100);
   }
@@ -26,23 +27,23 @@ export class ScrollToDirective {
   @HostListener('touchstart', ['$event'])
   async onTouchStart(event: Event) {
     event.preventDefault();
-    if (!this.isStartPage())
-      await this.router.navigateByUrl('/');
-    setTimeout(()=>{
+    if (!this.isStartPage()) await this.router.navigateByUrl('/');
+    setTimeout(() => {
       this.triggerScroll();
     }, 100);
   }
 
   triggerScroll() {
     const targetElement = document.getElementById(this.appScrollTo);
-    if (targetElement) { // not secure but will work
+    if (targetElement) {
+      // not secure but will work
       const top = targetElement.getBoundingClientRect().top + window.scrollY;
       if ('scrollBehavior' in document.documentElement.style) {
         // Use smooth scrolling if supported
         // chrome://flags/#smooth-scrolling activate, default not working
         window.scrollTo({
           top,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       } else {
         // Otherwise, use a polyfill for smooth scrolling

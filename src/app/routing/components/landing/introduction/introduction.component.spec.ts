@@ -10,10 +10,9 @@ describe('IntroductionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IntroductionComponent ],
-      imports: [BrowserAnimationsModule, SharedModule]
-    })
-    .compileComponents();
+      declarations: [IntroductionComponent],
+      imports: [BrowserAnimationsModule, SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(IntroductionComponent);
     component = fixture.componentInstance;

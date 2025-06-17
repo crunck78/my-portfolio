@@ -10,10 +10,9 @@ describe('NavBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavBarComponent ],
-      imports: [BrowserAnimationsModule, SharedModule]
-    })
-    .compileComponents();
+      declarations: [NavBarComponent],
+      imports: [BrowserAnimationsModule, SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NavBarComponent);
     component = fixture.componentInstance;

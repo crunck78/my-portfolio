@@ -5,20 +5,9 @@ import { ControlErrorPipe } from './pipes/control-error.pipe';
 import { DigitsCounterPipe } from './pipes/digits-counter.pipe';
 import { RatioCounterPipe } from './pipes/ratio-counter.pipe';
 
-
-
 @NgModule({
-  declarations: [
-    FormFieldComponent,
-    ControlErrorPipe,
-    DigitsCounterPipe,
-    RatioCounterPipe
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    FormFieldComponent
-  ]
+  declarations: [FormFieldComponent, ControlErrorPipe, DigitsCounterPipe, RatioCounterPipe],
+  imports: [CommonModule],
+  exports: [FormFieldComponent],
 })
-export class FormFieldModule { }
+export class FormFieldModule {}

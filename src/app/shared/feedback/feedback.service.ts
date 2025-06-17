@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Feedback, FeedbackModel } from './feedback.model';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FeedbackService {
-
   feedbacks: FeedbackModel[] = [];
 
   createNewFeedback(newFeedback: Feedback) {

@@ -4,19 +4,17 @@ import { FeedbackModel } from './feedback.model';
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss']
+  styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent {
-
   @Input() feedback!: FeedbackModel;
   @Output() close = new EventEmitter();
 
-  get closeFeedbackAction(){
+  get closeFeedbackAction() {
     return this.feedback?.closeFeedbackAction;
   }
 
-  get feedbackMessage(){
+  get feedbackMessage() {
     return this.feedback?.message;
   }
-
 }
