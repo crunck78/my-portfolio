@@ -3,10 +3,14 @@ const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
 const eslintConfigPrettier = require("eslint-config-prettier/flat");
+const prettierPlugin = require("eslint-plugin-prettier"); // ← 👈 you MUST import this
 
 module.exports = tseslint.config(
   {
     files: ["**/*.ts"],
+    plugins: {
+      prettier: prettierPlugin, // 👈 manually attach the plugin
+    },
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,
@@ -17,6 +21,7 @@ module.exports = tseslint.config(
     processor: angular.processInlineTemplates,
     rules: {
       ...eslintConfigPrettier.rules,
+      "prettier/prettier": "error", // 👈 now this will work
       "@angular-eslint/directive-selector": [
         "error",
         {
@@ -67,10 +72,17 @@ module.exports = tseslint.config(
   },
   {
     files: ["**/*.html"],
+    plugins: {
+      prettier: prettierPlugin,
+    },
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
+      eslintConfigPrettier,
     ],
-    rules: {},
+    rules: {
+      ...eslintConfigPrettier.rules,
+      "prettier/prettier": "error" // 🔥 for HTML templates too
+    },
   }
 );
