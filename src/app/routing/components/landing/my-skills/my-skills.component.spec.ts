@@ -10,7 +10,7 @@ describe('MySkillsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MySkillsComponent],
+      declarations: [],
       imports: [SharedModule, MySkillsModule],
     }).compileComponents();
 

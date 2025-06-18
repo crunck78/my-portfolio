@@ -9,7 +9,7 @@ describe('PortfolioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PortfolioComponent],
+      declarations: [],
       imports: [PortfolioModule],
     }).compileComponents();
 

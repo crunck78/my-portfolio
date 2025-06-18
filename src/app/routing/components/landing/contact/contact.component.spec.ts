@@ -11,7 +11,7 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ContactComponent],
+      declarations: [],
       imports: [HttpClientModule, SharedModule, ContactModule],
     }).compileComponents();
 

@@ -17,7 +17,7 @@ describe('ScrollToDirective', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [ScrollToDirective, TestComponent],
+      declarations: [],
       imports: [RouterTestingModule.withRoutes([])],
     }).createComponent(TestComponent);
 

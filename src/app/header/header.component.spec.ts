@@ -11,7 +11,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      declarations: [],
       imports: [BrowserAnimationsModule, HeaderModule, SharedModule],
     }).compileComponents();
 

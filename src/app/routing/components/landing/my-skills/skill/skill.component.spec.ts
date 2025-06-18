@@ -8,7 +8,7 @@ describe('SkillComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SkillComponent],
+      declarations: [],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SkillComponent);
