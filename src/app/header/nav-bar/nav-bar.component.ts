@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/openClose.animations';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { OpenCloseStatus } from '../header.types';
+import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/openClose.animations';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,6 +9,7 @@ import { OpenCloseStatus } from '../header.types';
   styleUrls: ['./nav-bar.component.scss'],
   animations: [openCloseAnimationMenu, openCloseAnimationToggler],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [SharedModule],
 })
 export class NavBarComponent {
   @Input() toggleMenu: OpenCloseStatus = 'closed';

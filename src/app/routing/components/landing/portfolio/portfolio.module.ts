@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PortfolioComponent } from './portfolio.component';
-import { ProjectComponent } from './project/project.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProjectComponent } from './project/project.component';
 
+const dependencies = [ProjectComponent, SharedModule];
 @NgModule({
-  declarations: [PortfolioComponent, ProjectComponent],
-  imports: [CommonModule, SharedModule],
-  exports: [PortfolioComponent],
+  declarations: [],
+  imports: [...dependencies],
+  exports: [...dependencies],
 })
 export class PortfolioModule {}

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { openCloseAnimationHeader } from './header.animations';
+import { HeaderModule } from './header.module';
 import { OpenCloseStatus } from './header.types';
 
 @Component({
@@ -9,6 +10,7 @@ import { OpenCloseStatus } from './header.types';
   styleUrls: ['./header.component.scss'],
   animations: [openCloseAnimationHeader],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [HeaderModule],
 })
 export class HeaderComponent {
   headerState$ = new BehaviorSubject<OpenCloseStatus>('open');

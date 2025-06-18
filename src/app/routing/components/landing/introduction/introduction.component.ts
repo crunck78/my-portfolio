@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { toggleButtonAnimation, toggleIntroAnimation, toggleMeAnimation } from './introduction.animations';
 
 @Component({
@@ -6,6 +7,7 @@ import { toggleButtonAnimation, toggleIntroAnimation, toggleMeAnimation } from '
   templateUrl: './introduction.component.html',
   styleUrls: ['./introduction.component.scss'],
   animations: [toggleMeAnimation, toggleIntroAnimation, toggleButtonAnimation],
+  imports: [SharedModule],
 })
 export class IntroductionComponent implements AfterViewInit {
   @ViewChild('curve') curve!: ElementRef;

@@ -1,8 +1,9 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
 import { Feedback } from 'src/app/shared/feedback/feedback.model';
+import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
+import { ContactModule } from './contact.module';
 
 interface Response {
   code: number;
@@ -19,6 +20,7 @@ interface ApiResponse {
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  imports: [ContactModule],
 })
 export class ContactComponent {
   readonly NAME_REGEX = /^[A-Za-z .'-]+$/;
