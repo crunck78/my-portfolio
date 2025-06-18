@@ -27,5 +27,8 @@
   },
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.inlineSuggest.enabled": true,
-  "eslint.format.enable": false
+  "eslint.format.enable": false,
+  "cSpell.words": ["commitlint", "Neacsu", "nums", "sendmail"],
+  "shellcheck.enable": false,
+  "biome.enabled": false
 }

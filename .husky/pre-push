@@ -1,1 +1,2 @@
-npm test && npm run build
+ng test --watch=false --verbose
+ng build --verbose
