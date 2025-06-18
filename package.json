@@ -28,6 +28,8 @@
     "@angular-devkit/build-angular": "^19.1.7",
     "@angular/cli": "^19.1.7",
     "@angular/compiler-cli": "^19.1.6",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@types/jasmine": "~5.1.6",
     "angular-eslint": "19.1.0",
     "eslint": "^9.20.1",
@@ -41,16 +43,23 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^16.1.2",
+    "ng-lint-staged": "^12.0.4",
     "prettier": "^3.5.1",
     "typescript": "^5.7",
     "typescript-eslint": "8.24.0"
   },
   "lint-staged": {
-    "*.ts": [
+    "src/**/*.ts": [
+      "ng-lint-staged lint --fix --"
+    ],
+    "src/**/*.html": [
+      "ng-lint-staged lint --fix --"
+    ],
+    "*.js": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.html": [
+    "*.json": [
       "prettier --write"
     ]
   }

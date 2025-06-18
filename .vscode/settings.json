@@ -1,10 +1,5 @@
 {
   "cSpell.language": "en,de-de,ro-ro",
-  "angular-schematics.schematicsDefaultOptions": {
-    "angular-*": {
-      "style": "scss"
-    }
-  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
@@ -26,10 +21,11 @@
       "source.organizeImports": "explicit",
       "source.fixAll.eslint": "explicit",
       "source.fixAll.tslint": "explicit",
-      "source.fixAll.stylelint": "explicit",
+      "source.fixAll.stylelint": "explicit"
     },
     "editor.formatOnSave": true
   },
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "editor.inlineSuggest.enabled": true
+  "editor.inlineSuggest.enabled": true,
+  "eslint.format.enable": false
 }
