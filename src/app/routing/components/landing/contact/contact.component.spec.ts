@@ -11,10 +11,9 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContactComponent ],
-      imports: [HttpClientModule, SharedModule, ContactModule]
-    })
-    .compileComponents();
+      declarations: [],
+      imports: [HttpClientModule, SharedModule, ContactModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;

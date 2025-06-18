@@ -1,29 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { LandingComponent } from './landing.component';
-import { IntroductionComponent } from './introduction/introduction.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { IntroductionComponent } from './introduction/introduction.component';
 
-import { PortfolioModule } from './portfolio/portfolio.module';
-import { ContactModule } from './contact/contact.module';
-import { MySkillsModule } from './my-skills/my-skills.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ContactComponent } from './contact/contact.component';
+import { MySkillsComponent } from './my-skills/my-skills.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
-
+const dependencies = [
+  MySkillsComponent,
+  PortfolioComponent,
+  ContactComponent,
+  SharedModule,
+  IntroductionComponent,
+  AboutMeComponent,
+];
 @NgModule({
-  declarations: [
-    LandingComponent,
-    IntroductionComponent,
-    AboutMeComponent,
-  ],
-  imports: [
-    CommonModule,
-    MySkillsModule,
-    PortfolioModule,
-    ContactModule,
-    SharedModule
-  ],
-  exports: [LandingComponent]
+  declarations: [],
+  imports: [...dependencies],
+  exports: [...dependencies],
 })
-export class LandingModule { }
+export class LandingModule {}

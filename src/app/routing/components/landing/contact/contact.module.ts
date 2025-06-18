@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ContactComponent } from './contact.component';
-import { FormFieldModule } from './form-field/form-field.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormFieldComponent } from './form-field/form-field.component';
 
-
+const dependencies = [ReactiveFormsModule, FormFieldComponent, SharedModule];
 
 @NgModule({
-  declarations: [ContactComponent],
-  imports: [
-    CommonModule,
-    FormFieldModule,
-    SharedModule,
-  ],
-  exports: [ContactComponent]
+  declarations: [],
+  imports: [...dependencies],
+  exports: [...dependencies],
 })
-export class ContactModule { }
+export class ContactModule {}

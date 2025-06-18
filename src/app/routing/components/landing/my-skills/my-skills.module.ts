@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MySkillsComponent } from './my-skills.component';
-import { SkillComponent } from './skill/skill.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SkillComponent } from './skill/skill.component';
 
-
+const dependencies = [SkillComponent, SharedModule];
 
 @NgModule({
-  declarations: [MySkillsComponent, SkillComponent],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
-  exports: [MySkillsComponent]
+  declarations: [],
+  imports: [...dependencies],
+  exports: [...dependencies],
 })
-export class MySkillsModule { }
+export class MySkillsModule {}

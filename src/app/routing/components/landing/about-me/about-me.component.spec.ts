@@ -9,10 +9,9 @@ describe('AboutMeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AboutMeComponent ],
-      imports: [SharedModule]
-    })
-    .compileComponents();
+      declarations: [],
+      imports: [SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AboutMeComponent);
     component = fixture.componentInstance;

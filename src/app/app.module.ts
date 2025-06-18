@@ -1,30 +1,16 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppRoutingModule } from './routing/app-routing.module';
-import { AppComponent } from './app.component';
+import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
-
-import { HttpClientModule } from '@angular/common/http';
-import { SharedModule } from './shared/shared.module';
-import { HeaderModule } from './header/header.module';
+import { HeaderComponent } from './header/header.component';
 import { LandingModule } from './routing/components/landing/landing.module';
+import { SharedModule } from './shared/shared.module';
+
+const dependencies = [RouterOutlet, FooterComponent, HeaderComponent, LandingModule, SharedModule];
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HeaderModule,
-    LandingModule,
-    SharedModule
-  ],
+  declarations: [],
+  imports: [...dependencies],
+  exports: [dependencies],
   providers: [],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,24 +1,26 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
 import { Feedback } from 'src/app/shared/feedback/feedback.model';
+import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
+import { ContactModule } from './contact.module';
 
 interface Response {
-  code: number,
-  type: 'error' | 'warning' | 'info' | 'detail',
-  message: string,
-  contactSubmitted: boolean
+  code: number;
+  type: 'error' | 'warning' | 'info' | 'detail';
+  message: string;
+  contactSubmitted: boolean;
 }
 
 interface ApiResponse {
-  detail: string
+  detail: string;
 }
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  imports: [ContactModule],
 })
 export class ContactComponent {
   readonly NAME_REGEX = /^[A-Za-z .'-]+$/;
@@ -31,15 +33,15 @@ export class ContactComponent {
   submitting = false;
   response!: Response;
 
-  readonly name = new FormControl('', Validators.compose(
-    [Validators.required, Validators.maxLength(50), Validators.pattern(this.NAME_REGEX)]
-  ));
-  readonly email = new FormControl('', Validators.compose(
-    [Validators.required, Validators.pattern(this.EMAIL_REGEX), Validators.maxLength(50)]
-  ));
-  readonly message = new FormControl('', Validators.compose(
-    [Validators.required, Validators.maxLength(250)]
-  ));
+  readonly name = new FormControl(
+    '',
+    Validators.compose([Validators.required, Validators.maxLength(50), Validators.pattern(this.NAME_REGEX)])
+  );
+  readonly email = new FormControl(
+    '',
+    Validators.compose([Validators.required, Validators.pattern(this.EMAIL_REGEX), Validators.maxLength(50)])
+  );
+  readonly message = new FormControl('', Validators.compose([Validators.required, Validators.maxLength(250)]));
 
   get isMessageSend() {
     return this.isMessageSubmitted && this.response?.type == 'info';
@@ -53,7 +55,10 @@ export class ContactComponent {
     return !this.submitting && this.response?.contactSubmitted;
   }
 
-  constructor(private http: HttpClient, private feedbackS: FeedbackService) {
+  constructor(
+    private http: HttpClient,
+    private feedbackS: FeedbackService
+  ) {
     this.contactForm.setControl('name', this.name);
     this.contactForm.setControl('email', this.email);
     this.contactForm.setControl('message', this.message);
@@ -68,9 +73,7 @@ export class ContactComponent {
   }
 
   get canSubmit() {
-    return this.contactForm.valid &&
-      !this.contactForm.disabled &&
-      !this.submitting;
+    return this.contactForm.valid && !this.contactForm.disabled && !this.submitting;
   }
 
   set contactState(state: 'sending' | 'opened') {
@@ -87,13 +90,10 @@ export class ContactComponent {
 
   postMessage() {
     const conf = this.postConf;
-    this.http.post<ApiResponse>(conf.url, conf.body)
-      .subscribe(
-        {
-          next: response => this.handleResponse(response),
-          error: error => this.handleError(error)
-        }
-      );
+    this.http.post<ApiResponse>(conf.url, conf.body).subscribe({
+      next: (response) => this.handleResponse(response),
+      error: (error) => this.handleError(error),
+    });
   }
 
   get postConf() {
@@ -108,19 +108,36 @@ export class ContactComponent {
 
   handleResponse(response: ApiResponse) {
     this.contactForm.reset();
-    this.response = { code: 200, type: 'info', message: response.detail, contactSubmitted: true };
+    this.response = {
+      code: 200,
+      type: 'info',
+      message: response.detail,
+      contactSubmitted: true,
+    };
     this.handleSubmission();
   }
 
   handleError(errorResponse: HttpErrorResponse) {
-    const message = errorResponse.status == 400 ? errorResponse.error.detail : "An error occurred while submitting the message.";
-    this.response = { code: errorResponse.status, type: 'error', message: message, contactSubmitted: true }
+    const message =
+      errorResponse.status == 400 ? errorResponse.error.detail : 'An error occurred while submitting the message.';
+    this.response = {
+      code: errorResponse.status,
+      type: 'error',
+      message: message,
+      contactSubmitted: true,
+    };
     this.handleSubmission();
   }
 
   handleSubmission() {
     this.contactState = 'opened';
-    const feedback = this.response.code == 400 ? { message: this.response.message, closeFeedbackAction: 'Try Again' } as Feedback : { message: this.response.message } as Feedback;
+    const feedback =
+      this.response.code == 400
+        ? ({
+            message: this.response.message,
+            closeFeedbackAction: 'Try Again',
+          } as Feedback)
+        : ({ message: this.response.message } as Feedback);
     this.feedbackS.createNewFeedback(feedback);
   }
 }

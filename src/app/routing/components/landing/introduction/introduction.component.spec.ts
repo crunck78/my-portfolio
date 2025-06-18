@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { IntroductionComponent } from './introduction.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { IntroductionComponent } from './introduction.component';
 
 describe('IntroductionComponent', () => {
   let component: IntroductionComponent;
@@ -10,10 +10,9 @@ describe('IntroductionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IntroductionComponent ],
-      imports: [BrowserAnimationsModule, SharedModule]
-    })
-    .compileComponents();
+      declarations: [],
+      imports: [BrowserAnimationsModule, SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(IntroductionComponent);
     component = fixture.componentInstance;

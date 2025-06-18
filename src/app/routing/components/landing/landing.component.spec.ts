@@ -11,10 +11,9 @@ describe('LandingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LandingComponent ],
-      imports: [LandingModule, HttpClientModule, BrowserAnimationsModule]
-    })
-    .compileComponents();
+      declarations: [],
+      imports: [LandingModule, HttpClientModule, BrowserAnimationsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LandingComponent);
     component = fixture.componentInstance;

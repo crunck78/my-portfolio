@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { FormFieldModule } from './form-field.module';
 
 @Component({
   selector: 'app-form-field',
   templateUrl: './form-field.component.html',
-  styleUrls: ['./form-field.component.scss']
+  styleUrls: ['./form-field.component.scss'],
+  imports: [FormFieldModule],
 })
 export class FormFieldComponent {
-
   @Input() control!: FormControl;
   @Input() controlName!: string;
   @Input() maxLength!: number;
@@ -15,11 +16,14 @@ export class FormFieldComponent {
   @Input() customIsValid!: boolean;
 
   get hasError() {
-    return this.customHasError !== undefined ? this.customHasError : this.control?.invalid && (this.control?.dirty || this.control?.touched);
+    return this.customHasError !== undefined
+      ? this.customHasError
+      : this.control?.invalid && (this.control?.dirty || this.control?.touched);
   }
 
   get isValid() {
-    return this.customIsValid !== undefined ? this.customIsValid : this.control?.valid && (this.control?.dirty || this.control?.touched)
+    return this.customIsValid !== undefined
+      ? this.customIsValid
+      : this.control?.valid && (this.control?.dirty || this.control?.touched);
   }
-
 }

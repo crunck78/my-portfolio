@@ -11,10 +11,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [BrowserAnimationsModule, HeaderModule, SharedModule]
-    })
-    .compileComponents();
+      declarations: [],
+      imports: [BrowserAnimationsModule, HeaderModule, SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
