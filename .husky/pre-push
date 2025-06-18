@@ -1,2 +1,2 @@
-ng test --watch=false --verbose
+ng test --watch=false
 ng build --verbose
