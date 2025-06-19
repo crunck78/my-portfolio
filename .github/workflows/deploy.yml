@@ -13,6 +13,8 @@ on:
 jobs:
   test:
     name: 🧪 Test
+    permissions:
+      contents: read
     uses: ./.github/workflows/test.yml
   lint:
     name: 🧹 Lint
