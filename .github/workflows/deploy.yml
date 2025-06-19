@@ -16,6 +16,8 @@ jobs:
     uses: ./.github/workflows/test.yml
   lint:
     name: 🧹 Lint
+    permissions:
+      contents: read
     uses: ./.github/workflows/lint.yml
   build:
     name: 🏗️ Build
