@@ -28,7 +28,8 @@
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.inlineSuggest.enabled": true,
   "eslint.format.enable": false,
-  "cSpell.words": ["commitlint", "Neacsu", "nums", "sendmail"],
+  "cSpell.words": ["commitlint", "Neacsu", "nums", "sendmail", "typetracking"],
   "shellcheck.enable": false,
-  "biome.enabled": false
+  "biome.enabled": false,
+  "codeQL.createQuery.qlPackLocation": "c:\\dev\\Private\\Projects\\my-portfolio"
 }
