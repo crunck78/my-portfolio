@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Feedback } from 'src/app/shared/feedback/feedback.model';
 import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
@@ -23,6 +23,9 @@ interface ApiResponse {
   imports: [ContactModule],
 })
 export class ContactComponent {
+  private http = inject(HttpClient);
+  private feedbackS = inject(FeedbackService);
+
   readonly NAME_REGEX = /^[A-Za-z .'-]+$/;
   readonly EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
@@ -55,10 +58,7 @@ export class ContactComponent {
     return !this.submitting && this.response?.contactSubmitted;
   }
 
-  constructor(
-    private http: HttpClient,
-    private feedbackS: FeedbackService
-  ) {
+  constructor() {
     this.contactForm.setControl('name', this.name);
     this.contactForm.setControl('email', this.email);
     this.contactForm.setControl('message', this.message);

@@ -6,6 +6,6 @@
 
 <div *ngIf="feedbacks.length > 0" class="feedbacks max-width--center">
   <ng-container *ngFor="let feedback of feedbacks; let i = index">
-    <app-feedback (close)="closeFeedback(i)" *ngIf="feedback.isOpened" [feedback]="feedback"></app-feedback>
+    <app-feedback (feedbackClose)="closeFeedback(i)" *ngIf="feedback.isOpened" [feedback]="feedback"></app-feedback>
   </ng-container>
 </div>

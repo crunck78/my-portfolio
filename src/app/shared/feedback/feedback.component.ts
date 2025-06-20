@@ -8,7 +8,7 @@ import { FeedbackModel } from './feedback.model';
 })
 export class FeedbackComponent {
   @Input() feedback!: FeedbackModel;
-  @Output() close = new EventEmitter();
+  @Output() feedbackClose = new EventEmitter();
 
   get closeFeedbackAction() {
     return this.feedback?.closeFeedbackAction;
