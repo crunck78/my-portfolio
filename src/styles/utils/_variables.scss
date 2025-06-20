@@ -1,17 +1,15 @@
-$white: #ffffff;
+$white: #fff;
 $darkblue: #141D2F;
 $purple: #9747FF;
 $green: #70E61C;
 $red: #E61C40;
-$transparent: rgba(0,0,0,0);
-
-$paddingMainTopBottom: 37px;
-$paddingMainLeftRightMax: 100px;
-$paddingMainLeftRightMin: 25px;
-
-$spacingRegular: 15px;
-$spacingMid: 25px;
-$spacingBig: 35px;
-
-$breakpointMain: 800px;
-$maxWidth: 1440px;
+$transparent: rgb(0 0 0 / 0%);
+$padding-main-top-bottom: 37px;
+$padding-main-left-right-max: 100px;
+$padding-main-left-right-min: 25px;
+$spacing-regular: 15px;
+$spacing-mid: 25px;
+$spacing-big: 35px;
+$breakpoint-main: 800px;
+$max-width: 1440px;
+$toggle-width: 500px;

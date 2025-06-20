@@ -9,7 +9,8 @@
         top: -100px;
         right: 0;
         z-index: -1;
-        @media(max-width: $breakpointMain){
+
+        @media(max-width: $breakpoint-main){
             height: 415.93px;
         }
     }
@@ -26,13 +27,13 @@
             height: 4px;
             background-color: $purple;
 
-            @media(max-width: $breakpointMain){
+            @media(max-width: $breakpoint-main){
                 width: 64px;
             }
         }
 
         .menu-link{
-            @media(max-width: $breakpointMain){
+            @media(max-width: $breakpoint-main){
                 display: none;
             }
         }
@@ -51,7 +52,7 @@
             font-size: 16px;
             line-height: 120%;
 
-            @media(min-width: $breakpointMain){
+            @media(min-width: $breakpoint-main){
                 max-width: 471px;
             }
 

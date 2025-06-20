@@ -1,18 +1,13 @@
 @use "/src/styles/utils/variables" as *;
 
 :host {
-
-
    .header {
-
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 999;
-
       background: $darkblue;
-      -webkit-backdrop-filter: blur(32.5px);
       backdrop-filter: blur(32.5px);
 
       .header-view {

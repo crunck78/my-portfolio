@@ -1,6 +1,7 @@
 :host{
     display: block;
     position: relative;
+
     .skills{
         display: flex;
         gap: 100px;
@@ -10,7 +11,7 @@
 
     svg.shadow{
         position: absolute;
-        left: 0px;
+        left: 0;
         bottom: -488.5px;
         z-index: -1;
         max-width: 100%;

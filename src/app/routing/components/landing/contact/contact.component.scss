@@ -1,4 +1,4 @@
-@use "/src/styles/utils/_variables" as *;
+@use "/src/styles/utils/variables" as *;
 
 :host {
     display: block;
@@ -19,28 +19,23 @@ textarea {
         min-height: 90px;
     }
 
-    font-family: 'Poppins';
+    font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
     color: $white;
     box-sizing: border-box;
-
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 25px;
-    padding-right: 50px;
+    padding: 15px 50px 15px 25px;
     gap: 10px;
-
     width: 100%;
     background: $darkblue;
     border: 1px solid $purple;
     border-radius: 10px;
+
     &:focus-visible {
         outline: none;
     }
@@ -50,8 +45,7 @@ textarea {
     }
 }
 
-@media(min-width: 300px) {
-
+@media(width >= 300px) {
     .form-group,
     .form-text {
         min-width: 300px;

@@ -29,7 +29,7 @@
 }
 
 .white-space-no-wrap {
-    @media(min-width: 400px) {
+    @media(width >= 400px) {
         white-space: nowrap;
     }
 }

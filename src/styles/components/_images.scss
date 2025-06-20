@@ -13,14 +13,14 @@
         max-width: 70vh;
         max-height: 70vh;
 
-        @media(max-width: 560px) {
+        @media(width <= 560px) {
             width: 70vw;
             height: 70vw;
         }
     }
 }
 
-.circle-image--before-line {
+.circle-image-before-line {
     img {
         margin-right: auto;
     }
@@ -28,21 +28,21 @@
     &::before {
         content: "";
         display: inline-block;
-        width: $paddingMainLeftRightMax;
+        width: $padding-main-left-right-max;
 
-        @media(max-width: $breakpointMain) {
-            width: $paddingMainLeftRightMin;
-            left: -$paddingMainLeftRightMin;
+        @media(max-width: $breakpoint-main) {
+            width: $padding-main-left-right-min;
+            left: -$padding-main-left-right-min;
         }
 
         height: 4px;
         background-color: $green;
         position: absolute;
-        left: -$paddingMainLeftRightMax;
+        left: -$padding-main-left-right-max;
     }
 }
 
-.circle-image--after-line {
+.circle-image-after-line {
     img {
         margin-left: auto;
     }
@@ -50,21 +50,21 @@
     &::after {
         content: "";
         display: inline-block;
-        width: $paddingMainLeftRightMax;
+        width: $padding-main-left-right-max;
 
-        @media(max-width: $breakpointMain) {
-            width: $paddingMainLeftRightMin;
-            right: -$paddingMainLeftRightMin;
+        @media(max-width: $breakpoint-main) {
+            width: $padding-main-left-right-min;
+            right: -$padding-main-left-right-min;
         }
 
         height: 4px;
         background-color: $green;
         position: absolute;
-        right: -$paddingMainLeftRightMax;
+        right: -$padding-main-left-right-max;
     }
 }
 
-.circle-image--no-object-fit {
+.circle-image-no-object-fit {
     img {
         object-fit: none;
     }

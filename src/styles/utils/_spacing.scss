@@ -1,48 +1,49 @@
 .padding-main{
-    padding: $paddingMainTopBottom $paddingMainLeftRightMax;
-    @media(max-width: $breakpointMain){
-        padding: $paddingMainTopBottom $paddingMainLeftRightMin;
+    padding: $padding-main-top-bottom $padding-main-left-right-max;
+
+    @media(max-width: $breakpoint-main){
+        padding: $padding-main-top-bottom $padding-main-left-right-min;
     }
 }
 
 .margin-bottom-regular{
-    margin-bottom: $spacingRegular;
+    margin-bottom: $spacing-regular;
 }
 
 .margin-bottom-big{
-    margin-bottom: $spacingBig;
+    margin-bottom: $spacing-big;
 }
 
 .margin-top-big{
-    margin-top: $spacingBig;
+    margin-top: $spacing-big;
 }
 
 .margin-bottom-mid{
-    margin-bottom: $spacingMid;
+    margin-bottom: $spacing-mid;
 }
 
 .margin-top-mid{
-    margin-top: $spacingMid;
+    margin-top: $spacing-mid;
 }
 
 .padding-bottom-regular{
-    padding-bottom: $spacingRegular;
+    padding-bottom: $spacing-regular;
 }
 
 .padding-bottom-big{
-    padding-bottom: $spacingBig;
+    padding-bottom: $spacing-big;
 }
 
 .padding-top-big{
-    padding-top: $spacingBig;
+    padding-top: $spacing-big;
 }
 
 .padding-bottom-mid{
-    padding-bottom: $spacingMid;
+    padding-bottom: $spacing-mid;
 }
 
 .padding-top-mid{
-    padding-top: $spacingMid;
+    padding-top: $spacing-mid;
 }
 
 .margin-bottom-auto{
