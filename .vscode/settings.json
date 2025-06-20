@@ -31,5 +31,6 @@
   "cSpell.words": ["commitlint", "Neacsu", "nums", "sendmail", "typetracking"],
   "shellcheck.enable": false,
   "biome.enabled": false,
-  "codeQL.createQuery.qlPackLocation": "c:\\dev\\Private\\Projects\\my-portfolio"
+  "codeQL.createQuery.qlPackLocation": "c:\\dev\\Private\\Projects\\my-portfolio",
+  "eslint.lintTask.options": "${workspace}/eslint.config.js"
 }
