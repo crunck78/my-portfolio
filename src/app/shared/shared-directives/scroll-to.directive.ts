@@ -1,32 +1,31 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Directive({
   selector: '[appScrollTo]',
 })
 export class ScrollToDirective {
+  private router = inject(Router);
+
   /**
    * The ID of target element
    */
   @Input() appScrollTo!: string;
 
-  constructor(
-    private el: ElementRef,
-    private router: Router
-  ) {}
+  constructor() {}
 
   @HostListener('click', ['$event'])
   async onClick(event: Event) {
-    event.preventDefault();
-    if (!this.isStartPage()) await this.router.navigateByUrl('/');
-    setTimeout(() => {
-      this.triggerScroll();
-    }, 100);
+    await this.redirectAndScroll(event);
   }
 
   @HostListener('touchstart', ['$event'])
   async onTouchStart(event: Event) {
-    event.preventDefault();
+    await this.redirectAndScroll(event);
+  }
+
+  private async redirectAndScroll(event?: Event) {
+    event?.preventDefault();
     if (!this.isStartPage()) await this.router.navigateByUrl('/');
     setTimeout(() => {
       this.triggerScroll();

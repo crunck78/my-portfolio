@@ -1,22 +1,20 @@
+@use '../utils/variables' as *;
+
 .section-title {
     font-weight: 700;
     font-size: 90px;
     line-height: 120%;
-
     color: $white;
-
-    @media(max-width: $breakpointMain) {
-        font-size: 45px;
-        gap: 10px;
-    }
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
-
     white-space: nowrap;
 
+    @media(max-width: $breakpoint-main) {
+        font-size: 45px;
+        gap: 10px;
+    }
 }
 
 .section-title-left::before{
@@ -31,7 +29,7 @@
     content: "";
     display: inline-block;
     height: 4px;
-    background: linear-gradient(to right, $purple 0px , $purple 100px, $transparent 100px, $transparent 100%);
+    background: linear-gradient(to right, $purple 0 , $purple 100px, $transparent 100px, $transparent 100%);
     flex: 1;
 }
 
@@ -39,8 +37,7 @@
     content: "";
     display: inline-block;
     height: 4px;
-    background: linear-gradient(to left, $purple 0px , $purple 100px, $transparent 100px, $transparent 100%);
-
+    background: linear-gradient(to left, $purple 0 , $purple 100px, $transparent 100px, $transparent 100%);
     flex: 1;
 }
 
@@ -56,7 +53,6 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-
     color: $white;
 }
 

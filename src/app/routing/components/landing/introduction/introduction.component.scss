@@ -1,19 +1,18 @@
-@import "/src/styles/utils/_variables";
-$breakpointMain: 1000px;
+@use "/src/styles/utils/variables" as *;
+
+$breakpoint-main: 1000px;
 
 :host {
     display: flex;
     position: relative;
-
     align-items: center;
     justify-content: center;
-
     width: 100%;
     overflow: hidden;
 
-    // min-height: calc(100vh - 111px); // header height
-    // box-sizing: border-box;
-    @media(min-width: 1246px){
+    // min-height: calc(100vh - 111px);min-height // header height
+    // box-sizing: border-box;headerheightbox-sizing
+    @media(width >= 1246px){
         padding-bottom: 180px;
     }
 
@@ -21,13 +20,16 @@ $breakpointMain: 1000px;
         position: absolute;
         z-index: -1;
         top: 100px;
-        @media(max-width: 400px){
+
+        @media(width <= 400px){
             top: 55px;
         }
-        @media(min-width: 1246px){
+
+        @media(width >= 1246px){
             top: 50px;
         }
-        @media(max-width: 320px){
+
+        @media(width <= 320px){
             top: -10px;
         }
     }
@@ -36,13 +38,13 @@ $breakpointMain: 1000px;
         display: flex;
         align-items: center;
         justify-content: center;
-        @media(max-width: 1246px){
+        gap: 16px;
+
+        @media(width <= 1246px){
             flex-direction: column;
         }
 
-        gap: 16px;
-
-        @media(max-width: $breakpointMain){
+        @media(max-width: $breakpoint-main){
             flex-direction: column;
             justify-content: center;
         }
@@ -50,12 +52,14 @@ $breakpointMain: 1000px;
         .hero {
             overflow: visible;
             position: relative;
-            @media(max-width: $breakpointMain){
+
+            @media(max-width: $breakpoint-main){
                 max-width: 100%;
                 display: flex;
                 justify-content: center;
 
             }
+
             img{
                 max-height: 450px;
                 max-width: 100%;
@@ -79,7 +83,6 @@ $breakpointMain: 1000px;
         }
 
         .intro {
-
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -89,7 +92,7 @@ $breakpointMain: 1000px;
                 gap: 35px;
                 overflow: hidden;
 
-                @media(max-width: 600px) {
+                @media(width <= 600px) {
                     gap: 10px;
                 }
 
@@ -102,7 +105,7 @@ $breakpointMain: 1000px;
                     font-size: 64px;
                     line-height: 120%;
 
-                    @media(max-width: $breakpointMain){
+                    @media(max-width: $breakpoint-main){
                         font-size: 32px;
                     }
                 }
@@ -111,7 +114,8 @@ $breakpointMain: 1000px;
                     font-weight: 700;
                     font-size: 90px;
                     line-height: 120%;
-                    @media(max-width: $breakpointMain){
+
+                    @media(max-width: $breakpoint-main){
                         font-size: 45px;
                     }
                 }
@@ -121,7 +125,8 @@ $breakpointMain: 1000px;
                     font-size: 58px;
                     line-height: 120%;
                     color: $purple;
-                    @media(max-width: $breakpointMain){
+
+                    @media(max-width: $breakpoint-main){
                         font-size: 29px;
                     }
                 }
@@ -129,7 +134,8 @@ $breakpointMain: 1000px;
 
             .contact {
                 margin: 44px auto;
-                @media(max-width: $breakpointMain){
+
+                @media(max-width: $breakpoint-main){
                     font-size: 16px;
                 }
             }

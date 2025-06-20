@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 button:not(.opener,.menu-link) {
     display: flex;
     flex-direction: row;
@@ -5,23 +7,19 @@ button:not(.opener,.menu-link) {
     align-items: center;
     padding: 15px 30px;
     gap: 10px;
-
     border-radius: 10px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;
     border: 0;
-
     font-weight: 400;
     font-size: 23px;
     line-height: 120%;
-
     white-space: nowrap;
 }
 
 button:disabled {
     cursor: not-allowed;
-    background-color: rgba(1, 1, 1, 0.8);
+    background-color: rgb(1 1 1 / 80%);
     color: $darkblue;
 }
 
@@ -55,11 +53,10 @@ button:disabled {
 
 .buttons-group {
     display: flex;
-    column-gap: 45px;
-    row-gap: 45px;
+    gap: 45px;
     flex-wrap: wrap;
 }
 
-.button-group--align-right {
+.button-group-align-right {
     justify-content: flex-end;
 }

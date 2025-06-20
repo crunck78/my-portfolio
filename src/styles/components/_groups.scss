@@ -2,9 +2,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-
-    row-gap: 15px;
-    column-gap: 35px;
+    gap: 15px 35px;
 
     .group-first,
     .group-last,
@@ -17,11 +15,11 @@
     }
 }
 
-.group-center-wrap--reverse{
+.group-center-wrap-reverse{
     flex-direction: row-reverse;
 }
 
-.group--align-right{
+.group-align-right{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

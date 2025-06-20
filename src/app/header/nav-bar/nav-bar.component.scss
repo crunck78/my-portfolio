@@ -1,30 +1,29 @@
-$toggleWidth: 500px;
+@use "/src/styles/utils/variables" as *;
 
 :host {
     display: block;
     height: 100%;
+
     .desktop-view {
         display: flex;
         justify-content: center;
         align-items: flex-end;
         gap: 29px;
-
         font-weight: 400;
         font-size: 23px;
         line-height: 120%;
 
-        @media(max-width: $toggleWidth) {
+        @media(max-width: $toggle-width) {
             display: none;
         }
     }
 
     .mobile-view {
+        background: inherit;
 
-        @media(min-width: $toggleWidth) {
+        @media(min-width: $toggle-width) {
             display: none;
         }
-
-        background: inherit;
 
         .menu-toggler {
             cursor: pointer;
@@ -33,10 +32,8 @@ $toggleWidth: 500px;
             justify-content: center;
             align-items: center;
             gap: 14px;
-
             position: relative;
             z-index: 999;
-
             height: 37px;
         }
 
@@ -44,8 +41,7 @@ $toggleWidth: 500px;
             position: absolute;
             inset: 0;
             overflow-y: hidden;
-            background: rgba(20, 29, 47, 0.8);
-
+            background: rgb(20 29 47 / 80%);
             display: flex;
             flex-direction: column;
             align-items: center;

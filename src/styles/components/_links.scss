@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 .menu-link {
     all: unset;
     text-decoration: none;
@@ -17,7 +19,6 @@
     }
 
     &:hover {
-
         text-decoration: none;
         color: $green;
 
@@ -28,7 +29,7 @@
             max-width: 100%;
             height: 2px;
             background-color: $purple;
-            animation: hoverIn 300ms ease-in-out;
+            animation: hover-in 300ms ease-in-out;
         }
     }
 }
@@ -37,7 +38,7 @@ a.button{
     text-decoration: none;
 }
 
-@keyframes hoverIn {
+@keyframes hover-in {
     from {
         width: 0;
     }
