@@ -1,4 +1,4 @@
-@import "/src/styles/utils/variables";
+@use "/src/styles/utils/variables" as *;
 
 #about-me {
     display: block;
@@ -15,20 +15,21 @@
     }
 
     .social-contact {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
         &::before {
             content: "";
             display: inline-block;
             width: 100px;
+            height: 4px;
+            background-color: $purple;
+
             @media(max-width: $breakpointMain){
                 width: 64px;
             }
-            height: 4px;
-            background-color: $purple;
         }
-
-        display: flex;
-        align-items: center;
-        gap: 40px;
 
         .menu-link{
             @media(max-width: $breakpointMain){
@@ -43,16 +44,16 @@
 
         .about-text {
             position: relative;
-            @media(min-width: $breakpointMain){
-                max-width: 471px;
-            }
             display: flex;
             flex-direction: column;
             gap: 35px;
-
             font-weight: 400;
             font-size: 16px;
             line-height: 120%;
+
+            @media(min-width: $breakpointMain){
+                max-width: 471px;
+            }
 
             .about-points {
                 display: flex;

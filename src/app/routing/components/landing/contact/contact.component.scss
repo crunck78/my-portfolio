@@ -1,4 +1,4 @@
-@import "/src/styles/utils/_variables";
+@use "/src/styles/utils/_variables" as *;
 
 :host {
     display: block;

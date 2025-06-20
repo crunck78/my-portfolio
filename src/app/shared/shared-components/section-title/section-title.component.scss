@@ -1,4 +1,4 @@
-@import "/src/styles/utils/variables";
+@use "/src/styles/utils/variables" as vars;
 
 :host {
     display: flex;
@@ -7,7 +7,7 @@
 
     text-align: center;
 
-    @media(max-width: $breakpointMain){
+    @media(max-width: vars.$breakpointMain){
         gap: 25;
     }
 }

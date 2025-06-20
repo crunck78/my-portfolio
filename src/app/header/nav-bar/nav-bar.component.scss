@@ -20,11 +20,11 @@ $toggleWidth: 500px;
 
     .mobile-view {
 
+        background: inherit;
+
         @media(min-width: $toggleWidth) {
             display: none;
         }
-
-        background: inherit;
 
         .menu-toggler {
             cursor: pointer;
