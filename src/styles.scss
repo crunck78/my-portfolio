@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./styles/main";
+@use "./styles/main" as *;
+@use "./styles/utils/variables" as *;
 
 body{
     margin: 0;

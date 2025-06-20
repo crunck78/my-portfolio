@@ -1,20 +1,20 @@
+@use '../utils/variables' as *;
+
 .section-title {
     font-weight: 700;
     font-size: 90px;
     line-height: 120%;
     color: $white;
-
-    @media(max-width: $breakpoint-main) {
-        font-size: 45px;
-        gap: 10px;
-    }
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
     white-space: nowrap;
 
+    @media(max-width: $breakpoint-main) {
+        font-size: 45px;
+        gap: 10px;
+    }
 }
 
 .section-title-left::before{

@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 button:not(.opener,.menu-link) {
     display: flex;
     flex-direction: row;

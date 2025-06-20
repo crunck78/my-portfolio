@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .padding-main{
     padding: $padding-main-top-bottom $padding-main-left-right-max;
 

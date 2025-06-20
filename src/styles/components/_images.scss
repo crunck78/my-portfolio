@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 .circle-image {
     flex-shrink: 0;
     position: relative;
@@ -29,16 +31,15 @@
         content: "";
         display: inline-block;
         width: $padding-main-left-right-max;
+        height: 4px;
+        background-color: $green;
+        position: absolute;
+        left: -$padding-main-left-right-max;
 
         @media(max-width: $breakpoint-main) {
             width: $padding-main-left-right-min;
             left: -$padding-main-left-right-min;
         }
-
-        height: 4px;
-        background-color: $green;
-        position: absolute;
-        left: -$padding-main-left-right-max;
     }
 }
 
@@ -51,16 +52,15 @@
         content: "";
         display: inline-block;
         width: $padding-main-left-right-max;
+        height: 4px;
+        background-color: $green;
+        position: absolute;
+        right: -$padding-main-left-right-max;
 
         @media(max-width: $breakpoint-main) {
             width: $padding-main-left-right-min;
             right: -$padding-main-left-right-min;
         }
-
-        height: 4px;
-        background-color: $green;
-        position: absolute;
-        right: -$padding-main-left-right-max;
     }
 }
 

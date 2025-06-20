@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .max-width-center{
     max-width: $max-width;
     margin-left: auto;
