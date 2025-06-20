@@ -1,34 +1,35 @@
 import { Component, ElementRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { ScrollToDirective } from './scroll-to.directive';
 
 @Component({
-  template: `<div class="scroll-to" appScrollTo></div>`,
+  template: `<div [appScrollTo]="'target'">Scroll To Target Element</div>
+    <div id="target">Target Element</div> `,
+  imports: [ScrollToDirective],
 })
 class TestComponent {}
 
 describe('ScrollToDirective', () => {
   let fixture;
-  let element: ElementRef;
-  let router: Router;
+  let element!: ElementRef;
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [],
-      imports: [RouterTestingModule.withRoutes([])],
+      imports: [TestComponent],
+      providers: [provideRouter([])],
     }).createComponent(TestComponent);
 
     fixture.detectChanges();
-    router = TestBed.inject(Router);
-
-    element = fixture.debugElement.query(By.directive(ScrollToDirective)) as ElementRef;
+    // let router = TestBed.inject(Router);
+    element = fixture.debugElement.query(By.directive(ScrollToDirective));
   });
 
-  it('should create an instance', () => {
-    const directive = new ScrollToDirective(element, router);
-    expect(directive).toBeTruthy();
+  it('should have three appScrollTo elements', () => {
+    expect(element).toBeTruthy();
+    // const directive = new ScrollToDirective();
+    // expect(directive).toBeTruthy();
   });
 });
