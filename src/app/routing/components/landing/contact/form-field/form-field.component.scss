@@ -1,4 +1,4 @@
-@use "/src/styles/utils/variables" as *;
+@use "utils/variables" as *;
 
 .form-field {
     position: relative;
@@ -49,16 +49,10 @@
         padding: 15px 50px 15px 25px;
         gap: 10px;
         width: 100%;
-
-        // height: 50px;
-
         background: $darkblue;
         border: 1px solid $purple;
         border-radius: 10px;
 
-        // flex: none;
-        // order: 0;
-        // flex-grow: 0;
         &:focus-visible{
             outline: none;
         }
