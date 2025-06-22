@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -8,7 +8,7 @@ import { routes, scrollingOptions } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(BrowserModule),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideAnimations(),
     provideRouter(routes, withInMemoryScrolling(scrollingOptions)),
   ],
