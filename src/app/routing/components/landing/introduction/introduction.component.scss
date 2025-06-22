@@ -1,4 +1,4 @@
-@use "/src/styles/utils/variables" as *;
+@use "utils/variables" as *;
 
 $breakpoint-main: 1000px;
 
@@ -10,8 +10,8 @@ $breakpoint-main: 1000px;
     width: 100%;
     overflow: hidden;
 
-    // min-height: calc(100vh - 111px);min-height // header height
-    // box-sizing: border-box;headerheightbox-sizing
+    // min-height: calc(100vh - 111px);min-heightmin-heightmin-height // header height
+    // box-sizing: border-box;headerheightbox-sizingheaderheightbox-sizingheaderheightbox-sizing
     @media(width >= 1246px){
         padding-bottom: 180px;
     }
