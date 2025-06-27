@@ -75,3 +75,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ${{ secrets.LOCAL_UPLOAD }}
           server-dir: ${{ secrets.FTP_UPLOAD }}
+          exclude: |
+            !.htaccess
