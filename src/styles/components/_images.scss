@@ -7,18 +7,11 @@
     align-items: center;
 
     img {
-        width: 453px;
-        height: 453px;
+        width: 240px;
+        height: 240px;
         object-fit: cover;
         border: 4px solid $green;
         border-radius: 100%;
-        max-width: 70vh;
-        max-height: 70vh;
-
-        @media(width <= 560px) {
-            width: 70vw;
-            height: 70vw;
-        }
     }
 }
 

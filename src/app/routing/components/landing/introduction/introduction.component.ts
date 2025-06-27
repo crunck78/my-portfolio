@@ -57,7 +57,7 @@ export class IntroductionComponent implements AfterViewInit {
    */
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.updateCurve();
+    // this.updateCurve();
   }
 
   /**

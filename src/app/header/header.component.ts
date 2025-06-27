@@ -13,8 +13,8 @@ import { OpenCloseStatus } from './header.types';
   imports: [HeaderModule],
 })
 export class HeaderComponent {
-  headerState$ = new BehaviorSubject<OpenCloseStatus>('open');
-  openerState$ = new BehaviorSubject<OpenCloseStatus>('closed');
+  headerState$ = new BehaviorSubject<OpenCloseStatus>('closed');
+  openerState$ = new BehaviorSubject<OpenCloseStatus>('open');
   menuState: OpenCloseStatus = 'closed';
 
   arrowTransform$ = this.headerState$.pipe(

@@ -5,22 +5,16 @@ export const toggleMeAnimation = trigger('visibleHidden', [
     'visible',
     style({
       opacity: '1',
-      'z-index': '-1',
-      // width: '100%',
-      height: '50%',
     })
   ),
   state(
     'hidden',
     style({
       opacity: '0',
-      'z-index': '-1',
-      width: 0,
-      height: 0,
     })
   ),
-  transition('visible => hidden', [animate('300ms 3000ms')]),
-  transition('hidden => visible', [animate('300ms 3000ms')]),
+  transition('visible => hidden', [animate('300ms')]),
+  transition('hidden => visible', [animate('300ms')]),
 ]);
 
 export const toggleIntroAnimation = trigger('visibleHiddenIntro', [
