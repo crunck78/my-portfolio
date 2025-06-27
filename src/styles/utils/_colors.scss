@@ -1,7 +1,15 @@
 @use 'variables' as *;
 
+.color-purple-light{
+    color: $purple-light;
+}
+
 .color-purple{
     color: $purple;
+}
+
+.color-green-light{
+    color: $green-light;
 }
 
 .color-green{

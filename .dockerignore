@@ -1,0 +1,15 @@
+.angular
+.git
+.github
+.husky
+.vscode
+dist
+node_modules
+.editorconfig
+.gitattributes
+.gitignore
+.prettierignore
+.prettierrc
+commitlint.config.js
+eslint.config.js
+stylelint.config.js

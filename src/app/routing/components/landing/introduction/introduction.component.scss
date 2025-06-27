@@ -1,144 +1,124 @@
 @use "utils/variables" as *;
 
-$breakpoint-main: 1000px;
+$breakpoint-desktop: 800px;
+$breakpoint-mobile: 400px;
 
 :host {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .main {
     display: flex;
-    position: relative;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    overflow: hidden;
+    gap: 16px;
+    margin-bottom: auto;
+    flex-direction: column;
 
-    // min-height: calc(100vh - 111px);min-heightmin-heightmin-height // header height
-    // box-sizing: border-box;headerheightbox-sizingheaderheightbox-sizingheaderheightbox-sizing
-    @media(width >= 1246px){
-        padding-bottom: 180px;
-    }
+    .hero {
+      overflow: visible;
+      position: relative;
+      margin-bottom: auto;
 
-    .curve{
-        position: absolute;
-        z-index: -1;
-        top: 100px;
-
-        @media(width <= 400px){
-            top: 55px;
-        }
-
-        @media(width >= 1246px){
-            top: 50px;
-        }
-
-        @media(width <= 320px){
-            top: -10px;
-        }
-    }
-
-    .main {
+      @media(width <=$breakpoint-desktop) {
+        max-width: 100%;
         display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 16px;
+      }
 
-        @media(width <= 1246px){
-            flex-direction: column;
-        }
-
-        @media(max-width: $breakpoint-main){
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero {
-            overflow: visible;
-            position: relative;
-
-            @media(max-width: $breakpoint-main){
-                max-width: 100%;
-                display: flex;
-                justify-content: center;
-
-            }
-
-            img{
-                max-height: 450px;
-                max-width: 100%;
-                position: relative;
-            }
-
-            .hero-bg {
-                position: absolute;
-                inset: 0;
-
-                svg:first-child {
-                    position: absolute;
-                    left: 0;
-                }
-
-                svg:last-child {
-                    position: absolute;
-                    right: 0;
-                }
-            }
-        }
-
-        .intro {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-
-            .text {
-                display: inline-flex;
-                gap: 35px;
-                overflow: hidden;
-
-                @media(width <= 600px) {
-                    gap: 10px;
-                }
-
-                .i-am {
-                    text-orientation: mixed;
-                    writing-mode: vertical-rl;
-                    transform: rotate(-180deg);
-                    text-align: center;
-                    font-weight: 400;
-                    font-size: 64px;
-                    line-height: 120%;
-
-                    @media(max-width: $breakpoint-main){
-                        font-size: 32px;
-                    }
-                }
-
-                .name {
-                    font-weight: 700;
-                    font-size: 90px;
-                    line-height: 120%;
-
-                    @media(max-width: $breakpoint-main){
-                        font-size: 45px;
-                    }
-                }
-
-                .job {
-                    font-weight: 400;
-                    font-size: 58px;
-                    line-height: 120%;
-                    color: $purple;
-
-                    @media(max-width: $breakpoint-main){
-                        font-size: 29px;
-                    }
-                }
-            }
-
-            .contact {
-                margin: 44px auto;
-
-                @media(max-width: $breakpoint-main){
-                    font-size: 16px;
-                }
-            }
-        }
+      img {
+        position: relative;
+        object-position: -14px -19px;
+      }
     }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .text {
+        display: inline-flex;
+        gap: 35px;
+        overflow: hidden;
+
+        @media(width <=$breakpoint-desktop) {
+          gap: 10px;
+        }
+
+        .i-am {
+          text-orientation: mixed;
+          writing-mode: vertical-rl;
+          transform: rotate(-180deg);
+          text-align: center;
+          font-weight: 400;
+          font-size: 64px;
+          line-height: 120%;
+
+          @media(width <=$breakpoint-desktop) {
+            font-size: 32px;
+          }
+        }
+
+        .name {
+          font-weight: 700;
+          font-size: 90px;
+          line-height: 120%;
+
+          @media(width <=$breakpoint-desktop) {
+            font-size: 45px;
+          }
+        }
+
+        .job {
+          font-weight: 400;
+          font-size: 58px;
+          line-height: 120%;
+          color: $purple;
+
+          @media(width <=$breakpoint-desktop) {
+            font-size: 29px;
+          }
+        }
+      }
+
+      .contact {
+        margin: 44px auto;
+
+        @media(width <=$breakpoint-desktop) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    svg:first-child {
+      position: absolute;
+      left: -45px;
+    }
+
+    svg:last-child {
+      position: absolute;
+      right: -120px;
+      top: -150px;
+    }
+  }
+
+  .curve {
+    position: absolute;
+    z-index: -1;
+    top: 100px;
+
+    @media(width <=$breakpoint-desktop) {
+      top: 30px;
+    }
+  }
 }
