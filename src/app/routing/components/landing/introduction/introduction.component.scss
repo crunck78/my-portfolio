@@ -44,6 +44,7 @@ $breakpoint-mobile: 400px;
         display: inline-flex;
         gap: 35px;
         overflow: hidden;
+        margin: 0;
 
         @media(width <=$breakpoint-desktop) {
           gap: 10px;

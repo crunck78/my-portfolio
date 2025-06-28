@@ -1,47 +1,59 @@
-.title-big-bold{
-    font-weight: 700;
-    font-size: 90px;
-    line-height: 120%;
+.title-big-bold {
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 120%;
 }
 
 .title-normal-bold {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 120%;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+}
+
+h3.title-normal-bold {
+  margin-top: 0;
 }
 
 .subtitle-normal-regular {
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 120%;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 120%;
+}
+
+h4.subtitle-normal-regular {
+  margin-top: 0;
 }
 
 .text-normal-regular {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+p.text-normal-regular {
+  margin-top: 0;
 }
 
 .text-small-reqular {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
 }
 
 .white-space-no-wrap {
-    @media(width >= 400px) {
-        white-space: nowrap;
-    }
+  @media(width >=400px) {
+    white-space: nowrap;
+  }
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-middle {
-    text-align: center;
+  text-align: center;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }

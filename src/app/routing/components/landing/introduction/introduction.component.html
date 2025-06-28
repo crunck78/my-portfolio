@@ -4,13 +4,14 @@
   </div>
 
   <div class="intro white-space-no-wrap">
-    <div class="text" [@visibleHiddenIntro]="toggleMe">
-      <div class="i-am">I am</div>
-      <div>
-        <div class="name">Mihai-Andrei<br />Neacsu</div>
-        <div class="job">FULLSTACK DEVELOPER</div>
-      </div>
-    </div>
+    <h1 class="text" [@visibleHiddenIntro]="toggleMe">
+      <span class="i-am">I am</span>
+      <span>
+        <span class="name">Mihai-Andrei<br />Neacsu</span>
+        <br />
+        <span class="job">FULLSTACK DEVELOPER</span>
+      </span>
+    </h1>
     <button
       type="button"
       [@visibleHiddenButton]="toggleMe"

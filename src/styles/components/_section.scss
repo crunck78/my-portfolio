@@ -1,57 +1,65 @@
 @use '../utils/variables' as *;
 
 .section-title {
-    font-weight: 700;
-    font-size: 90px;
-    line-height: 120%;
-    color: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    white-space: nowrap;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 120%;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  white-space: nowrap;
 
-    @media(max-width: $breakpoint-main) {
-        font-size: 45px;
-        gap: 10px;
-    }
+  @media(max-width: $breakpoint-main) {
+    font-size: 45px;
+    gap: 10px;
+  }
 }
 
-.section-title-left::before{
-    content: "";
-    display: inline-block;
-    height: 4px;
-    background-color: $purple;
-    flex: 1;
+h2.section-title {
+  margin: 0;
 }
 
-.section-title-left::after{
-    content: "";
-    display: inline-block;
-    height: 4px;
-    background: linear-gradient(to right, $purple 0 , $purple 100px, $transparent 100px, $transparent 100%);
-    flex: 1;
+.section-title-left::before {
+  content: "";
+  display: inline-block;
+  height: 4px;
+  background-color: $purple;
+  flex: 1;
 }
 
-.section-title-right::before{
-    content: "";
-    display: inline-block;
-    height: 4px;
-    background: linear-gradient(to left, $purple 0 , $purple 100px, $transparent 100px, $transparent 100%);
-    flex: 1;
+.section-title-left::after {
+  content: "";
+  display: inline-block;
+  height: 4px;
+  background: linear-gradient(to right, $purple 0, $purple 100px, $transparent 100px, $transparent 100%);
+  flex: 1;
 }
 
-.section-title-right::after{
-    content: "";
-    display: inline-block;
-    height: 4px;
-    background-color: $purple;
-    flex: 1;
+.section-title-right::before {
+  content: "";
+  display: inline-block;
+  height: 4px;
+  background: linear-gradient(to left, $purple 0, $purple 100px, $transparent 100px, $transparent 100%);
+  flex: 1;
+}
+
+.section-title-right::after {
+  content: "";
+  display: inline-block;
+  height: 4px;
+  background-color: $purple;
+  flex: 1;
 }
 
 .section-subtitle {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: $white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: $white;
+}
+
+p.section-subtitle {
+  margin: 0;
 }
