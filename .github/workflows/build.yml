@@ -37,3 +37,4 @@ jobs:
         with:
           name: build-artifacts
           path: ${{ secrets.LOCAL_UPLOAD }}
+          include-hidden-files: true
