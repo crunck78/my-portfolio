@@ -17,4 +17,5 @@ export const routes: Routes = [
 
 export const scrollingOptions: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',
+  anchorScrolling: 'enabled',
 };
