@@ -1,18 +1,19 @@
-<div #header [@openCloseHeader]="headerState$ | async" class="header max-width-center">
+<header #header [@openCloseHeader]="headerState$ | async" class="header max-width-center">
   <div class="header-view padding-main">
     <app-logo></app-logo>
     <app-nav-bar [(toggleMenu)]="menuState"></app-nav-bar>
   </div>
 
   <button
-    title="Toggles Header"
+    [attr.aria-label]="(headerState$ | async) == 'closed' ? 'Show header' : 'Hide header'"
+    [attr.title]="(headerState$ | async) == 'closed' ? 'Show header' : 'Hide header'"
     type="button"
     class="opener"
     (touchstart)="toggleHeader($event)"
     (click)="toggleHeader($event)"
     #headerOpener
   >
-    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 40 0 A 40 40 0 0 1 80 40 L 40 40 Z" fill="white" transform="rotate(90 40 40)" />
       <path
         d="M6.99996 3.828L2.34295 8.485C1.95249 8.87546 1.31942 8.87546 0.928955 8.485C0.538489 8.09453 0.53849 7.46146 0.928955 7.071L7.29285 0.707106C7.68337 0.316581 8.31654 0.316582 8.70706 0.707106L15.071 7.071C15.4614 7.46147 15.4614 8.09453 15.071 8.485C14.6805 8.87547 14.0474 8.87547 13.657 8.485L8.99996 3.828L8.99995 15C8.99995 15.5523 8.55224 16 7.99995 16C7.44767 16 6.99995 15.5523 6.99995 15L6.99996 3.828Z"
@@ -21,4 +22,4 @@
       />
     </svg>
   </button>
-</div>
+</header>

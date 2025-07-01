@@ -1,62 +1,64 @@
 @use '../utils/variables' as *;
 
-button:not(.opener,.menu-link) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 30px;
-    gap: 10px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
-    cursor: pointer;
-    border: 0;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 120%;
-    white-space: nowrap;
+button:not(.opener, .menu-link),
+a.button:not(.opener, .menu-link) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
+  cursor: pointer;
+  border: 0;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 120%;
+  white-space: nowrap;
 }
 
-button:disabled {
-    cursor: not-allowed;
-    background-color: rgb(1 1 1 / 80%);
-    color: $darkblue;
+button:disabled,
+a.button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(1 1 1 / 80%);
+  color: $darkblue;
 }
 
 .button-green-white {
-    background: $green;
-    color: $white;
+  background: $green;
+  color: $white;
 
-    &:not(:disabled):hover {
-        background: $purple;
-    }
+  &:not(:disabled):hover {
+    background: $purple;
+  }
 }
 
 .button-purple-white {
-    background: $purple;
-    color: $white;
+  background: $purple;
+  color: $white;
 
-    &:not(:disabled):hover {
-        background: $green;
-    }
+  &:not(:disabled):hover {
+    background: $green;
+  }
 }
 
 .button-outline-green-white {
-    background: $transparent;
-    color: $white;
-    border: 1px solid $green;
+  background: $transparent;
+  color: $white;
+  border: 1px solid $green;
 
-    &:not(:disabled):hover {
-        background: $green;
-    }
+  &:not(:disabled):hover {
+    background: $green;
+  }
 }
 
 .buttons-group {
-    display: flex;
-    gap: 45px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
 }
 
 .button-group-align-right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }

@@ -1,6 +1,14 @@
 <div class="main padding-main">
   <div class="hero circle-image" [@visibleHidden]="toggleMe">
-    <img width="240" height="240" #me (load)="updateCurve()" src="assets/images/me.webp" alt="" />
+    <img
+      width="240"
+      height="240"
+      #me
+      (load)="updateCurve()"
+      src="assets/images/me.webp"
+      alt="Portrait of me in a shirt for my profile photo"
+      title="Profile picture"
+    />
   </div>
 
   <div class="intro white-space-no-wrap">

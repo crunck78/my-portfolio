@@ -1,49 +1,49 @@
 @use '../utils/variables' as *;
 
 .menu-link {
-    all: unset;
+  all: unset;
+  text-decoration: none;
+  color: $white;
+  display: inline-flex;
+  flex-direction: column;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+
+  &::after {
+    display: inline-block;
+    content: "";
+    width: 55.5px;
+    max-width: 100%;
+    height: 2px;
+    background-color: transparent;
+  }
+
+  &:hover {
     text-decoration: none;
-    color: $white;
-    display: inline-flex;
-    flex-direction: column;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
+    color: $green;
 
     &::after {
-        display: inline-block;
-        content: "";
-        width: 55.5px;
-        max-width: 100%;
-        height: 2px;
-        background-color: transparent;
+      display: inline-block;
+      content: "";
+      width: 55.5px;
+      max-width: 100%;
+      height: 2px;
+      background-color: $purple;
+      animation: hover-in 300ms ease-in-out;
     }
-
-    &:hover {
-        text-decoration: none;
-        color: $green;
-
-        &::after {
-            display: inline-block;
-            content: "";
-            width: 55.5px;
-            max-width: 100%;
-            height: 2px;
-            background-color: $purple;
-            animation: hover-in 300ms ease-in-out;
-        }
-    }
+  }
 }
 
-a.button{
-    text-decoration: none;
+a.button {
+  text-decoration: none;
 }
 
 @keyframes hover-in {
-    from {
-        width: 0;
-    }
+  from {
+    width: 0;
+  }
 
-    to {
-        width: 55.5px;
-    }
+  to {
+    width: 55.5px;
+  }
 }
