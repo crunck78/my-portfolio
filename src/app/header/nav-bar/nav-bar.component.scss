@@ -1,53 +1,43 @@
 @use "utils/variables" as *;
 
 :host {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 
-    .desktop-view {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        gap: 29px;
-        font-weight: 400;
-        font-size: 23px;
-        line-height: 120%;
+  .desktop-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 29px;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+  }
 
-        @media(max-width: $toggle-width) {
-            display: none;
-        }
-    }
+  .mobile-navigation {
+    position: absolute;
+    inset: 0;
+    overflow-y: hidden;
+    background: rgb(20 29 47 / 80%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 29px;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+  }
 
-    .mobile-view {
-        background: inherit;
-
-        @media(min-width: $toggle-width) {
-            display: none;
-        }
-
-        .menu-toggler {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 14px;
-            position: relative;
-            z-index: 999;
-            height: 37px;
-        }
-
-        .menu {
-            position: absolute;
-            inset: 0;
-            overflow-y: hidden;
-            background: rgb(20 29 47 / 80%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 29px;
-        }
-    }
-
+  .navigation-view-toggler {
+    background: inherit;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    z-index: 999;
+  }
 }
