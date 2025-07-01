@@ -53,3 +53,11 @@ You can run this command manually whenever you want to clean up your local branc
 
 1. Build image: `docker build -t your-image-name .`
 2. Run container: `docker run -p 8080:80 your-image-name`
+
+## Development dependencies
+
+Check dependencies for vulnerabilities:
+
+```bash
+npx auditjs ossi
+```
