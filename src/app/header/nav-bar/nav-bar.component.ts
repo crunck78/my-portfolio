@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { BreakpointObserver, LayoutModule } from '@angular/cdk/layout';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { map } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { OpenCloseStatus } from '../header.types';
 import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/openClose.animations';
@@ -9,11 +11,17 @@ import { openCloseAnimationMenu, openCloseAnimationToggler } from './animations/
   styleUrls: ['./nav-bar.component.scss'],
   animations: [openCloseAnimationMenu, openCloseAnimationToggler],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SharedModule],
+  imports: [SharedModule, LayoutModule],
 })
 export class NavBarComponent {
   @Input() toggleMenu: OpenCloseStatus = 'closed';
   @Output() toggleMenuChange = new EventEmitter<OpenCloseStatus>();
+
+  breakpointObserver = inject(BreakpointObserver);
+
+  get isMobileView$() {
+    return this.breakpointObserver.observe(['(max-width: 650px)']).pipe(map((result) => result.matches));
+  }
 
   toggleView(event: Event) {
     event.preventDefault();
