@@ -1,19 +1,42 @@
-:host{
-    display: block;
-    position: relative;
+@use "utils/variables" as *;
 
-    .skills{
-        display: flex;
-        gap: 100px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+:host {
+  display: block;
+  position: relative;
 
-    svg.shadow{
-        position: absolute;
-        left: 0;
-        bottom: -488.5px;
-        z-index: -1;
-        max-width: 100%;
+  div:has(> .skill-group-name) {
+    display: flex;
+  }
+
+  .skill-group-name {
+    color: white;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 37px;
+    margin: auto;
+
+    &::after {
+      display: inline-block;
+      content: "";
+      max-width: 100%;
+      height: 2px;
+      background-color: $purple;
     }
+  }
+
+  .skills {
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  svg.shadow {
+    position: absolute;
+    left: 0;
+    bottom: -488.5px;
+    z-index: -1;
+    max-width: 100%;
+  }
 }
