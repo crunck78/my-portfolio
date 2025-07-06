@@ -1,0 +1,53 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <mask id="cutout" x="0" y="0" width="600" height="600" maskUnits="userSpaceOnUse">
+    <rect x="0" y="0" width="600" height="600" fill="white" rx="40" ry="40"/>
+
+    <g transform="translate(30, 56)" fill="black">
+
+      <path
+        d="M 180 120
+          A 60 60 0 0 1 240 60
+          L 300 60
+          A 60 60 0 0 1 360 120
+          L 360 180
+          A 60 60 0 0 1 300 240
+          L 240 240
+          A 60 60 0 0 0 180 300
+          L 180 320
+          L 160 320
+          A 60 60 0 0 1 100 260
+          L 100 200
+          A 60 60 0 0 1 160 140
+          L 270 140
+          L 270 120
+          L 180 120" />
+
+        <circle cx="240" cy="90" r="10" fill="white" />
+
+        <g transform="scale(-1, -1) translate(-540, -490)">
+          <path
+            d="M 180 120
+              A 60 60 0 0 1 240 60
+              L 300 60
+              A 60 60 0 0 1 360 120
+              L 360 180
+              A 60 60 0 0 1 300 240
+              L 240 240
+              A 60 60 0 0 0 180 300
+              L 180 320
+              L 160 320
+              A 60 60 0 0 1 100 260
+              L 100 200
+              A 60 60 0 0 1 160 140
+              L 270 140
+              L 270 120
+              L 180 120" />
+
+          <circle cx="240" cy="90" r="10" fill="white" />
+      </g>
+    </g>
+  </mask>
+
+  <rect x="0" y="0" width="600" height="600" fill="white" rx="40" ry="40" mask="url(#cutout)" />
+</svg>
