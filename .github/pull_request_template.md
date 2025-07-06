@@ -9,6 +9,11 @@ _What does this PR do? Why is it needed?_
 
 <https://mihai-andrei-neacsu.atlassian.net/wiki/x/AYAO>
 
+### SEO
+
+- [ ] `sitemap.xml` is up to date
+- [ ] JSON-LD in `index.html` is up to date
+
 ### Code Quality
 
 - [ ] Code is written with **TypeScript Strict Mode** (if applicable)
