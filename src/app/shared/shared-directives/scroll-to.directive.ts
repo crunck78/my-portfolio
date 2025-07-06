@@ -12,27 +12,17 @@ export class ScrollToDirective {
    */
   @Input() appScrollTo!: string;
 
-  constructor() {}
-
   @HostListener('click', ['$event'])
-  async onClick(event: Event) {
-    await this.redirectAndScroll(event);
-  }
-
   @HostListener('touchstart', ['$event'])
-  async onTouchStart(event: Event) {
-    await this.redirectAndScroll(event);
-  }
-
-  private async redirectAndScroll(event?: Event) {
-    event?.preventDefault();
+  async redirectAndScroll(event: Event) {
+    event.preventDefault();
     if (!this.isStartPage()) await this.router.navigateByUrl('/');
     setTimeout(() => {
       this.triggerScroll();
     }, 100);
   }
 
-  triggerScroll() {
+  private triggerScroll() {
     const targetElement = document.getElementById(this.appScrollTo);
     if (targetElement) {
       // not secure but will work
@@ -51,7 +41,7 @@ export class ScrollToDirective {
     }
   }
 
-  isStartPage() {
+  private isStartPage() {
     return !this.router.url.startsWith('/imprint');
   }
 

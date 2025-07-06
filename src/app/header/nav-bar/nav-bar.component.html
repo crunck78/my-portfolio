@@ -1,57 +1,81 @@
-<nav class="desktop-view">
-  <button type="button" class="menu-link" [appScrollTo]="'about-me'">About me</button>
-  <button type="button" class="menu-link" [appScrollTo]="'my-skills'">My skills</button>
-  <button type="button" class="menu-link" [appScrollTo]="'portfolio'">Portfolio</button>
-  <button type="button" class="menu-link" [appScrollTo]="'contact'">Contact</button>
+<!-- Desktop Navigation -->
+<nav *ngIf="!(isMobileView$ | async)" role="navigation" class="desktop-navigation">
+  <ng-container *ngTemplateOutlet="navigationLinks"></ng-container>
+</nav>
+
+<!-- Mobile Navigation -->
+<nav *ngIf="isMobileView$ | async" role="navigation" [@openCloseMenu]="toggleMenu" class="mobile-navigation">
+  <ng-container *ngTemplateOutlet="navigationLinks"></ng-container>
 </nav>
 
 <button
+  *ngIf="isMobileView$ | async"
   type="button"
-  class="mobile-view"
-  aria-label="Toggle menu view"
+  class="navigation-view-toggler"
+  [attr.aria-label]="toggleMenu === 'closed' ? 'Show menu' : 'Hide menu'"
+  [attr.title]="toggleMenu === 'closed' ? 'Show menu' : 'Hide menu'"
   (touchstart)="toggleView($event)"
   (click)="toggleView($event)"
 >
-  <div class="menu-toggler">
-    <svg
-      #topLine
-      [@openCloseTogglerFirst]="toggleMenu"
-      width="32"
-      height="3"
-      viewBox="0 0 32 3"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
-    </svg>
-    <svg
-      #middleLine
-      [@openCloseTogglerMiddle]="toggleMenu"
-      width="32"
-      height="3"
-      viewBox="0 0 32 3"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
-    </svg>
-    <svg
-      #bottomLine
-      [@openCloseTogglerLast]="toggleMenu"
-      width="32"
-      height="3"
-      viewBox="0 0 32 3"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
-    </svg>
-  </div>
-
-  <div #menu [@openCloseMenu]="toggleMenu" class="menu">
-    <button type="button" class="menu-link" [appScrollTo]="'about-me'">About me</button>
-    <button type="button" class="menu-link" [appScrollTo]="'my-skills'">My skills</button>
-    <button type="button" class="menu-link" [appScrollTo]="'portfolio'">Portfolio</button>
-    <button type="button" class="menu-link" [appScrollTo]="'contact'">Contact</button>
-  </div>
+  <svg
+    [@openCloseTogglerFirst]="toggleMenu"
+    width="32"
+    height="3"
+    viewBox="0 0 32 3"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+  </svg>
+  <svg
+    [@openCloseTogglerMiddle]="toggleMenu"
+    width="32"
+    height="3"
+    viewBox="0 0 32 3"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+  </svg>
+  <svg
+    [@openCloseTogglerLast]="toggleMenu"
+    width="32"
+    height="3"
+    viewBox="0 0 32 3"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 1.5127H31" stroke="white" stroke-width="2" stroke-linecap="round" />
+  </svg>
 </button>
+
+<ng-template #navigationLinks>
+  <a
+    href="/#about-me"
+    title="About Mihai-Andrei Neacsu - Fullstack Developer"
+    class="menu-link"
+    [appScrollTo]="'about-me'"
+    >About me</a
+  >
+  <a
+    href="/#my-skills"
+    title="Tech stack and development skills of Mihai-Andrei Neacsu"
+    class="menu-link"
+    [appScrollTo]="'my-skills'"
+    >My skills</a
+  >
+  <a
+    href="/#portfolio"
+    title="Sample Angular and Django projects by Mihai-Andrei Neacsu"
+    class="menu-link"
+    [appScrollTo]="'portfolio'"
+    >Portfolio</a
+  >
+  <a
+    href="/#contact"
+    title="Contact Mihai-Andrei Neacsu - Fullstack Developer"
+    class="menu-link"
+    [appScrollTo]="'contact'"
+    >Contact</a
+  >
+</ng-template>

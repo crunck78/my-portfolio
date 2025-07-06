@@ -1,39 +1,50 @@
 <div id="portfolio">
   <app-section-title>
-    <div class="section-title section-title-left" sectionTitle>Portfolio</div>
-    <div class="section-subtitle padding-main" sectionSubtitle>
+    <h2 class="section-title section-title-left" sectionTitle>Portfolio</h2>
+    <p class="section-subtitle padding-main" sectionSubtitle>
       This page is a sample of my work - please feel free to try them out.
-    </div>
+    </p>
   </app-section-title>
 </div>
 
 <div class="padding-main projects">
   <app-project>
     <div class="circle-image circle-image-before-line group-first" projectImage>
-      <img src="assets/images/elpolloloco.mihai-andrei-neacsu.de.webp" alt="project_image" />
+      <img
+        src="assets/images/elpolloloco.mihai-andrei-neacsu.de.webp"
+        alt="Screenshot of the game El Pollo Loco, which I implemented."
+        title="El Pollo Loco - game developed by me"
+      />
     </div>
 
     <div projectDetails class="project-details group-last group-align-right">
-      <div class="project-name title-normal-bold color-purple-light margin-bottom-regular">El Pollo Loco</div>
-      <div class="project-stack subtitle-normal-regular color-green-light margin-bottom-regular white-space-no-wrap">
+      <h3 class="project-name title-normal-bold color-purple-light margin-bottom-regular">El Pollo Loco</h3>
+      <h4 class="project-stack subtitle-normal-regular color-green-light margin-bottom-regular white-space-no-wrap">
         JavaScript | HTML | CSS
-      </div>
-      <div class="project-description text-normal-regular color-white">
+      </h4>
+      <p class="project-description text-normal-regular color-white">
         A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to
         fight against the killer chicken.
-      </div>
+      </p>
       <div class="margin-top-big buttons-group button-group-align-right">
-        <a class="button" href="https://elpolloloco.mihai-andrei-neacsu.de" target="_blank" rel="noopener">
-          <button type="button" class="button-purple-white">Live Test</button>
+        <a
+          class="button button-purple-white"
+          href="https://elpolloloco.mihai-andrei-neacsu.de"
+          target="_blank"
+          rel="noopener"
+          title="Play the El Pollo Loco game live in your browser"
+        >
+          Live Test
         </a>
 
         <a
-          class="button"
+          class="button button-outline-green-white"
           href="https://github.com/crunck78/el_pollo_loco_object_orientation"
           target="_blank"
           rel="noopener"
+          title="View the El Pollo Loco game source code on GitHub"
         >
-          <button type="button" class="button-outline-green-white">Github</button>
+          Github
         </a>
       </div>
     </div>
@@ -41,56 +52,68 @@
 
   <app-project [reverse]="true">
     <div class="circle-image circle-image-after-line circle-image-no-object-fit group-last" projectImage>
-      <img src="assets/images/join.mihai-andrei-neacsu.de.svg" alt="project_image" />
+      <img
+        src="assets/images/join.mihai-andrei-neacsu.de.svg"
+        alt="Logo  of the application Join, which I implemented."
+        title="Join - web application developed by me"
+      />
     </div>
 
     <div projectDetails class="project-details group-first">
-      <div class="project-name title-normal-bold color-purple-light margin-bottom-regular">Join</div>
-      <div class="project-stack subtitle-normal-regular color-green-light margin-bottom-regular white-space-no-wrap">
+      <h3 class="project-name title-normal-bold color-purple-light margin-bottom-regular">Join</h3>
+      <h4 class="project-stack subtitle-normal-regular color-green-light margin-bottom-regular white-space-no-wrap">
         Angular | Django
-      </div>
-      <div class="project-description text-normal-regular color-white">
+      </h4>
+      <p class="project-description text-normal-regular color-white">
         This project features a scrum board-like interface where users can create and manage contacts and tasks,
         assigning contacts to specific tasks. The platform allows for organizing tasks into customizable lists.
-      </div>
+      </p>
       <div class="margin-top-big buttons-group">
-        <a class="button" href="https://join.mihai-andrei-neacsu.de" target="_blank" rel="noopener">
-          <button type="button" class="button-purple-white">Live Test</button>
+        <a
+          class="button button-purple-white"
+          href="https://join.mihai-andrei-neacsu.de"
+          target="_blank"
+          rel="noopener"
+          title="Test the Join web app live in your browser"
+        >
+          Live Test
         </a>
 
-        <a class="button" href="https://mihaiandrei.pythonanywhere.com/api/docs/" target="_blank" rel="noopener">
-          <button type="button" class="button-purple-white">Backend API</button>
+        <a
+          class="button button-purple-white"
+          href="https://mihaiandrei.pythonanywhere.com/api/docs/"
+          target="_blank"
+          rel="noopener"
+          title="Explore the Join project's backend API documentation"
+        >
+          Backend API
         </a>
       </div>
 
       <div class="margin-top-big buttons-group">
-        <a class="button" href="https://github.com/crunck78/join-scrum" target="_blank" rel="noopener">
-          <button type="button" class="button-outline-green-white">Frontend Github</button>
+        <a
+          class="button button-outline-green-white"
+          href="https://github.com/crunck78/join-scrum"
+          target="_blank"
+          rel="noopener"
+          title="View the Join frontend source code on GitHub"
+        >
+          Frontend Github
         </a>
 
-        <a class="button" href="https://github.com/mihaiandreineacsu/scrum-api" target="_blank" rel="noopener">
-          <button type="button" class="button-outline-green-white">Backend Github</button>
+        <a
+          class="button button-outline-green-white"
+          href="https://github.com/mihaiandreineacsu/scrum-api"
+          target="_blank"
+          rel="noopener"
+          title="View the Join backend API code on GitHub"
+        >
+          Backend Github
         </a>
       </div>
     </div>
   </app-project>
 </div>
-
-<!-- <svg class="shadow shadow-left" width="743" height="935" viewBox="0 0 743 935" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g filter="url(#filter0_f_105_313)">
-        <path
-            d="M353.108 685.565C336.329 691.61 320.14 697.144 304.971 702.076C199.544 718.963 292.995 703.571 332.471 731.937C351.937 745.925 363.875 714.134 353.108 685.565C522.893 624.398 753.095 510.933 598.195 439.654C385.434 341.75 377.194 319.183 344.979 247.736C312.764 176.289 201.021 21.1234 124.69 132.432C48.3596 243.741 26.8521 294.637 29.8832 362.512C32.9143 430.388 163.248 458.998 39.6628 554.144C-83.9224 649.289 77.0052 934.048 210.5 811C343.995 687.952 82.421 721.394 231.443 660.899C306.981 630.234 342.041 656.198 353.108 685.565Z"
-            fill="#6A00F5" />
-    </g>
-    <defs>
-        <filter id="filter0_f_105_313" x="-97.5566" y="0.442749" width="839.942" height="933.897"
-            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="46.5" result="effect1_foregroundBlur_105_313" />
-        </filter>
-    </defs>
-</svg> -->
 
 <svg
   class="shadow shadow-right"

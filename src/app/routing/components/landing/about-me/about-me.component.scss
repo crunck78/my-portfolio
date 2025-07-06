@@ -1,69 +1,69 @@
 @use "utils/variables" as *;
 
 #about-me {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 
-    svg.shadow {
-        position: absolute;
-        top: -100px;
-        right: 0;
-        z-index: -1;
+  svg.shadow {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    z-index: -1;
 
-        @media(max-width: $breakpoint-main){
-            height: 415.93px;
-        }
+    @media(max-width: $breakpoint-main) {
+      height: 415.93px;
+    }
+  }
+
+  .social-contact {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 100px;
+      height: 4px;
+      background-color: $purple;
+
+      @media(max-width: $breakpoint-main) {
+        width: 64px;
+      }
     }
 
-    .social-contact {
+    .menu-link {
+      @media(max-width: $breakpoint-main) {
+        display: none;
+      }
+    }
+  }
+
+  .about-me {
+    display: flex;
+    justify-content: space-between;
+
+    .about-text {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+
+      @media(min-width: $breakpoint-main) {
+        max-width: 471px;
+      }
+
+      .about-points {
         display: flex;
-        align-items: center;
-        gap: 40px;
+        gap: 35px;
 
-        &::before {
-            content: "";
-            display: inline-block;
-            width: 100px;
-            height: 4px;
-            background-color: $purple;
-
-            @media(max-width: $breakpoint-main){
-                width: 64px;
-            }
+        svg {
+          flex-shrink: 0;
         }
-
-        .menu-link{
-            @media(max-width: $breakpoint-main){
-                display: none;
-            }
-        }
+      }
     }
-
-    .about-me {
-        display: flex;
-        justify-content: space-between;
-
-        .about-text {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-
-            @media(min-width: $breakpoint-main){
-                max-width: 471px;
-            }
-
-            .about-points {
-                display: flex;
-                gap: 35px;
-
-                svg {
-                    flex-shrink: 0;
-                }
-            }
-        }
-    }
+  }
 }

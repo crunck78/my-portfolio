@@ -24,7 +24,14 @@
             "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/sendmail/index.php", "src/.htaccess", "src/robots.txt"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/sendmail/index.php",
+              "src/.htaccess",
+              "src/robots.txt",
+              "src/sitemap.xml"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": [],
             "browser": "src/main.ts",
@@ -94,7 +101,14 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/sendmail.php"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/sendmail.php",
+              "src/.htaccess",
+              "src/robots.txt",
+              "src/sitemap.xml"
+            ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]

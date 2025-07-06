@@ -1,16 +1,25 @@
-<div class="main padding-main">
+<div id="introduction" class="main padding-main">
   <div class="hero circle-image" [@visibleHidden]="toggleMe">
-    <img width="240" height="240" #me (load)="updateCurve()" src="assets/images/me.webp" alt="" />
+    <img
+      width="240"
+      height="240"
+      #me
+      (load)="updateCurve()"
+      src="assets/images/me.webp"
+      alt="Portrait of me in a shirt for my profile photo"
+      title="Profile picture"
+    />
   </div>
 
   <div class="intro white-space-no-wrap">
-    <div class="text" [@visibleHiddenIntro]="toggleMe">
-      <div class="i-am">I am</div>
-      <div>
-        <div class="name">Mihai-Andrei<br />Neacsu</div>
-        <div class="job">FULLSTACK DEVELOPER</div>
-      </div>
-    </div>
+    <h1 class="text" [@visibleHiddenIntro]="toggleMe">
+      <span class="i-am">I am</span>
+      <span>
+        <span class="name">Mihai-Andrei<br />Neacsu</span>
+        <br />
+        <span class="job">FULLSTACK DEVELOPER</span>
+      </span>
+    </h1>
     <button
       type="button"
       [@visibleHiddenButton]="toggleMe"

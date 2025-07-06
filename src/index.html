@@ -7,9 +7,173 @@
       name="description"
       content="Fullstack Developer | Head of IT | Mentor - Passionate about building scalable web applications with Angular and Django. Experienced in leading teams, optimizing workflows, and mentoring aspiring developers. Explore my portfolio to learn more"
     />
+    <link rel="canonical" href="https://mihai-andrei-neacsu.de/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Mihai-Andrei Neacsu" />
+    <meta name="publisher" content="Mihai-Andrei Neacsu" />
+    <meta
+      name="keywords"
+      content="Fullstack Developer, Angular, Django, Mentor, Frontend, Backend, Mihai-Andrei Neacsu"
+    />
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="assets/svgs/favicon.svg" sizes="any" type="image/svg+xml" />
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://mihai-andrei-neacsu.de/#person",
+            "name": "Mihai-Andrei Neacsu",
+            "jobTitle": "Fullstack Developer",
+            "image": "https://mihai-andrei-neacsu.de/assets/images/me.webp",
+            "email": "mailto:contact@mihai-andrei-neacsu.de",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "München",
+              "addressCountry": "Germany"
+            },
+            "knowsLanguage": ["German", "English"],
+            "knowsAbout": [
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "TypeScript",
+              "Angular",
+              "Firebase",
+              "Python",
+              "Django",
+              "REST APIs",
+              "Material Design",
+              "Git",
+              "Scrum",
+              "Linux",
+              "Google Cloud",
+              "C++",
+              "OpenGL"
+            ],
+            "affiliation": {
+              "@type": "Organization",
+              "name": "The Venus Project",
+              "url": "https://www.thevenusproject.com/"
+            },
+            "description": "Fullstack developer based in München, Germany. Skilled in web frontend and backend development."
+          },
+          {
+            "@type": "WebPage",
+            "name": "Fullstack Developer | Mentor | Head of IT - Mihai-Andrei Neacsu",
+            "url": "https://mihai-andrei-neacsu.de",
+            "description": "Fullstack Developer | Head of IT | Mentor - Passionate about building scalable web applications with Angular and Django...",
+            "author": { "@id": "https://mihai-andrei-neacsu.de/#person" },
+            "about": { "@id": "https://mihai-andrei-neacsu.de/#person" },
+            "mainEntity": [
+              {
+                "@type": "ItemList",
+                "name": "Introduction",
+                "url": "https://mihai-andrei-neacsu.de/#introduction",
+                "itemListElement": {
+                  "@id": "https://mihai-andrei-neacsu.de/#person"
+                }
+              },
+              {
+                "@type": "ItemList",
+                "name": "About Me",
+                "url": "https://mihai-andrei-neacsu.de/#about-me",
+                "itemListElement": {
+                  "@id": "https://mihai-andrei-neacsu.de/#person"
+                }
+              },
+              {
+                "@type": "ItemList",
+                "name": "My Skills",
+                "itemListElement": {
+                  "@type": "ItemList",
+                  "url": "https://mihai-andrei-neacsu.de/#my-skills",
+                  "itemListElement": [
+                    {
+                      "@type": "ItemList",
+                      "name": "Frontend",
+                      "itemListElement": ["HTML", "CSS", "JavaScript", "TypeScript", "Angular", "Material Design"]
+                    },
+                    {
+                      "@type": "ItemList",
+                      "name": "Backend",
+                      "itemListElement": ["Django", "Firebase", "REST APIs", "Python"]
+                    },
+                    {
+                      "@type": "ItemList",
+                      "name": "Tools & Concepts",
+                      "itemListElement": ["Git", "Scrum"]
+                    }
+                  ]
+                }
+              },
+              {
+                "@type": "ItemList",
+                "name": "Portfolio",
+                "url": "https://mihai-andrei-neacsu.de/#contact",
+                "itemListElement": [
+                  {
+                    "@type": "WebApplication",
+                    "name": "El Pollo Loco",
+                    "browserRequirements": "requires JavaScript",
+                    "applicationCategory": "GameApplication",
+                    "applicationSubCategory": "Jump-and-Run",
+                    "operatingSystem": "All",
+                    "description": "A simple Jump-and-Run game based on an object-oriented approach. Help Pepe collect coins and fight the killer chicken.",
+                    "screenshot": "https://mihai-andrei-neacsu.de/assets/images/elpolloloco.mihai-andrei-neacsu.de.webp",
+                    "url": "https://elpolloloco.mihai-andrei-neacsu.de",
+                    "softwareHelp": "https://elpolloloco.mihai-andrei-neacsu.de/docs/"
+                  },
+                  {
+                    "@type": "SoftwareSourceCode",
+                    "codeRepository": "https://github.com/crunck78/el_pollo_loco_object_orientation",
+                    "programmingLanguage": "JavaScript"
+                  },
+                  {
+                    "@type": "WebApplication",
+                    "name": "Join",
+                    "applicationCategory": "TaskManagementApplication",
+                    "operatingSystem": "All",
+                    "browserRequirements": "requires JavaScript",
+                    "description": "A scrum board-like interface for managing contacts and tasks...",
+                    "screenshot": "https://mihai-andrei-neacsu.de/assets/images/join.mihai-andrei-neacsu.de.svg",
+                    "url": "https://join.mihai-andrei-neacsu.de",
+                    "softwareHelp": "https://mihaiandrei.pythonanywhere.com/api/docs/"
+                  },
+                  {
+                    "@type": "SoftwareSourceCode",
+                    "codeRepository": "https://github.com/crunck78/join-scrum",
+                    "programmingLanguage": "TypeScript"
+                  },
+                  {
+                    "@type": "SoftwareSourceCode",
+                    "codeRepository": "https://github.com/mihaiandreineacsu/scrum-api",
+                    "programmingLanguage": "Python"
+                  }
+                ]
+              },
+              {
+                "@type": "ContactPage",
+                "name": "Contact",
+                "description": "Get in touch with Mihai-Andrei Neacsu for collaboration, web development, or freelance projects.",
+                "url": "https://mihai-andrei-neacsu.de/#contact",
+                "mainEntity": { "@id": "https://mihai-andrei-neacsu.de/#person" }
+              },
+              {
+                "@type": "AboutPage",
+                "name": "Imprint",
+                "description": "Legal disclosure and contact information for Mihai-Andrei Neacsu's portfolio.",
+                "url": "https://mihai-andrei-neacsu.de/imprint"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
