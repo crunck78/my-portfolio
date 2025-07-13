@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4.4.0
         with:
           node-version: 22
-      - name: Cache Node Modules
+      - name: Cache Node and Composer Modules Modules
         uses: ./.github/actions/cache-node-composer-modules
       - name: Install Dependencies
         run: npm ci
