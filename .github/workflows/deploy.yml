@@ -68,7 +68,7 @@ jobs:
             exit 1
           else
             echo "Build artifacts found:"
-            tree ${{ secrets.LOCAL_UPLOAD }}
+            tree -a ${{ secrets.LOCAL_UPLOAD }}
           fi
           echo "Dry run verification completed."
 
