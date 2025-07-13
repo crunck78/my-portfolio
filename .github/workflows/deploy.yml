@@ -50,12 +50,13 @@ jobs:
 
       - name: 🔧 Create dotenv File
         run: |
-          cat <<EOF > ${{ secrets.LOCAL_UPLOAD }}/.env
+          cat <<EOF > "${{ secrets.LOCAL_UPLOAD }}.env"
           ALLOWED_ORIGINS='${{ secrets.ALLOWED_ORIGINS }}'
           TO_EMAIL='${{ secrets.TO_EMAIL }}'
           FROM_EMAIL='${{ secrets.FROM_EMAIL }}'
           ERROR_LOG='${{ secrets.ERROR_LOG }}'
           EOF
+        shell: bash
 
       - name: 📂 Verify Build Artifacts (Dry Run)
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run }}
