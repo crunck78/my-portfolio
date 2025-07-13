@@ -9,6 +9,10 @@ _What does this PR do? Why is it needed?_
 
 <https://mihai-andrei-neacsu.atlassian.net/wiki/x/AYAO>
 
+### Security
+
+- [] Denied access to sensitiv files/folders in `.htaccess` (ex.: log, environment, php files/folders)
+
 ### SEO
 
 - [ ] `sitemap.xml` is up to date

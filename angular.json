@@ -27,10 +27,14 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/sendmail/index.php",
               "src/.htaccess",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              {
+                "glob": "**/*",
+                "input": "src/sendmail",
+                "output": "/sendmail"
+              }
             ],
             "styles": ["src/styles.scss"],
             "scripts": [],
@@ -104,10 +108,14 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/sendmail.php",
               "src/.htaccess",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              {
+                "glob": "**/*",
+                "input": "src/sendmail",
+                "output": "/sendmail"
+              }
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {

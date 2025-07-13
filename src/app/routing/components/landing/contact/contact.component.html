@@ -15,15 +15,18 @@
     </div>
   </div>
   <div class="group-last">
-    <div class="form-group" [formGroup]="contactForm">
-      <app-form-field [control]="name" [controlName]="'name'" [maxLength]="NAME_MAX_LENGTH">
+    <form class="form-group" [formGroup]="contactForm" (ngSubmit)="onSubmit($event)">
+      <app-form-field [control]="name" [controlName]="'name'" [maxLength]="nameMaxLength">
         <input
-          [maxLength]="NAME_MAX_LENGTH"
-          [pattern]="NAME_REGEX"
+          [maxLength]="nameMaxLength"
           [class.invalid]="name.invalid && (name.dirty || name.touched)"
           type="text"
-          [formControl]="name"
+          name="name"
+          formControlName="name"
           placeholder="Your name"
+          [attr.aria-required]="'true'"
+          [attr.aria-invalid]="name.invalid"
+          (blur)="sanitizeControl(name)"
         />
       </app-form-field>
 
@@ -31,43 +34,68 @@
         [customHasError]="email.invalid && email.dirty && email.touched"
         [control]="email"
         [controlName]="'email'"
-        [maxLength]="EMAIL_MAX_LENGTH"
+        [maxLength]="emailMaxLength"
       >
         <input
-          [maxLength]="EMAIL_MAX_LENGTH"
-          [pattern]="EMAIL_REGEX"
+          [maxLength]="emailMaxLength"
           [class.invalid]="email.invalid && email.dirty && email.touched"
-          type="text"
-          [formControl]="email"
+          type="email"
+          name="email"
+          formControlName="email"
           placeholder="Your email"
+          [attr.aria-required]="'true'"
+          [attr.aria-invalid]="email.invalid"
+          (blur)="sanitizeControl(email)"
         />
       </app-form-field>
 
-      <app-form-field [control]="message" [controlName]="'message'" [maxLength]="MESSAGE_MAX_LENGTH">
+      <app-form-field [control]="message" [controlName]="'message'" [maxLength]="messageMaxLength">
         <textarea
-          [maxLength]="MESSAGE_MAX_LENGTH"
+          [maxLength]="messageMaxLength"
           [class.invalid]="message.invalid && (message.dirty || message.touched)"
           cols="30"
           rows="10"
-          [formControl]="message"
+          name="message"
+          formControlName="message"
           placeholder="Your message"
+          [attr.aria-required]="true"
+          [attr.aria-invalid]="message.invalid"
+          (blur)="sanitizeControl(message)"
         ></textarea>
       </app-form-field>
 
+      <img src="/sendmail/captcha.php" border="0" title="Security code" alt="captcha image" />
+
+      <app-form-field [control]="securityCode" [controlName]="'securityCode'">
+        <input
+          type="text"
+          name="security_code"
+          size="5"
+          formControlName="securityCode"
+          placeholder="Security Code"
+          [attr.aria-required]="'true'"
+          [attr.aria-invalid]="securityCode.invalid"
+          (blur)="sanitizeControl(message)"
+        />
+      </app-form-field>
+
       <button
-        type="button"
-        (touchstart)="onSubmit($event)"
-        (click)="onSubmit($event)"
-        [title]="contactForm.invalid ? 'Please fill up the form' : ''"
-        [disabled]="contactForm.invalid || submitting || isMessageSend"
+        type="submit"
+        [title]="contactForm.invalid ? 'Please fill up the form' : 'Submit your message'"
+        [disabled]="
+          contactForm.invalid || contactForm.disabled || contactState === 'sending' || contactState === 'send'
+        "
+        [attr.aria-label]="'Send Message'"
+        [attr.aria-disabled]="
+          contactForm.invalid || contactForm.disabled || contactState === 'sending' || contactState === 'send'
+        "
         class="button-green-white"
       >
-        <ng-container *ngIf="!submitting && !response?.contactSubmitted"> Send Message </ng-container>
-        <ng-container *ngIf="submitting"> Sending... </ng-container>
-        <ng-container *ngIf="isMessageSend"> Message Send </ng-container>
-        <ng-container *ngIf="isMessageNotSend"> Message not send </ng-container>
+        <ng-container *ngIf="contactState !== 'sending' && contactState !== 'send'"> Send Message </ng-container>
+        <ng-container *ngIf="contactState === 'sending'"> Sending... </ng-container>
+        <ng-container *ngIf="contactState === 'send'"> Message Send </ng-container>
       </button>
-    </div>
+    </form>
   </div>
 </div>
 

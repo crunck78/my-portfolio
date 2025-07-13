@@ -1,72 +1,28 @@
 <?php
 
-$nameRegex = "/^[A-Za-z .'-]+$/";
-$emailRegex = "/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/";
+require_once 'bootstrap.php';
 
-if (!test_request()) {
-  $response = get_email_send_request_response('detail', 405, 'Access forbidden.');
-  echo $response;
-  exit();
-}
+setupSession();
 
-$name = test_input($_POST["name"]);
-$email = test_input($_POST["email"]);
-$message = test_input($_POST["message"]);
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header('Content-Type: application/json');
 
-if (empty($name) || empty($email) || empty($message)) {
-  $response = get_email_send_request_response('detail', 400, 'All fields are required.');
-  echo $response;
-  exit();
-}
+checkOrigin(ALLOWED_ORIGINS);
+checkRequestMethod(['POST', 'OPTIONS']);
+checkContentType('multipart/form-data');
 
-if (!test_regex($name, $nameRegex)) {
-  $response = get_email_send_request_response('detail', 400, 'Invalid name');
-  echo $response;
-  exit();
-}
+exitOnOptionRequest();
 
-if (!test_regex($email, $emailRegex)) {
-  $response = get_email_send_request_response('detail', 400, 'Invalid email');
-  echo $response;
-  exit();
-}
+$name = sanitizeInput($_POST["name"] ?? '');
+$email = sanitizeInput($_POST["email"] ?? '');
+$message = sanitizeInput($_POST["message"] ?? '');
+$securityCode = $_POST["securityCode"] ?? '';
+$csrfToken = $_POST['csrf_token'] ?? '';
 
-$to = 'contact@mihai-andrei-neacsu.de';
-$subject = 'New message from ' . $name;
-$body = "Name: $name\n\nEmail: $email\n\Message:\n$message";
-$headers = "From: $email";
-
-if (!mail($to, $subject, $body, $headers)) {
-  $response = get_email_send_request_response('detail', 400, 'An error occurred while sending the message.');
-  echo $response;
-  exit();
-}
-
-$response = get_email_send_request_response('detail', 200, 'The message was successfully sent.');
-echo $response;
-exit();
-
-function test_input(string $data): string
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-function test_regex(string $data, string $regex): int|false
-{
-  return preg_match($regex, $data);
-}
-
-function test_request(): bool
-{
-  return $_SERVER['REQUEST_METHOD'] === 'POST';
-}
-
-function get_email_send_request_response(string $type, int $code, string $message): string
-{
-  $response = array($type => $message);
-  http_response_code($code);
-  return json_encode($response);
-}
+validateCsrfToken($csrfToken);
+validatePayload($name, $email, $message);
+checkLastRequestTime();
+validateCaptcha($securityCode);
+// TODO fix reset captcha logic
+sendEmail($name, $email, $message);
