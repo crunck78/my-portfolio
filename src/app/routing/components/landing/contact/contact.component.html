@@ -64,12 +64,12 @@
         ></textarea>
       </app-form-field>
 
-      <img src="/sendmail/captcha.php" border="0" title="Security code" alt="captcha image" />
+      <img [src]="captchaUrl" border="0" title="Security code" alt="Captcha image for security verification" />
 
       <app-form-field [control]="securityCode" [controlName]="'securityCode'">
         <input
           type="text"
-          name="security_code"
+          name="securityCode"
           size="5"
           formControlName="securityCode"
           placeholder="Security Code"

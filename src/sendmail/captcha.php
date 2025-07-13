@@ -2,9 +2,6 @@
 
 require_once 'bootstrap.php';
 
-setupSession();
-unset($_SESSION['captcha_spam']);
-
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-type: image/png');
@@ -12,8 +9,9 @@ header('Content-type: image/png');
 checkOrigin(ALLOWED_ORIGINS);
 checkRequestMethod(['GET', 'OPTIONS']);
 
+unset($_SESSION['securityCode']);
 $text = randomString(5);  //The number defines the amount of digits
-$_SESSION['captcha_spam'] = $text;
+$_SESSION['securityCode'] = $text;
 
 $img = ImageCreateFromPNG('captcha.PNG'); //Background image
 $color = ImageColorAllocate($img, 0, 0, 0); //Color

@@ -29,6 +29,7 @@
   "eslint.format.enable": false,
   "cSpell.words": [
     "andrei",
+    "biweek",
     "commitlint",
     "cooldown",
     "csrf",

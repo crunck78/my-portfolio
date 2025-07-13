@@ -59,12 +59,12 @@ function setupSession()
 
 function checkLastRequestTime()
 {
-    $cooldownPeriod = 60; // seconds
+    $cooldownPeriod = 10; // seconds
     $currentTime = time();
 
     // Check if the last request time is set in the session
-    if (isset($_SESSION['last_request_time'])) {
-        $lastRequestTime = $_SESSION['last_request_time'];
+    if (isset($_SESSION['lastRequestTime'])) {
+        $lastRequestTime = $_SESSION['lastRequestTime'];
 
         // Calculate the time since the last request
         $timeSinceLastRequest = $currentTime - $lastRequestTime;
@@ -79,27 +79,27 @@ function checkLastRequestTime()
 
     // Cooldown period has passed, or this is the first request
     // Update the last request time
-    $_SESSION['last_request_time'] = $currentTime;
+    $_SESSION['lastRequestTime'] = $currentTime;
 }
 
 function validateCsrfToken(string $csrfClientToken)
 {
 
-    $csrfSessionToken = $_SESSION['csrf_token'] ?? null;
+    $csrfSessionToken = $_SESSION['csrfToken'] ?? null;
 
     if (!$csrfSessionToken || !hash_equals($csrfSessionToken, $csrfClientToken)) {
-        exitWithResponse('detail', 403, 'Forbidden.');
+        exitWithResponse('detail', 403, 'Invalid CSRF token.');
     }
 }
 
 function validateCaptcha($securityCode)
 {
-    $sessionCaptchaSpam = $_SESSION['captcha_spam'] ?? null;
+    $sessionCaptchaSpam = $_SESSION['securityCode'] ?? null;
     if (!$sessionCaptchaSpam || $securityCode !== $sessionCaptchaSpam) {
          exitWithResponse('detail', 400, 'Wrong Security code');
     }
 
-    unset($_SESSION['captcha_spam']);
+    unset($_SESSION['securityCode']);
 }
 
 function sanitizeInput(string $data): string

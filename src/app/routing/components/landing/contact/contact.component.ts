@@ -18,6 +18,7 @@ export class ContactComponent implements OnInit {
   private feedbackS = inject(FeedbackService);
 
   contactState: ContactState = 'opened';
+  captchaUrl = '/sendmail/captcha.php';
   private csrfToken = '';
 
   readonly nameMaxLength = 50;
@@ -80,8 +81,8 @@ export class ContactComponent implements OnInit {
 
   // HTTP requests
   private fetchCsrfToken(): void {
-    this.http.get<{ csrf_token: string }>('/sendmail/csrf_token.php').subscribe({
-      next: (response) => (this.csrfToken = response.csrf_token),
+    this.http.get<{ csrfToken: string }>('/sendmail/csrfToken.php').subscribe({
+      next: (response) => (this.csrfToken = response.csrfToken),
       error: () => console.debug('Failed to fetch CSRF token.'),
     });
   }
@@ -116,6 +117,7 @@ export class ContactComponent implements OnInit {
       closeFeedbackAction: this.contactState === 'notSend' ? 'Try Again' : 'Close',
     };
     this.feedbackS.createNewFeedback(feedback);
+    this.refreshCaptcha();
   }
 
   // Utility methods
@@ -138,7 +140,7 @@ export class ContactComponent implements OnInit {
     body.append('email', this.sanitizeInput(this.email.value || ''));
     body.append('message', this.sanitizeInput(this.message.value || ''));
     body.append('securityCode', this.sanitizeInput(this.securityCode.value || ''));
-    body.append('csrf_token', this.csrfToken);
+    body.append('csrfToken', this.csrfToken);
 
     return { url, body };
   }
@@ -152,5 +154,9 @@ export class ContactComponent implements OnInit {
     if (sanitizedValue !== control.value) {
       control.setValue(sanitizedValue, { emitEvent: false });
     }
+  }
+
+  refreshCaptcha(): void {
+    this.captchaUrl = `/sendmail/captcha.php?${new Date().getTime()}`;
   }
 }

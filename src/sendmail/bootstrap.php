@@ -15,3 +15,5 @@ try {
 require 'config.php';
 require 'constants.php';
 require 'functions.php';
+
+setupSession();

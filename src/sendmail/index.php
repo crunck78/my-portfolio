@@ -2,8 +2,6 @@
 
 require_once 'bootstrap.php';
 
-setupSession();
-
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: application/json');
@@ -18,11 +16,10 @@ $name = sanitizeInput($_POST["name"] ?? '');
 $email = sanitizeInput($_POST["email"] ?? '');
 $message = sanitizeInput($_POST["message"] ?? '');
 $securityCode = $_POST["securityCode"] ?? '';
-$csrfToken = $_POST['csrf_token'] ?? '';
+$csrfToken = $_POST['csrfToken'] ?? '';
 
-validateCsrfToken($csrfToken);
-validatePayload($name, $email, $message);
 checkLastRequestTime();
+validateCsrfToken($csrfToken);
 validateCaptcha($securityCode);
-// TODO fix reset captcha logic
+validatePayload($name, $email, $message);
 sendEmail($name, $email, $message);
