@@ -1,5 +1,5 @@
 {
-  "cSpell.language": "en,de-de,ro-ro",
+  "cSpell.language": "en, de-de, ro-ro",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
@@ -27,10 +27,22 @@
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.inlineSuggest.enabled": true,
   "eslint.format.enable": false,
-  "cSpell.words": ["commitlint", "Neacsu", "nums", "sendmail", "typetracking"],
+  "cSpell.words": [
+    "andrei",
+    "biweek",
+    "commitlint",
+    "cooldown",
+    "csrf",
+    "mihai",
+    "neacsu",
+    "Neacsu",
+    "nums",
+    "sendmail",
+    "typetracking"
+  ],
   "shellcheck.enable": false,
   "biome.enabled": false,
-  "codeQL.createQuery.qlPackLocation": "c:\\dev\\Private\\Projects\\my-portfolio",
+  "codeQL.createQuery.qlPackLocation": "${workspace}",
   "eslint.lintTask.options": "${workspace}/eslint.config.js",
   "stylelint.configFile": "stylelint.config.js",
   "stylelint.validate": ["css", "scss"]

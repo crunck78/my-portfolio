@@ -1,4 +1,18 @@
-# .htaccess
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Deny access to the vendor directory
+  RewriteRule ^vendor/ - [F,L]
+
+  # Deny access to specific files
+  RewriteRule ^sendmail/(bootstrap\.php|config\.php|functions\.php|captcha\.PNG|XFILES\.TTF|constants\.php)$ - [F,L]
+
+  # Deny access to the .env file in the root directory
+  RewriteRule ^\.env$ - [F,L]
+
+  # Deny access to any file starting with errorlog and ending with .txt
+  RewriteRule ^errorlog.*\.txt$ - [F,L]
+</IfModule>
 
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -23,4 +37,6 @@
   <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|otf|eot)$">
     Header set Cache-Control "max-age=2592000, public"
   </FilesMatch>
+
+  Header always set Content-Security-Policy "frame-ancestors 'self' https://*.mihai-andrei-neacsu.de"
 </IfModule>

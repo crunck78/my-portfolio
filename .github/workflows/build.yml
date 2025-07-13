@@ -21,15 +21,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
+
       - uses: actions/setup-node@v4.4.0
         with:
           node-version: 22
 
-      - name: Cache Node Modules
-        uses: ./.github/actions/cache-node-modules
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.34.1
+        with:
+          php-version: '8.4'
+
+      - name: Cache Node and Composer Modules Modules
+        uses: ./.github/actions/cache-node-composer-modules
 
       - run: npm ci
       - run: npm run build
+
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Copy Vendor Directory
+        run: cp -r vendor ${{ secrets.LOCAL_UPLOAD }}
 
       - name: Upload Build Artifacts
         if: ${{ inputs.trigger_source == 'deploy' }}

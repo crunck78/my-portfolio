@@ -40,7 +40,12 @@ textarea {
         outline: none;
     }
 
-    &:not(.invalid):hover {
+    &:disabled {
+      border: 1px solid $gray;
+      cursor: not-allowed;
+    }
+
+    &:not(.invalid, :disabled):hover {
         border: 1px solid $green;
     }
 }
