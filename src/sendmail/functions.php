@@ -95,8 +95,15 @@ function validateCsrfToken(string $csrfClientToken)
 function validateCaptcha($securityCode)
 {
     $sessionCaptchaSpam = $_SESSION['securityCode'] ?? null;
-    if (!$sessionCaptchaSpam || $securityCode !== $sessionCaptchaSpam) {
-         exitWithResponse('detail', 400, 'Wrong Security code');
+
+    // No code in the session means it expired along with the session,
+    // not that the user mistyped it.
+    if (!$sessionCaptchaSpam) {
+        exitWithResponse('detail', 400, 'Your security code expired. Please enter the new code shown.');
+    }
+
+    if ($securityCode !== $sessionCaptchaSpam) {
+        exitWithResponse('detail', 400, 'Wrong Security code');
     }
 
     unset($_SESSION['securityCode']);
