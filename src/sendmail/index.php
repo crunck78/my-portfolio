@@ -18,8 +18,10 @@ $message = sanitizeInput($_POST["message"] ?? '');
 $securityCode = $_POST["securityCode"] ?? '';
 $csrfToken = $_POST['csrfToken'] ?? '';
 
-checkLastRequestTime();
 validateCsrfToken($csrfToken);
 validateCaptcha($securityCode);
 validatePayload($name, $email, $message);
+// Rate-limit only requests that passed validation, so a rejected
+// attempt (e.g. expired session) does not lock the user into a cooldown.
+checkLastRequestTime();
 sendEmail($name, $email, $message);

@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable, switchMap } from 'rxjs';
 import { Feedback } from 'src/app/shared/feedback/feedback.model';
 import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
 import { ContactModule } from './contact.module';
@@ -64,7 +65,6 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchCsrfToken();
     this.contactForm.setControl('name', this.name);
     this.contactForm.setControl('email', this.email);
     this.contactForm.setControl('message', this.message);
@@ -80,20 +80,26 @@ export class ContactComponent implements OnInit {
   }
 
   // HTTP requests
-  private fetchCsrfToken(): void {
-    this.http.get<{ csrfToken: string }>('/sendmail/csrfToken.php').subscribe({
-      next: (response) => (this.csrfToken = response.csrfToken),
-      error: () => console.debug('Failed to fetch CSRF token.'),
-    });
+  private fetchCsrfToken(): Observable<{ csrfToken: string }> {
+    return this.http.get<{ csrfToken: string }>('/sendmail/csrfToken.php');
   }
 
   private postMessage(): void {
-    const conf = this.postConfiguration();
     this.contactForm.disable();
-    this.http.post<{ detail: string }>(conf.url, conf.body).subscribe({
-      next: (response) => this.handleSuccessResponse(response),
-      error: (error) => this.handleErrorResponse(error),
-    });
+    // Fetch the token right before posting: the session token expires server-side,
+    // so a token fetched at page load can be stale by the time the user submits.
+    this.fetchCsrfToken()
+      .pipe(
+        switchMap((response) => {
+          this.csrfToken = response.csrfToken;
+          const conf = this.postConfiguration();
+          return this.http.post<{ detail: string }>(conf.url, conf.body);
+        })
+      )
+      .subscribe({
+        next: (response) => this.handleSuccessResponse(response),
+        error: (error) => this.handleErrorResponse(error),
+      });
   }
 
   // Response handling
