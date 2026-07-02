@@ -12,11 +12,11 @@ checkContentType('multipart/form-data');
 
 exitOnOptionRequest();
 
-$name = sanitizeInput($_POST["name"] ?? '');
-$email = sanitizeInput($_POST["email"] ?? '');
-$message = sanitizeInput($_POST["message"] ?? '');
-$securityCode = $_POST["securityCode"] ?? '';
-$csrfToken = $_POST['csrfToken'] ?? '';
+$name = sanitizeInput(getStringParam('name'));
+$email = sanitizeInput(getStringParam('email'));
+$message = sanitizeInput(getStringParam('message'));
+$securityCode = getStringParam('securityCode');
+$csrfToken = getStringParam('csrfToken');
 
 validateCsrfToken($csrfToken);
 validateCaptcha($securityCode);

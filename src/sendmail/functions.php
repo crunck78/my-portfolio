@@ -102,6 +102,18 @@ function validateCaptcha($securityCode)
     unset($_SESSION['securityCode']);
 }
 
+function getStringParam(string $key): string
+{
+    $value = $_POST[$key] ?? '';
+
+    // $_POST values can be arrays (e.g. "csrfToken[]=x"); reject anything but a plain string.
+    if (!is_string($value)) {
+        exitWithResponse('detail', 400, 'Invalid request.');
+    }
+
+    return $value;
+}
+
 function sanitizeInput(string $data): string
 {
     $data = trim($data);
