@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable, switchMap } from 'rxjs';
+import { interval, Observable, switchMap } from 'rxjs';
 import { Feedback } from 'src/app/shared/feedback/feedback.model';
 import { FeedbackService } from 'src/app/shared/feedback/feedback.service';
 import { ContactModule } from './contact.module';
@@ -17,10 +18,16 @@ type ContactState = 'opened' | 'sending' | 'send' | 'notSend';
 export class ContactComponent implements OnInit {
   private http = inject(HttpClient);
   private feedbackS = inject(FeedbackService);
+  private destroyRef = inject(DestroyRef);
 
   contactState: ContactState = 'opened';
   captchaUrl = '/sendmail/captcha.php';
   private csrfToken = '';
+
+  // Refresh the captcha before PHP's session gc_maxlifetime (~24 min) expires it
+  // server-side; the refresh request itself also keeps the session alive.
+  readonly captchaLifetimeSeconds = 600;
+  captchaSecondsLeft = this.captchaLifetimeSeconds;
 
   readonly nameMaxLength = 50;
   readonly emailMaxLength = 50;
@@ -61,6 +68,13 @@ export class ContactComponent implements OnInit {
       email: this.email,
       message: this.message,
       securityCode: this.securityCode,
+    });
+
+    // Browser only: the countdown must not run during prerendering.
+    afterNextRender(() => {
+      interval(1000)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe(() => this.tickCaptchaCountdown());
     });
   }
 
@@ -164,5 +178,25 @@ export class ContactComponent implements OnInit {
 
   refreshCaptcha(): void {
     this.captchaUrl = `/sendmail/captcha.php?${new Date().getTime()}`;
+    this.captchaSecondsLeft = this.captchaLifetimeSeconds;
+  }
+
+  get captchaCountdown(): string {
+    const minutes = Math.floor(this.captchaSecondsLeft / 60);
+    const seconds = this.captchaSecondsLeft % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  private tickCaptchaCountdown(): void {
+    // Never swap the code while a submission is in flight.
+    if (this.contactState === 'sending') {
+      return;
+    }
+
+    this.captchaSecondsLeft--;
+    if (this.captchaSecondsLeft <= 0) {
+      this.securityCode.reset('');
+      this.refreshCaptcha();
+    }
   }
 }

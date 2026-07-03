@@ -50,6 +50,17 @@ textarea {
     }
 }
 
+.captcha {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .captcha-timer {
+        color: $gray;
+        font-size: 14px;
+    }
+}
+
 @media(width >= 300px) {
     .form-group,
     .form-text {
