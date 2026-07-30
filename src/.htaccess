@@ -40,3 +40,14 @@
 
   Header always set Content-Security-Policy "frame-ancestors 'self' https://*.mihai-andrei-neacsu.de"
 </IfModule>
+
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Block AI crawlers / LLM training scrapers (403)
+  RewriteCond %{HTTP_USER_AGENT} "(GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|Claude-Web|anthropic-ai|Google-CloudVertexBot|GoogleOther|PerplexityBot|Perplexity-User|CCBot|Bytespider|ByteSpider|Amazonbot|meta-externalagent|meta-externalfetcher|FacebookBot|cohere-ai|cohere-training-data-crawler|MistralAI-User|Diffbot|omgili|omgilibot|ImagesiftBot|YouBot|AI2Bot|Ai2Bot-Dolma|Timpibot|PanguBot|Kangaroo Bot|Webzio-Extended|DataForSeoBot|SemrushBot-OCOB|Firecrawl|FirecrawlAgent|ProRataInc|TikTokSpider|Applebot-Extended)" [NC]
+  RewriteRule ^ - [F,L]
+
+  # Deny access to the vendor directory
+</IfModule>
