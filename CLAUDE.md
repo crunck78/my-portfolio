@@ -31,6 +31,7 @@ The PHP backend needs a `.env` (see `template.env`: `ALLOWED_ORIGINS`, `TO_EMAIL
 ## Git Hooks & Commit Conventions
 
 Husky enforces:
+
 - **pre-commit**: `lint-staged` (eslint --fix on TS/HTML via `ng-lint-staged`, prettier on JS/JSON, stylelint --fix on SCSS)
 - **commit-msg**: commitlint with `@commitlint/config-conventional` — commit messages must be Conventional Commits (`feat:`, `fix:`, `ci:`, etc.)
 - **pre-push**: runs `ng test --watch=false` and `ng build` — pushes fail if tests or the build fail
@@ -49,6 +50,7 @@ Husky enforces:
 
 - `lint.yml` on every push; `build.yml` and `test.yml` on PRs; `image_scan.yml` runs a Trivy scan of the Docker image.
 - `deploy.yml` deploys on `v*.*.*` tags (runs test + lint + build, then FTP-uploads the artifact). `workflow_dispatch` with `dry_run` is available.
+
 - Composite actions in `.github/actions/` handle npm/composer caching.
 
 ## Code Style Notes
