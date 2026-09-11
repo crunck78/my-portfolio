@@ -64,7 +64,12 @@
         ></textarea>
       </app-form-field>
 
-      <img [src]="captchaUrl" border="0" title="Security code" alt="Captcha image for security verification" />
+      <div class="captcha">
+        <img [src]="captchaUrl()" border="0" title="Security code" alt="Captcha image for security verification" />
+        <span class="captcha-timer" title="A new security code is generated when the timer runs out">
+          New code in {{ captchaCountdown() }}
+        </span>
+      </div>
 
       <app-form-field [control]="securityCode" [controlName]="'securityCode'">
         <input
@@ -83,17 +88,17 @@
         type="submit"
         [title]="contactForm.invalid ? 'Please fill up the form' : 'Submit your message'"
         [disabled]="
-          contactForm.invalid || contactForm.disabled || contactState === 'sending' || contactState === 'send'
+          contactForm.invalid || contactForm.disabled || contactState() === 'sending' || contactState() === 'send'
         "
         [attr.aria-label]="'Send Message'"
         [attr.aria-disabled]="
-          contactForm.invalid || contactForm.disabled || contactState === 'sending' || contactState === 'send'
+          contactForm.invalid || contactForm.disabled || contactState() === 'sending' || contactState() === 'send'
         "
         class="button-green-white"
       >
-        <ng-container *ngIf="contactState !== 'sending' && contactState !== 'send'"> Send Message </ng-container>
-        <ng-container *ngIf="contactState === 'sending'"> Sending... </ng-container>
-        <ng-container *ngIf="contactState === 'send'"> Message Send </ng-container>
+        <ng-container *ngIf="contactState() !== 'sending' && contactState() !== 'send'"> Send Message </ng-container>
+        <ng-container *ngIf="contactState() === 'sending'"> Sending... </ng-container>
+        <ng-container *ngIf="contactState() === 'send'"> Message Send </ng-container>
       </button>
     </form>
   </div>

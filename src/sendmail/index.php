@@ -12,14 +12,16 @@ checkContentType('multipart/form-data');
 
 exitOnOptionRequest();
 
-$name = sanitizeInput($_POST["name"] ?? '');
-$email = sanitizeInput($_POST["email"] ?? '');
-$message = sanitizeInput($_POST["message"] ?? '');
-$securityCode = $_POST["securityCode"] ?? '';
-$csrfToken = $_POST['csrfToken'] ?? '';
+$name = sanitizeInput(getStringParam('name'));
+$email = sanitizeInput(getStringParam('email'));
+$message = sanitizeInput(getStringParam('message'));
+$securityCode = getStringParam('securityCode');
+$csrfToken = getStringParam('csrfToken');
 
-checkLastRequestTime();
 validateCsrfToken($csrfToken);
 validateCaptcha($securityCode);
 validatePayload($name, $email, $message);
+// Rate-limit only requests that passed validation, so a rejected
+// attempt (e.g. expired session) does not lock the user into a cooldown.
+checkLastRequestTime();
 sendEmail($name, $email, $message);
